@@ -1,0 +1,65 @@
+---
+title: "HPGC Fourball Match Play 2016"
+output: html_document
+---
+
+Last updated: `r format(Sys.time(),"%b %d, %Y %H:%M")`
+
+##Table of Contents  
+
+*  [Pool Play](#pp)  
+*  [Tournament Format](#format)  
+*  [Roster (including current handicaps)](#roster)  
+  
+
+##Pool Play  
+<a id="pp"></a>
+###Group A  
+
+###Group B  
+
+
+###Group C  
+
+###Group D  
+
+###Group E  
+
+##Tournament Format, Rules, and Schedule  
+<a id="format"></a>  
+
+###Match Format  
+This tournament is standard fourball match play--teams of two play against eachother in match play.  Both team members play their own ball, with the lower (net) score of the partners being the team's score for that hole.  If teams tie on a hole the hole is halved, there are no carry-overs  
+
+###Location  
+All matches will be played at TPC Harding Park  
+
+###Tees  
+All matches will be played from the white tees  
+
+###Handicaps  
+All matches will be played net.  We will follow the USGA method for assigning handicaps for net fourball play--the lowest course handicap in the foursome will play off scratch, with each of the remaining players 
+
+###Pool Play  
+Teams have been grouped into five pools of four.  The first part of the tournament is round robin pool play--each team will play each otehr team in their pool once.  
+
+During pool play, matches will continue for all 18 holes, regardless of who wins.  Each hole won will be worth one point for the winning team, while halved holes will be worth a half point for both teams.  The team with the most points wins, but points will be important for breaking ties  
+
+###Order of finish  
+Final standings within the pool will be based on:  
+
+1.  Win/Loss record:  Wins are worth 3 points, ties are worth 1  
+2.  Total holes won  
+
+###Playoffs  
+Eight teams will make the playoffs, the five pool winners plus three wildcard teams based on (1) pool play match record or (2) total holes won during pool play.
+
+Playoffs will be single elimination play.  I will work with management at TPC Harding Park to see if we can use playoffs for these matches in the case of a half, if not we will use a tie-breaking system that is TBD.
+
+##Roster  
+<a id="roster"></a>
+```{r echo=FALSE}
+roster <- read.csv("currentRoster.csv")
+index <- read.csv("indexResults.csv")
+index
+```
