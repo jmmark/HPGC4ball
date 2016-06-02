@@ -13,7 +13,8 @@ Last updated: `r format(Sys.time(),"%b %d, %Y %H:%M")`
   
 
 ##Pool Play  
-<a id="pp"></a>
+<a id="pp"></a>  
+
 ###Group A  
 
 ###Group B  
@@ -38,7 +39,12 @@ All matches will be played at TPC Harding Park
 All matches will be played from the white tees  
 
 ###Handicaps  
-All matches will be played net.  We will follow the USGA method for assigning handicaps for net fourball play--the lowest course handicap in the foursome will play off scratch, with each of the remaining players 
+All matches will be played net.  We will follow the USGA method for assigning handicaps for net fourball play--the lowest course handicap in the foursome will play off scratch, with each of the remaining players playing to the difference between their course handicap and the lowest.  For example, if the four players have course handicaps of 4, 7, 7, and 8, the 4 handicap will get 0 strokes, the two 7's will get strokes on handicap holes 1 - 3, and the 8 handicap will get strokes on handical holes 1 - 4.  
+
+The handicaps in play for each match will be the course handicaps based on full GHIN indexes as of the date of the match.  For transparency, indices for all players will be updated bi-weekly with the GHIN updates on this site in the roster section [here](#roster)
+
+###Schedule  
+Pool play will take place from June - September, with playoffs to begin in October.  All matches will be self-scheduled, and players are reponsible for their own greens fees.  Early weekend times are always difficult at TPC Harding Park, so I recommend booking early as cancellation is free.
 
 ###Pool Play  
 Teams have been grouped into five pools of four.  The first part of the tournament is round robin pool play--each team will play each otehr team in their pool once.  
