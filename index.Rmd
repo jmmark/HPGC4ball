@@ -93,7 +93,8 @@ During pool play, matches will continue for all 18 holes, regardless of who wins
 Final standings within the pool will be based on:  
 
 1.  Win/Loss record:  Wins are worth 3 points, ties are worth 1  
-2.  If tied on #1, total holes won  
+2.  If tied on #1, head-to-head record
+2.  If tied on #2, total holes won  
 
 ###Playoffs  
 Eight teams will make the playoffs, the five pool winners plus three wildcard teams based on (1) pool play match record or (2) total holes won during pool play.
