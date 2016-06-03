@@ -105,11 +105,15 @@ Playoffs will be single elimination play.  I will work with management at TPC Ha
 ```{r echo=FALSE}
 
 ch <- function(idx) {
-    isPlus = (substr(idx,1,1)=="+")
-    rating = 124
-    hin <- as.numeric(idx)
-    chi = as.character(round(rating/113*hin,0))
-    if (isPlus && chi != "0") chi <- paste("+",ch)
+    isNH <- idx=="NH"
+    isPlus <- (substr(idx,1,1)=="+")
+    rating <- 124
+    hin <- numeric(length(idx))
+    hin[!isNH] <- as.numeric(idx[!isNH])
+    chi <- character(length(idx))
+    chi[!isNH] <- as.character(round(rating/113*hin[!isNH],0))
+    chi[isPlus&&chi!="0"] <- paste("+",chi[isPlus])
+    chi[isNH] <- "0"
     chi
     
 }
@@ -117,7 +121,10 @@ ch <- function(idx) {
 roster <- read.csv("../rosterPools.csv")
 index <- read.csv("../indexResults.csv", colClasses = c("numeric","character","character"))
 roster <- merge(roster, index, by.x="ghin",by.y="ghin")
+roster$index[roster$ghin==9999999] <- "NH"
+
 roster <- roster[,c("Name","teamNo","pools","index","asOf")]
+
 roster$'Course Handicap' <- ch(roster$index)
 names(roster) <- c("Player","Team","Pool","Handicap Index","Current As Of", "Course Handicap")
 roster <- roster[order(roster$Team),]
