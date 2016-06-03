@@ -3,28 +3,63 @@ title: "HPGC Fourball Match Play 2016"
 output: html_document
 ---
 
+```{r echo=FALSE}
+library(knitr)
+```
+
+
+
 Last updated: `r format(Sys.time(),"%b %d, %Y %H:%M")`
 
 ##Table of Contents  
 
-*  [Pool Play](#pp)  
-*  [Tournament Format](#format)  
-*  [Roster (including current handicaps)](#roster)  
+1.  [Pool Play](#pp)  
+2.  [Tournament Format](#format)  
+3.  [Roster (including current handicaps)](#roster)  
   
 
 ##Pool Play  
 <a id="pp"></a>  
 
+###Current Standings  
+
+```{r echo=FALSE}
+pooler <- read.csv("poolPlay.csv")
+names(pooler) = c("Team","Pool","Player 1","Player 2","Wins","Losses","Ties","Points","Holes Won")
+```
+
+
 ###Group A  
+```{r echo=FALSE, results="asis"}
+
+kable(pooler[pooler$Pool=="A",-2],row.names=FALSE)
+```  
+
 
 ###Group B  
+```{r echo=FALSE, results="asis"}
+
+kable(pooler[pooler$Pool=="B",-2],row.names=FALSE)
+``` 
 
 
 ###Group C  
+```{r echo=FALSE, results="asis"}
+
+kable(pooler[pooler$Pool=="C",-2],row.names=FALSE)
+``` 
 
 ###Group D  
+```{r echo=FALSE, results="asis"}
+
+kable(pooler[pooler$Pool=="D",-2],row.names=FALSE)
+``` 
 
 ###Group E  
+```{r echo=FALSE, results="asis"}
+
+kable(pooler[pooler$Pool=="E",-2],row.names=FALSE)
+``` 
 
 ##Tournament Format, Rules, and Schedule  
 <a id="format"></a>  
@@ -43,29 +78,48 @@ All matches will be played net.  We will follow the USGA method for assigning ha
 
 The handicaps in play for each match will be the course handicaps based on full GHIN indexes as of the date of the match.  For transparency, indices for all players will be updated bi-weekly with the GHIN updates on this site in the roster section [here](#roster)
 
+###Rules  
+USGA rules of golf and the [HPGC local tournament rules](http://www.golffusion.com/hardingparkgolf/content/1576305/Local-Tournament-Rules) will govern all play
+
 ###Schedule  
-Pool play will take place from June - September, with playoffs to begin in October.  All matches will be self-scheduled, and players are reponsible for their own greens fees.  Early weekend times are always difficult at TPC Harding Park, so I recommend booking early as cancellation is free.
+Pool play will take place from June through the end of September, with playoffs to begin in October.  All matches, including the playoffs, will be self-scheduled, and players are reponsible for their own greens fees.  Early weekend times are always difficult at TPC Harding Park, so I recommend booking early as cancellation is free.
 
 ###Pool Play  
 Teams have been grouped into five pools of four.  The first part of the tournament is round robin pool play--each team will play each otehr team in their pool once.  
 
-During pool play, matches will continue for all 18 holes, regardless of who wins.  Each hole won will be worth one point for the winning team, while halved holes will be worth a half point for both teams.  The team with the most points wins, but points will be important for breaking ties  
+During pool play, matches will continue for all 18 holes, regardless of who wins.  Each hole won will be worth one point for the winning team, while halved holes will be worth a half point for both teams.  The team with the most holes won wins regardless, but total holes won will be important for breaking ties in the likely event that teams have the same record 
 
 ###Order of finish  
 Final standings within the pool will be based on:  
 
 1.  Win/Loss record:  Wins are worth 3 points, ties are worth 1  
-2.  Total holes won  
+2.  If tied on #1, total holes won  
 
 ###Playoffs  
 Eight teams will make the playoffs, the five pool winners plus three wildcard teams based on (1) pool play match record or (2) total holes won during pool play.
 
-Playoffs will be single elimination play.  I will work with management at TPC Harding Park to see if we can use playoffs for these matches in the case of a half, if not we will use a tie-breaking system that is TBD.
+Playoffs will be single elimination play.  I will work with management at TPC Harding Park to see if we can use sudden-death extra holes for these matches in the case of a half, if not we will use a tie-breaking system that is TBD.
 
 ##Roster  
 <a id="roster"></a>
 ```{r echo=FALSE}
-roster <- read.csv("currentRoster.csv")
-index <- read.csv("indexResults.csv")
-index
+
+ch <- function(idx) {
+    isPlus = (substr(idx,1,1)=="+")
+    rating = 124
+    hin <- as.numeric(idx)
+    chi = as.character(round(rating/113*hin,0))
+    if (isPlus && chi != "0") chi <- paste("+",ch)
+    chi
+    
+}
+
+roster <- read.csv("../rosterPools.csv")
+index <- read.csv("../indexResults.csv", colClasses = c("numeric","character","character"))
+roster <- merge(roster, index, by.x="ghin",by.y="ghin")
+roster <- roster[,c("Name","teamNo","pools","index","asOf")]
+roster$'Course Handicap' <- ch(roster$index)
+names(roster) <- c("Player","Team","Pool","Handicap Index","Current As Of", "Course Handicap")
+roster <- roster[order(roster$Team),]
+kable(roster,row.names=FALSE)
 ```

@@ -23,7 +23,7 @@ class GHINS(object):
 
 
 #get the list of GHINs from the roster
-with open("currentRoster.csv","r") as csvfile:
+with open("../currentRoster.csv","r") as csvfile:
     roster = csv.DictReader(csvfile)
     ghinList = []
     for row in roster:
@@ -51,15 +51,15 @@ tryMe = GHINS(bigGhin)
 
 #loop through each GHIN, write the results if available
 fieldnames = ["ghin","index","asOf"]
-with open("indexResults.csv","wb") as csvfile:
+with open("../indexResults.csv","wb") as csvfile:
     writer = csv.DictWriter(csvfile, fieldnames = fieldnames)
     writer.writeheader()
 
     for k in range(0,len(ghinList)/10+1):
-        maxInd = min((k*10)+10,len(ghinList)) 
-        print k,maxInd
+        maxInd = min((k*10)+10,len(ghinList))
+
         bigGhin = ",".join(ghinList[k*10:maxInd])
-        print bigGhin
+
         tryMe = GHINS(bigGhin)
         for i in range(0,len(tryMe.htmlGhin)):
 
