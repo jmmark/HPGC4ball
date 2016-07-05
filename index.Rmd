@@ -21,11 +21,23 @@ Last updated: `r format(Sys.time(),"%b %d, %Y %H:%M")`
 ##Pool Play  
 <a id="pp"></a>  
 
+###Recent Results  
+
+*  7/3 - Schneider/Drish def. Beatty/Schroeder, 10-8 (3&2)
+
 ###Current Standings  
 
 ```{r echo=FALSE}
 pooler <- read.csv("poolPlay.csv")
 names(pooler) = c("Team","Pool","Player 1","Player 2","Wins","Losses","Ties","Points","Holes Won")
+
+## Schneider/Drish defeat Beaty/Schroeder, 10-8
+pooler[1,"Wins"] <- pooler[1,"Wins"] + 1
+pooler[1,"Points"] <- pooler[1,"Points"] + 3
+pooler[1,"Holes Won"] <- pooler[1,"Holes Won"] + 10
+pooler[7,"Losses"] <- pooler[7,"Losses"] + 1
+pooler[7,"Holes Won"] <- pooler[7,"Holes Won"] + 8
+
 ```
 
 
