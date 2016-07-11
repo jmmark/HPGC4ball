@@ -23,7 +23,8 @@ Last updated: `r format(Sys.time(),"%b %d, %Y %H:%M")`
 
 ###Recent Results  
 
-*  7/3 - Schneider/Drish def. Beatty/Schroeder, 10-8 (3&2)
+*  7/3 - Schneider/Drish def. Beatty/Schroeder, 10-8 (3&2)  
+*  7/9 - Lee/Kahn def. Brennan/Henderson, 11.5 - 6.5 (5&3)
 
 ###Current Standings  
 
@@ -37,6 +38,14 @@ pooler[1,"Points"] <- pooler[1,"Points"] + 3
 pooler[1,"Holes Won"] <- pooler[1,"Holes Won"] + 10
 pooler[7,"Losses"] <- pooler[7,"Losses"] + 1
 pooler[7,"Holes Won"] <- pooler[7,"Holes Won"] + 8
+
+## Lee/Kahn def. Brennan/Henderson, 11.5 - 6.5
+pooler[3,"Wins"] <- pooler[3,"Wins"] + 1
+pooler[3,"Points"] <- pooler[3,"Points"] + 3
+pooler[3,"Holes Won"] <- pooler[3,"Holes Won"] + 11.5
+pooler[18,"Losses"] <- pooler[18,"Losses"] + 1
+pooler[18,"Holes Won"] <- pooler[18,"Holes Won"] + 6.5
+
 
 ```
 
