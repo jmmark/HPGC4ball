@@ -23,8 +23,10 @@ Last updated: `r format(Sys.time(),"%b %d, %Y %H:%M")`
 
 ###Recent Results  
 
-*  7/3 - Schneider/Drish def. Beatty/Schroeder, 10-8 (3&2)  
-*  7/9 - Lee/Kahn def. Brennan/Henderson, 11.5 - 6.5 (5&3)
+*  7/3 - Schneider/Drish def. Beatty/Schroeder, 10 - 8 (3&2)  
+*  7/5 - Ota/Yeh halve with Dhadal/Tao, 9 - 9 (A/S)
+*  7/9 - Lee/Kahn def. Brennan/Henderson, 11.5 - 6.5 (5&3)  
+*  7/17 - Kalamaras/Kretz def. Beatty/Schroeder, 10 - 8 (3&2)
 
 ###Current Standings  
 
@@ -46,6 +48,20 @@ pooler[3,"Holes Won"] <- pooler[3,"Holes Won"] + 11.5
 pooler[18,"Losses"] <- pooler[18,"Losses"] + 1
 pooler[18,"Holes Won"] <- pooler[18,"Holes Won"] + 6.5
 
+## Kalamaras/Kretz defeat Beaty/Schroeder, 10-8
+pooler[17,"Wins"] <- pooler[17,"Wins"] + 1
+pooler[17,"Points"] <- pooler[17,"Points"] + 3
+pooler[17,"Holes Won"] <- pooler[17,"Holes Won"] + 10
+pooler[7,"Losses"] <- pooler[7,"Losses"] + 1
+pooler[7,"Holes Won"] <- pooler[7,"Holes Won"] + 8
+
+## Ota/Yeh halve with Dhadal/Tao, 9 - 9
+pooler[12,"Ties"] <- pooler[12,"Ties"] + 1
+pooler[12,"Points"] <- pooler[12,"Points"] + 1
+pooler[12,"Holes Won"] <- pooler[12,"Holes Won"] + 9
+pooler[14,"Ties"] <- pooler[14,"Ties"] + 1
+pooler[14,"Points"] <- pooler[14,"Points"] + 1
+pooler[14,"Holes Won"] <- pooler[14,"Holes Won"] + 9 
 
 ```
 
