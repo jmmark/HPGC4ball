@@ -26,7 +26,9 @@ Last updated: `r format(Sys.time(),"%b %d, %Y %H:%M")`
 *  7/3 - Schneider/Drish def. Beatty/Schroeder, 10 - 8 (3&2)  
 *  7/5 - Ota/Yeh halve with Dhadal/Tao, 9 - 9 (A/S)
 *  7/9 - Lee/Kahn def. Brennan/Henderson, 11.5 - 6.5 (5&3)  
-*  7/17 - Kalamaras/Kretz def. Beatty/Schroeder, 10 - 8 (3&2)
+*  7/17 - Kalamaras/Kretz def. Beatty/Schroeder, 10 - 8 (3&2)  
+*  7/17 - Simpson/Solomon def. Henneberry/Ashburner, 11 - 7 (4&2)  
+
 
 ###Current Standings  
 
@@ -62,6 +64,13 @@ pooler[12,"Holes Won"] <- pooler[12,"Holes Won"] + 9
 pooler[14,"Ties"] <- pooler[14,"Ties"] + 1
 pooler[14,"Points"] <- pooler[14,"Points"] + 1
 pooler[14,"Holes Won"] <- pooler[14,"Holes Won"] + 9 
+
+## Simpson/Solomon def. Henneberry/Ashburner, 11 - 7
+pooler[11,"Wins"] <- pooler[11,"Wins"] + 1
+pooler[11,"Points"] <- pooler[11,"Points"] + 3
+pooler[11,"Holes Won"] <- pooler[11,"Holes Won"] + 11
+pooler[20,"Losses"] <- pooler[20,"Losses"] + 1
+pooler[20,"Holes Won"] <- pooler[20,"Holes Won"] + 7  
 
 ```
 
