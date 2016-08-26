@@ -30,8 +30,10 @@ Last updated: `r format(Sys.time(),"%b %d, %Y %H:%M")`
 *  7/17 - Simpson/Solomon def. Henneberry/Ashburner, 11 - 7 (4&2)  
 *  7/23 - Beatty/Schroeder def. Havlicek/Zipp, 10 - 8 (2 up)  
 *  8/6 - O'Donnell/Ryan def. Markman/Notaney, 10.5 - 7.5 (3&2)  
-*  8/13 - Markman/Notaney def. Cook/Sokitch, 9.5 - 8.5 (1 up)
-
+*  8/13 - Markman/Notaney def. Cook/Sokitch, 9.5 - 8.5 (1 up)  
+*  8/21 - Goodman/Momota def. Ota/Yeh, 11.5 - 6.5 (6&5)
+*  8/23 - Petterson/Beauduy def. Ota/Yeh, 11 - 7 (4&3)
+*  8/25 - Wellbeloved/Rovetti halve with Brennan/Henderson, 9 - 9 (A/S)
 
 ###Current Standings  
 
@@ -95,6 +97,28 @@ pooler[5,"Points"] <- pooler[5,"Points"] + 3
 pooler[5,"Holes Won"] <- pooler[5,"Holes Won"] + 9.5
 pooler[15,"Losses"] <- pooler[15,"Losses"] + 1
 pooler[15,"Holes Won"] <- pooler[15,"Holes Won"] + 8.5  
+
+## Goodman/Momota def. Ota/Yeh, 11.5 - 6.5
+pooler[6,"Wins"] <- pooler[6,"Wins"] + 1
+pooler[6,"Points"] <- pooler[6,"Points"] + 3
+pooler[6,"Holes Won"] <- pooler[6,"Holes Won"] + 11.5
+pooler[12,"Losses"] <- pooler[12,"Losses"] + 1
+pooler[12,"Holes Won"] <- pooler[12,"Holes Won"] + 6.5
+
+## Petterson/Beauduy def. Ota/Yeh, 11 - 7
+pooler[8,"Wins"] <- pooler[8,"Wins"] + 1
+pooler[8,"Points"] <- pooler[8,"Points"] + 3
+pooler[8,"Holes Won"] <- pooler[8,"Holes Won"] + 11
+pooler[12,"Losses"] <- pooler[12,"Losses"] + 1
+pooler[12,"Holes Won"] <- pooler[12,"Holes Won"] + 7
+
+## Wellbeloved/Rovetti halve with Brennan/Henderson, 9 - 9 
+pooler[16,"Ties"] <- pooler[16,"Ties"] + 1
+pooler[16,"Points"] <- pooler[16,"Points"] + 1
+pooler[16,"Holes Won"] <- pooler[16,"Holes Won"] + 9
+pooler[18,"Ties"] <- pooler[18,"Ties"] + 1
+pooler[18,"Points"] <- pooler[18,"Points"] + 1
+pooler[18,"Holes Won"] <- pooler[18,"Holes Won"] + 9 
 ```
 
 
