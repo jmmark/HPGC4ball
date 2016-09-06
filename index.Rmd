@@ -199,7 +199,7 @@ All matches will be played at TPC Harding Park
 All matches will be played from the white tees  
 
 ###Handicaps  
-All matches will be played net.  We will follow the USGA method for assigning handicaps for net fourball play--the lowest course handicap in the foursome will play off scratch, with each of the remaining players playing to the difference between their course handicap and the lowest.  For example, if the four players have course handicaps of 4, 7, 7, and 8, the 4 handicap will get 0 strokes, the two 7's will get strokes on handicap holes 1 - 3, and the 8 handicap will get strokes on handical holes 1 - 4.  
+All matches will be played net.  We will follow the USGA method for assigning handicaps for net fourball play--the lowest course handicap in the foursome will play off scratch, with each of the remaining players playing to the difference between their course handicap and the lowest.  For example, if the four players have course handicaps of 4, 7, 7, and 8, the 4 handicap will get 0 strokes, the two 7's will get strokes on handicap holes 1 - 3, and the 8 handicap will get strokes on handicap holes 1 - 4.  
 
 The handicaps in play for each match will be the course handicaps based on full GHIN indexes as of the date of the match.  For transparency, indices for all players will be updated bi-weekly with the GHIN updates on this site in the roster section [here](#roster)
 
@@ -212,14 +212,16 @@ Pool play will take place from June through the end of September, with playoffs 
 ###Pool Play  
 Teams have been grouped into five pools of four.  The first part of the tournament is round robin pool play--each team will play each otehr team in their pool once.  
 
-During pool play, matches will continue for all 18 holes, regardless of who wins.  Each hole won will be worth one point for the winning team, while halved holes will be worth a half point for both teams.  The team with the most holes won wins regardless, but total holes won will be important for breaking ties in the likely event that teams have the same record 
+During pool play, matches will continue for all 18 holes, regardless of who wins.  Each hole won will be worth one point for the winning team, while halved holes will be worth a half point for both teams.  The team with the most holes won wins regardless, but total holes won will be important for breaking ties in the likely event that teams have the same record  
+
+In the event that a team needs to concede / forfeit a match, the team conceded to will count the win.  To protect the rest of the field, they will earn 9.5 "total holes won", and the concedign team will earn 0.
 
 ###Order of finish  
 Final standings within the pool will be based on:  
 
 1.  Win/Loss record:  Wins are worth 3 points, ties are worth 1  
-2.  If tied on #1, head-to-head record
-2.  If tied on #2, total holes won  
+2.  If tied on #1, total holes won
+2.  If tied on #2, head-to-head record  
 
 ###Playoffs  
 Eight teams will make the playoffs, the five pool winners plus three wildcard teams based on (1) pool play match record or (2) total holes won during pool play.
