@@ -30,10 +30,13 @@ Last updated: `r format(Sys.time(),"%b %d, %Y %H:%M")`
 *  7/17 - Simpson/Solomon def. Henneberry/Ashburner, 11 - 7 (4&2)  
 *  7/23 - Beatty/Schroeder def. Havlicek/Zipp, 10 - 8 (2 up)  
 *  8/6 - O'Donnell/Ryan def. Markman/Notaney, 10.5 - 7.5 (3&2)  
+*  8/19 - Simpson/Solomon def. Blom/Boone, 9.5 - 0 (conceded)  
 *  8/13 - Markman/Notaney def. Cook/Sokitch, 9.5 - 8.5 (1 up)  
 *  8/21 - Goodman/Momota def. Ota/Yeh, 11.5 - 6.5 (6&5)
 *  8/23 - Petterson/Beauduy def. Ota/Yeh, 11 - 7 (4&3)
-*  8/25 - Wellbeloved/Rovetti halve with Brennan/Henderson, 9 - 9 (A/S)
+*  8/25 - Wellbeloved/Rovetti halve with Brennan/Henderson, 9 - 9 (A/S)  
+*  9/4 - Shirbroun/Clifford def. O'Donnell/Ryan, 9.5 - 8.5 (1 up)  
+*  9/5 - Shirbroun/Clifford def. Markman/Notaney, 11.5 - 6.5 (4&3)  
 
 ###Current Standings  
 
@@ -91,6 +94,13 @@ pooler[2,"Holes Won"] <- pooler[2,"Holes Won"] + 10.5
 pooler[5,"Losses"] <- pooler[5,"Losses"] + 1
 pooler[5,"Holes Won"] <- pooler[5,"Holes Won"] + 7.5  
 
+## Simpson/Solomon def. Blom/Boone, 9.5 - 0
+pooler[11,"Wins"] <- pooler[11,"Wins"] + 1
+pooler[11,"Points"] <- pooler[11,"Points"] + 3
+pooler[11,"Holes Won"] <- pooler[11,"Holes Won"] + 9.5
+pooler[19,"Losses"] <- pooler[19,"Losses"] + 1
+pooler[19,"Holes Won"] <- pooler[19,"Holes Won"] + 0  
+
 ## Markman/Notaney def. Cook/Sokitch, 9.5 - 8.5
 pooler[5,"Wins"] <- pooler[5,"Wins"] + 1
 pooler[5,"Points"] <- pooler[5,"Points"] + 3
@@ -119,6 +129,28 @@ pooler[16,"Holes Won"] <- pooler[16,"Holes Won"] + 9
 pooler[18,"Ties"] <- pooler[18,"Ties"] + 1
 pooler[18,"Points"] <- pooler[18,"Points"] + 1
 pooler[18,"Holes Won"] <- pooler[18,"Holes Won"] + 9 
+
+## Shirbroun/Clifford def. O'Donnell/Ryan, 9.5 - 8.5 (1 up)  
+pooler[10,"Wins"] <- pooler[10,"Wins"] + 1
+pooler[10,"Points"] <- pooler[10,"Points"] + 3
+pooler[10,"Holes Won"] <- pooler[10,"Holes Won"] + 9.5
+pooler[2,"Losses"] <- pooler[2,"Losses"] + 1
+pooler[2,"Holes Won"] <- pooler[2,"Holes Won"] + 8.5
+
+## Shirbroun/Clifford def. Markman/Notaney, 11.5 - 6.5 (4&3) 
+pooler[10,"Wins"] <- pooler[10,"Wins"] + 1
+pooler[10,"Points"] <- pooler[10,"Points"] + 3
+pooler[10,"Holes Won"] <- pooler[10,"Holes Won"] + 11.5
+pooler[5,"Losses"] <- pooler[5,"Losses"] + 1
+pooler[5,"Holes Won"] <- pooler[5,"Holes Won"] + 6.5  
+
+
+
+## Now sort the standings
+pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"], decreasing = TRUE),]
+
+
+
 ```
 
 
