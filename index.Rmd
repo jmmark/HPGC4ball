@@ -40,6 +40,10 @@ Last updated: `r format(Sys.time(),"%b %d, %Y %H:%M")`
 *  9/10 - Brennan/Henderson def. Sodergren/Hubregsen, 11 - 7 (4&3)  
 *  9/10 - Goodman/Momota def. Pettersson/Beauduy, 10 - 8 (2&1)  
 *  9/11 - Cook/Sokitch def. Shirbroun/Clifford, 10 - 8 (2&1)  
+*  9/18 - Petterson/Beauduy def. Dhadhal/Tao, 10 - 8 (2 up)  
+*  9/18 - Wellbeloved/Rovetti def. Sodergren/Hubregsen, 11.5 - 6.5 (6&4)  
+
+
 
 
 ###Current Standings  
@@ -167,8 +171,21 @@ pooler[15,"Wins"] <- pooler[15,"Wins"] + 1
 pooler[15,"Points"] <- pooler[15,"Points"] + 3
 pooler[15,"Holes Won"] <- pooler[15,"Holes Won"] + 10
 pooler[10,"Losses"] <- pooler[10,"Losses"] + 1
-pooler[10,"Holes Won"] <- pooler[10,"Holes Won"] + 8
+pooler[10,"Holes Won"] <- pooler[10,"Holes Won"] + 8  
 
+## Petterson/Beauduy def. Dhadhal/Tao, 10 - 8
+pooler[8,"Wins"] <- pooler[8,"Wins"] + 1
+pooler[8,"Points"] <- pooler[8,"Points"] + 3
+pooler[8,"Holes Won"] <- pooler[8,"Holes Won"] + 10
+pooler[14,"Losses"] <- pooler[14,"Losses"] + 1
+pooler[14,"Holes Won"] <- pooler[14,"Holes Won"] + 8  
+
+## Wellbeloved/Rovetti def. Sodergren/Hubregsen, 11.5 - 6.5
+pooler[16,"Wins"] <- pooler[16,"Wins"] + 1
+pooler[16,"Points"] <- pooler[16,"Points"] + 3
+pooler[16,"Holes Won"] <- pooler[16,"Holes Won"] + 11.5
+pooler[9,"Losses"] <- pooler[9,"Losses"] + 1
+pooler[9,"Holes Won"] <- pooler[9,"Holes Won"] + 6.5
 
 ## Now sort the standings
 pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"], decreasing = TRUE),]
