@@ -5,6 +5,7 @@ output: html_document
 
 ```{r echo=FALSE}
 library(knitr)
+library(pander)
 ```
 
 
@@ -13,48 +14,18 @@ Last updated: `r format(Sys.time(),"%b %d, %Y %H:%M")`
 
 ##Table of Contents  
 
+1.  [Playoffs](#po)
 1.  [Pool Play](#pp)  
 2.  [Tournament Format](#format)  
 3.  [Roster (including current handicaps)](#roster)  
   
 
-##Pool Play  
-<a id="pp"></a>  
 
-###Recent Results  
-
-*  7/3 - Schneider/Drish def. Beatty/Schroeder, 10 - 8 (3&2)  
-*  7/5 - Ota/Yeh halve with Dhadal/Tao, 9 - 9 (A/S)
-*  7/9 - Lee/Kahn def. Brennan/Henderson, 11.5 - 6.5 (5&3)  
-*  7/17 - Kalamaras/Kretz def. Beatty/Schroeder, 10 - 8 (3&2)  
-*  7/17 - Simpson/Solomon def. Henneberry/Ashburner, 11 - 7 (4&2)  
-*  7/23 - Beatty/Schroeder def. Havlicek/Zipp, 10 - 8 (2 up)  
-*  8/6 - O'Donnell/Ryan def. Markman/Notaney, 10.5 - 7.5 (3&2)  
-*  8/19 - Simpson/Solomon def. Blom/Boone, 9.5 - 0 (conceded)  
-*  8/13 - Markman/Notaney def. Cook/Sokitch, 9.5 - 8.5 (1 up)  
-*  8/21 - Goodman/Momota def. Ota/Yeh, 11.5 - 6.5 (6&5)
-*  8/23 - Petterson/Beauduy def. Ota/Yeh, 11 - 7 (4&3)
-*  8/25 - Wellbeloved/Rovetti halve with Brennan/Henderson, 9 - 9 (A/S)  
-*  9/4 - Shirbroun/Clifford def. O'Donnell/Ryan, 9.5 - 8.5 (1 up)  
-*  9/5 - Shirbroun/Clifford def. Markman/Notaney, 11.5 - 6.5 (4&3)  
-*  9/10 - Brennan/Henderson def. Sodergren/Hubregsen, 11 - 7 (4&3)  
-*  9/10 - Goodman/Momota def. Pettersson/Beauduy, 10 - 8 (2&1)  
-*  9/11 - Cook/Sokitch def. Shirbroun/Clifford, 10 - 8 (2&1)  
-*  9/18 - Petterson/Beauduy def. Dhadhal/Tao, 10 - 8 (2 up)  
-*  9/18 - Wellbeloved/Rovetti def. Sodergren/Hubregsen, 11.5 - 6.5 (6&4)  
-*  9/18 - Simpson/Solomon def. Hyland/Twibill, 9.5 - 0 (conceded)  
-*  9/24 - Lee/Kahn def. Wellbeloved/Rovetti, 11 - 7 (4&3)  
-*  9/25 - Sodergren/Hubregsen def. Lee/Kahn, 9.5 - 8.5 (1 up)  
-*  9/29 - Dhadal/Tao def. Goodman/Momota, 10 - 8 (4&3)  
-
-
-
-
-
-###Current Standings  
 
 ```{r echo=FALSE}
-pooler <- read.csv("poolPlay.csv")
+pooler <- read.csv("poolPlay.csv", stringsAsFactors = FALSE)
+
+
 names(pooler) = c("Team","Pool","Player 1","Player 2","Wins","Losses","Ties","Points","Holes Won")
 
 assign_win <- function(in_frame, teamid) {
@@ -93,6 +64,48 @@ giveRes <- function(in_frame, team1_id, team2_id, team1_points, team2_points) {
     }
     ret_frame
 }
+
+doPander <- function(group, complete = FALSE) {
+    # create the pander table for groups, announcing winners if complete
+    q <- pooler[pooler$Pool==group,-2]
+    row.names(q) <- NULL
+    if (complete) {
+        emphasize.strong.rows(1)
+        emphasize.italics.rows(1)
+        myCaption <- sprintf("%s and %s win Group %s!",q$`Player 1`[1], q$`Player 2`[1], group)
+    } else {
+        myCaption <- NULL
+    }
+    
+    pander(q,row.names=FALSE, style = "simple", split.table = 240, caption = myCaption)
+}
+
+pullLast <- function(nm) {
+    strsplit(nm," ")[[1]][2]
+}
+
+doPanderWC <- function(winners, complete = FALSE) {
+    # create the pander table for groups, announcing winners if complete
+    q <- pooler[!(pooler$Team %in% winners),-2]
+    row.names(q) <- NULL
+    if (complete) {
+        emphasize.italics.rows(1:3)
+        lNames <- sapply(c(q[1,2], q[1,3], q[2,2], q[2,3], q[3,2], q[3,3]), pullLast)
+        names(lNames) <- NULL
+        myCaption <- sprintf("%s/%s, %s/%s, and %s/%s advance!", 
+                             lNames[1], lNames[2], lNames[3], lNames[4], lNames[5], lNames[6])
+    } else {
+        myCaption <- NULL
+    }
+    pander(q,row.names=FALSE, style = "simple", split.table = 240, caption = myCaption)
+}
+
+findWinners <- function(group) {
+    # find the winners for each group
+    q <- pooler[pooler$Pool==group,]
+    q$Team[1]
+}
+
 
 ## Schneider/Drish defeat Beaty/Schroeder, 10-8
 
@@ -191,47 +204,128 @@ pooler <- giveRes(pooler, 9, 3, 9.5, 8.5)
 
 pooler <- giveRes(pooler, 14, 6, 10, 8)
 
+# Cook/Sokitch def. O'Donnell/Ryan, 10.5 - 7.5
 
+pooler <- giveRes(pooler, 15, 2, 10.5, 7.5)
 
 ## Now sort the standings
 pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"], decreasing = TRUE),]
 
 
+winners <- sapply(c("A","B","C","D","E"), findWinners)
+
+pOffs <- pooler[pooler$Team %in% winners,]
+pOffs <- rbind(pOffs, pooler[!(pooler$Team %in% winners), ][1:3,])
+pOffs[,2] <- 1:8
+names(pOffs)[2] <- "Seed"
+pOffs$Method <- "Wild Card"
+pOffs$Method[1:5] <- "Won Group"
+
+
 
 ```
+
+##Playoffs  
+<a id = "po"></a>  
+
+###Quarterfinals  
+
+* Quarterfinal 1: `r pOffs[1,3]`/`r pOffs[1,4]` vs `r pOffs[8,3]`/`r pOffs[8,4]`  
+* Quarterfinal 2: `r pOffs[2,3]`/`r pOffs[2,4]` vs `r pOffs[7,3]`/`r pOffs[8,4]`  
+* Quarterfinal 3: `r pOffs[3,3]`/`r pOffs[3,4]` vs `r pOffs[6,3]`/`r pOffs[8,4]`  
+* Quarterfinal 3: `r pOffs[4,3]`/`r pOffs[4,4]` vs `r pOffs[5,3]`/`r pOffs[8,4]`  
+
+
+###Seeding  
+```{r echo=FALSE, results="asis"}
+q <- pOffs[,c("Seed", "Player 1", "Player 2", "Method")]
+row.names(q) <- NULL
+pander(q,row.names=FALSE, style = "simple", split.table = 240)
+
+```  
+
+
+Seeding based on: (1) Winning the group, (2) total points, (3) total holes won
+
+
+##Pool Play  
+<a id="pp"></a>  
+
+###Pool Results  
+
+*  7/3 - Schneider/Drish def. Beatty/Schroeder, 10 - 8 (3&2)  
+*  7/5 - Ota/Yeh halve with Dhadal/Tao, 9 - 9 (A/S)
+*  7/9 - Lee/Kahn def. Brennan/Henderson, 11.5 - 6.5 (5&3)  
+*  7/17 - Kalamaras/Kretz def. Beatty/Schroeder, 10 - 8 (3&2)  
+*  7/17 - Simpson/Solomon def. Henneberry/Ashburner, 11 - 7 (4&2)  
+*  7/23 - Beatty/Schroeder def. Havlicek/Zipp, 10 - 8 (2 up)  
+*  8/6 - O'Donnell/Ryan def. Markman/Notaney, 10.5 - 7.5 (3&2)  
+*  8/19 - Simpson/Solomon def. Blom/Boone, 9.5 - 0 (conceded)  
+*  8/13 - Markman/Notaney def. Cook/Sokitch, 9.5 - 8.5 (1 up)  
+*  8/21 - Goodman/Momota def. Ota/Yeh, 11.5 - 6.5 (6&5)
+*  8/23 - Petterson/Beauduy def. Ota/Yeh, 11 - 7 (4&3)
+*  8/25 - Wellbeloved/Rovetti halve with Brennan/Henderson, 9 - 9 (A/S)  
+*  9/4 - Shirbroun/Clifford def. O'Donnell/Ryan, 9.5 - 8.5 (1 up)  
+*  9/5 - Shirbroun/Clifford def. Markman/Notaney, 11.5 - 6.5 (4&3)  
+*  9/10 - Brennan/Henderson def. Sodergren/Hubregsen, 11 - 7 (4&3)  
+*  9/10 - Goodman/Momota def. Pettersson/Beauduy, 10 - 8 (2&1)  
+*  9/11 - Cook/Sokitch def. Shirbroun/Clifford, 10 - 8 (2&1)  
+*  9/18 - Petterson/Beauduy def. Dhadhal/Tao, 10 - 8 (2 up)  
+*  9/18 - Wellbeloved/Rovetti def. Sodergren/Hubregsen, 11.5 - 6.5 (6&4)  
+*  9/18 - Simpson/Solomon def. Hyland/Twibill, 9.5 - 0 (conceded)  
+*  9/24 - Lee/Kahn def. Wellbeloved/Rovetti, 11 - 7 (4&3)  
+*  9/25 - Sodergren/Hubregsen def. Lee/Kahn, 9.5 - 8.5 (1 up)  
+*  9/29 - Dhadal/Tao def. Goodman/Momota, 10 - 8 (4&3)  
+*  10/3 - Cook/Sokitch def. O'Donnell/Ryan, 10.5 - 7.5 (2&1)  
+
+
+
+###Final Standings  
+
+
 
 
 ###Group A  
 ```{r echo=FALSE, results="asis"}
 
-kable(pooler[pooler$Pool=="A",-2],row.names=FALSE)
+
+doPander("A", TRUE)
 ```  
 
 
 ###Group B  
 ```{r echo=FALSE, results="asis"}
 
-kable(pooler[pooler$Pool=="B",-2],row.names=FALSE)
+doPander("B", TRUE)
 ``` 
 
 
 ###Group C  
 ```{r echo=FALSE, results="asis"}
 
-kable(pooler[pooler$Pool=="C",-2],row.names=FALSE)
+doPander("C", TRUE)
 ``` 
 
 ###Group D  
 ```{r echo=FALSE, results="asis"}
 
-kable(pooler[pooler$Pool=="D",-2],row.names=FALSE)
+doPander("D", TRUE)
 ``` 
 
 ###Group E  
 ```{r echo=FALSE, results="asis"}
 
-kable(pooler[pooler$Pool=="E",-2],row.names=FALSE)
-``` 
+doPander("E", TRUE)
+```  
+
+
+###Wild Card  
+```{r echo = FALSE, results = "asis"}
+
+
+
+doPanderWC(winners, TRUE)
+```
 
 ##Tournament Format, Rules, and Schedule  
 <a id="format"></a>  
@@ -303,5 +397,5 @@ roster <- roster[,c("Name","teamNo","pools","index","asOf")]
 roster$'Course Handicap' <- ch(roster$index)
 names(roster) <- c("Player","Team","Pool","Handicap Index","Current As Of", "Course Handicap")
 roster <- roster[order(roster$Team),]
-kable(roster,row.names=FALSE)
+pander(roster,row.names=FALSE, style = "simple", split.table = 240)
 ```
