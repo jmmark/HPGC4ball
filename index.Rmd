@@ -233,7 +233,7 @@ pOffs$Method[1:5] <- "Won Group"
 * Quarterfinal 1: `r pOffs[1,3]`/`r pOffs[1,4]` vs `r pOffs[8,3]`/`r pOffs[8,4]`  
 * Quarterfinal 2: `r pOffs[2,3]`/`r pOffs[2,4]` vs `r pOffs[7,3]`/`r pOffs[8,4]`  
 * Quarterfinal 3: `r pOffs[3,3]`/`r pOffs[3,4]` vs `r pOffs[6,3]`/`r pOffs[8,4]`  
-* Quarterfinal 3: `r pOffs[4,3]`/`r pOffs[4,4]` vs `r pOffs[5,3]`/`r pOffs[8,4]`  
+* Quarterfinal 4: `r pOffs[4,3]`/`r pOffs[4,4]` vs `r pOffs[5,3]`/`r pOffs[8,4]`  
 
 
 ###Seeding  
