@@ -367,7 +367,16 @@ Final standings within the pool will be based on:
 ###Playoffs  
 Eight teams will make the playoffs, the five pool winners plus three wildcard teams based on (1) pool play match record or (2) total holes won during pool play.
 
-Playoffs will be single elimination play.  I will work with management at TPC Harding Park to see if we can use sudden-death extra holes for these matches in the case of a half, if not we will use a tie-breaking system that is TBD.
+Playoffs will be single elimination play.  In the event of a match being all square after 18 holes, extra holes will be played on flemming, according th the following, per TPC Harding Park:  
+
+*  Playoff sudden death will only be permitted on Fleming, regardless of the activity on Harding  
+*  Golfers will need to check into the golf shop after the 18th hole and advise of the playoff sudden death  
+*  Players will have to wait in theuir turn on Fleming 1  
+*  Players wo;; have to exit the course once the match is determined  
+
+Hole handicaps on Fleming are based on 9 hole matches, not 18.  So, for extra hole purposes, the handicap index will be $2 * n - 1$, where $n$ is the index listed on the Fleming score card.  Effectively, this follows the convention of all odd-indexed holes being on the front 9.   
+
+
 
 ##Roster  
 <a id="roster"></a>
