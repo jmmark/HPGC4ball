@@ -221,6 +221,7 @@ names(pOffs)[2] <- "Seed"
 pOffs$Method <- "Wild Card"
 pOffs$Method[1:5] <- "Won Group"
 
+seeds <- paste(pOffs[,3],pOffs[,4], sep = "/")
 
 
 ```
@@ -230,10 +231,12 @@ pOffs$Method[1:5] <- "Won Group"
 
 ###Quarterfinals  
 
-* Quarterfinal 1: `r pOffs[1,3]`/`r pOffs[1,4]` vs `r pOffs[8,3]`/`r pOffs[8,4]`  
-* Quarterfinal 2: `r pOffs[2,3]`/`r pOffs[2,4]` vs `r pOffs[7,3]`/`r pOffs[7,4]`  
-* Quarterfinal 3: `r pOffs[3,3]`/`r pOffs[3,4]` vs `r pOffs[6,3]`/`r pOffs[6,4]`  
-* Quarterfinal 4: `r pOffs[4,3]`/`r pOffs[4,4]` vs `r pOffs[5,3]`/`r pOffs[5,4]`  
+* Quarterfinal 1: `r seeds[1]` vs `r seeds[8]`  
+* Quarterfinal 2: `r seeds[2]` vs `r seeds[7]`  
+* Quarterfinal 3: `r seeds[3]` vs `r seeds[6]`  
+    +  10/23 - `r seeds[6]` def `r seeds[3]`, 19 holes
+* Quarterfinal 4: `r seeds[4]` vs `r seeds[5]`  
+    +  10/23 - `r seeds[5]` def `r seeds[4]`, 2 and 1
 
 
 ###Seeding  
