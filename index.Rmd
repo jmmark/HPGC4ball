@@ -233,6 +233,7 @@ seeds <- paste(pOffs[,3],pOffs[,4], sep = "/")
 
 * Quarterfinal 1: `r seeds[1]` vs `r seeds[8]`  
 * Quarterfinal 2: `r seeds[2]` vs `r seeds[7]`  
+    +  11/2 - `r seeds[2]` def `r seeds[7]`, 1 up
 * Quarterfinal 3: `r seeds[3]` vs `r seeds[6]`  
     +  10/23 - `r seeds[6]` def `r seeds[3]`, 19 holes
 * Quarterfinal 4: `r seeds[4]` vs `r seeds[5]`  
