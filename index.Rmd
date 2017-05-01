@@ -15,9 +15,10 @@ Last updated: `r format(Sys.time(),"%b %d, %Y %H:%M")`
 ##Table of Contents  
 
 1.  [Playoffs](#po)
-1.  [Pool Play](#pp)  
-2.  [Tournament Format](#format)  
-3.  [Roster (including current handicaps)](#roster)  
+2.  [Pool Play](#pp)  
+3.  [Tournament Format](#format)  
+4.  [Roster (including current handicaps)](#roster)  
+5.  [2016 tournament](final2016.html)
   
 
 
@@ -231,6 +232,7 @@ seeds <- paste(pOffs[,3],pOffs[,4], sep = "/")
 
 ###Final  
 *  `r seeds[5]` vs `r seeds[6]`  
+        +  3/30 - `r seeds[6]` def `r seeds[5]`, 1 up
 
 
 ###Semifinals  
