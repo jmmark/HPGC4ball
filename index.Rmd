@@ -1,5 +1,5 @@
 ---
-title: "HPGC Fourball Match Play 2016"
+title: "HPGC Fourball Match Play 2017"
 output: html_document
 ---
 
@@ -14,7 +14,6 @@ Last updated: `r format(Sys.time(),"%b %d, %Y %H:%M")`
 
 ##Table of Contents  
 
-1.  [Playoffs](#po)
 2.  [Pool Play](#pp)  
 3.  [Tournament Format](#format)  
 4.  [Roster (including current handicaps)](#roster)  
@@ -108,106 +107,6 @@ findWinners <- function(group) {
 }
 
 
-## Schneider/Drish defeat Beaty/Schroeder, 10-8
-
-pooler <- giveRes(pooler, 1, 7, 10, 8)
-
-## Lee/Kahn def. Brennan/Henderson, 11.5 - 6.5
-# pooler[3,"Wins"] <- pooler[3,"Wins"] + 1
-# pooler[3,"Points"] <- pooler[3,"Points"] + 3
-# pooler[3,"Holes Won"] <- pooler[3,"Holes Won"] + 11.5
-# pooler[18,"Losses"] <- pooler[18,"Losses"] + 1
-# pooler[18,"Holes Won"] <- pooler[18,"Holes Won"] + 6.5
-
-pooler <- giveRes(pooler, 3, 18, 11.5, 6.5)
-
-## Kalamaras/Kretz defeat Beaty/Schroeder, 10-8
-
-pooler <- giveRes(pooler, 17, 7, 10, 8)
-
-## Ota/Yeh halve with Dhadal/Tao, 9 - 9
-
-pooler <- giveRes(pooler, 12, 14, 9, 9)
-
-## Simpson/Solomon def. Henneberry/Ashburner, 11 - 7
-
-pooler <- giveRes(pooler, 11, 20, 11, 7)
-
-## Beatty/Schroeder def. Havlicek/Zipp, 10 - 8
-
-pooler <- giveRes(pooler, 7, 4, 10, 8)
-
-## O'Donnell/Ryan def. Markman/Notaney, 10.5 - 7.5
-
-pooler <- giveRes(pooler, 2, 5, 10.5, 7.5)
-
-## Simpson/Solomon def. Blom/Boone, 9.5 - 0
-
-pooler <- giveRes(pooler, 11, 19, 9.5, 0)
-
-## Markman/Notaney def. Cook/Sokitch, 9.5 - 8.5
-
-pooler <- giveRes(pooler, 5, 15, 9.5, 8.5)
-
-## Goodman/Momota def. Ota/Yeh, 11.5 - 6.5
-
-pooler <- giveRes(pooler, 6, 12, 11.5, 6.5)
-
-## Petterson/Beauduy def. Ota/Yeh, 11 - 7
-
-pooler <- giveRes(pooler, 8, 12, 11, 7)
-
-## Wellbeloved/Rovetti halve with Brennan/Henderson, 9 - 9 
-
-pooler <- giveRes(pooler, 16, 18, 9, 9)
-
-## Shirbroun/Clifford def. O'Donnell/Ryan, 9.5 - 8.5 (1 up)  
-
-pooler <- giveRes(pooler, 10, 2, 9.5, 8.5)
-
-## Shirbroun/Clifford def. Markman/Notaney, 11.5 - 6.5 (4&3) 
-
-pooler <- giveRes(pooler, 10, 5, 11.5, 6.5)
-
-## Brennan/Henderson def. Sodergren/Hubregsen, 11 - 7
-
-pooler <- giveRes(pooler, 18, 9, 11, 7)
-
-## Goodman/Momota def. Pettersson/Beauduy, 10 - 8  
-
-pooler <- giveRes(pooler, 6, 8, 10, 8)
-
-## Cook/Sokitch def. Shirbroun/Clifford, 10 - 8
-
-pooler <- giveRes(pooler, 15, 10, 10, 8)
-
-## Petterson/Beauduy def. Dhadhal/Tao, 10 - 8
-
-pooler <- giveRes(pooler, 8, 14, 10, 8)
-
-## Wellbeloved/Rovetti def. Sodergren/Hubregsen, 11.5 - 6.5
-
-pooler <- giveRes(pooler, 16, 9, 11.5, 6.5)
-
-#Simpson/Solomon def. Hyland/Twibill, 9.5 - 0
-
-pooler <- giveRes(pooler, 11, 13, 9.5, 0)
-
-#Lee/Kahn def. Wellbeloved/Rovetti, 11 - 7
-
-pooler <- giveRes(pooler, 3, 16, 11, 7)
-
-# Sodergren/Hubregsen def. Lee/Kahn, 9.5 - 8.5  
-
-pooler <- giveRes(pooler, 9, 3, 9.5, 8.5)
-
-# Dhadal/Tao def. Goodman/Momota, 10 - 8
-
-pooler <- giveRes(pooler, 14, 6, 10, 8)
-
-# Cook/Sokitch def. O'Donnell/Ryan, 10.5 - 7.5
-
-pooler <- giveRes(pooler, 15, 2, 10.5, 7.5)
 
 ## Now sort the standings
 pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"], decreasing = TRUE),]
@@ -227,36 +126,9 @@ seeds <- paste(pOffs[,3],pOffs[,4], sep = "/")
 
 ```
 
-##Playoffs  
-<a id = "po"></a>  
-
-###Final  
-*  `r seeds[5]` vs `r seeds[6]`  
-        +  3/30 - `r seeds[6]` def `r seeds[5]`, 1 up
 
 
-###Semifinals  
-
-*  Semifinal 1: `r seeds[8]` vs `r seeds[5]`  
-    +  12/22 - `r seeds[5]` def `r seeds[8]`, 3 and 1  
-    
-*  Semifinal 2: `r seeds[2]` vs `r seeds[6]` 
-    +  12/14 - `r seeds[6]` def `r seeds[2]`, 21 holes
-
-###Quarterfinals  
-
-* Quarterfinal 1: `r seeds[1]` vs `r seeds[8]`  
-    +  11/6 - `r seeds [8]` def `r seeds[1]`, 2 and 1
-* Quarterfinal 2: `r seeds[2]` vs `r seeds[7]`  
-    +  11/2 - `r seeds[2]` def `r seeds[7]`, 1 up
-* Quarterfinal 3: `r seeds[3]` vs `r seeds[6]`  
-    +  10/23 - `r seeds[6]` def `r seeds[3]`, 19 holes
-* Quarterfinal 4: `r seeds[4]` vs `r seeds[5]`  
-    +  10/23 - `r seeds[5]` def `r seeds[4]`, 2 and 1
-
-
-###Seeding  
-```{r echo=FALSE, results="asis"}
+```{r echo=FALSE, results="asis", eval = FALSE}
 q <- pOffs[,c("Seed", "Player 1", "Player 2", "Method")]
 row.names(q) <- NULL
 pander(q,row.names=FALSE, style = "simple", split.table = 240)
@@ -264,86 +136,53 @@ pander(q,row.names=FALSE, style = "simple", split.table = 240)
 ```  
 
 
-Seeding based on: (1) Winning the group, (2) total points, (3) total holes won
+
 
 
 ##Pool Play  
 <a id="pp"></a>  
-
-###Pool Results  
-
-*  7/3 - Schneider/Drish def. Beatty/Schroeder, 10 - 8 (3&2)  
-*  7/5 - Ota/Yeh halve with Dhadal/Tao, 9 - 9 (A/S)
-*  7/9 - Lee/Kahn def. Brennan/Henderson, 11.5 - 6.5 (5&3)  
-*  7/17 - Kalamaras/Kretz def. Beatty/Schroeder, 10 - 8 (3&2)  
-*  7/17 - Simpson/Solomon def. Henneberry/Ashburner, 11 - 7 (4&2)  
-*  7/23 - Beatty/Schroeder def. Havlicek/Zipp, 10 - 8 (2 up)  
-*  8/6 - O'Donnell/Ryan def. Markman/Notaney, 10.5 - 7.5 (3&2)  
-*  8/19 - Simpson/Solomon def. Blom/Boone, 9.5 - 0 (conceded)  
-*  8/13 - Markman/Notaney def. Cook/Sokitch, 9.5 - 8.5 (1 up)  
-*  8/21 - Goodman/Momota def. Ota/Yeh, 11.5 - 6.5 (6&5)
-*  8/23 - Petterson/Beauduy def. Ota/Yeh, 11 - 7 (4&3)
-*  8/25 - Wellbeloved/Rovetti halve with Brennan/Henderson, 9 - 9 (A/S)  
-*  9/4 - Shirbroun/Clifford def. O'Donnell/Ryan, 9.5 - 8.5 (1 up)  
-*  9/5 - Shirbroun/Clifford def. Markman/Notaney, 11.5 - 6.5 (4&3)  
-*  9/10 - Brennan/Henderson def. Sodergren/Hubregsen, 11 - 7 (4&3)  
-*  9/10 - Goodman/Momota def. Pettersson/Beauduy, 10 - 8 (2&1)  
-*  9/11 - Cook/Sokitch def. Shirbroun/Clifford, 10 - 8 (2&1)  
-*  9/18 - Petterson/Beauduy def. Dhadhal/Tao, 10 - 8 (2 up)  
-*  9/18 - Wellbeloved/Rovetti def. Sodergren/Hubregsen, 11.5 - 6.5 (6&4)  
-*  9/18 - Simpson/Solomon def. Hyland/Twibill, 9.5 - 0 (conceded)  
-*  9/24 - Lee/Kahn def. Wellbeloved/Rovetti, 11 - 7 (4&3)  
-*  9/25 - Sodergren/Hubregsen def. Lee/Kahn, 9.5 - 8.5 (1 up)  
-*  9/29 - Dhadal/Tao def. Goodman/Momota, 10 - 8 (4&3)  
-*  10/3 - Cook/Sokitch def. O'Donnell/Ryan, 10.5 - 7.5 (2&1)  
-
-
-
-###Final Standings  
-
-
 
 
 ###Group A  
 ```{r echo=FALSE, results="asis"}
 
 
-doPander("A", TRUE)
+doPander("A", FALSE)
 ```  
 
 
 ###Group B  
 ```{r echo=FALSE, results="asis"}
 
-doPander("B", TRUE)
+doPander("B", FALSE)
 ``` 
 
 
 ###Group C  
 ```{r echo=FALSE, results="asis"}
 
-doPander("C", TRUE)
+doPander("C", FALSE)
 ``` 
 
 ###Group D  
 ```{r echo=FALSE, results="asis"}
 
-doPander("D", TRUE)
+doPander("D", FALSE)
 ``` 
 
 ###Group E  
 ```{r echo=FALSE, results="asis"}
 
-doPander("E", TRUE)
+doPander("E", FALSE)
 ```  
 
 
-###Wild Card  
-```{r echo = FALSE, results = "asis"}
+
+```{r echo = FALSE, results = "asis", eval=FALSE}
 
 
 
-doPanderWC(winners, TRUE)
+doPanderWC(winners, FALSE)
 ```
 
 ##Tournament Format, Rules, and Schedule  
@@ -353,28 +192,31 @@ doPanderWC(winners, TRUE)
 This tournament is standard fourball match play--teams of two play against eachother in match play.  Both team members play their own ball, with the lower (net) score of the partners being the team's score for that hole.  If teams tie on a hole the hole is halved, there are no carry-overs  
 
 ###Location  
-All matches will be played at TPC Harding Park  
+Pool play matches can occur at any course, provided both sides agree.  All playoff matches will be played at TPC Harding Park  
 
 ###Tees  
-All matches will be played from the white tees  
+All matches at TPC Harding Park will be played from the white tees.  Matches at other courses will be played from whatever tees both sides can agree upon  
 
 ###Handicaps  
 All matches will be played net.  We will follow the USGA method for assigning handicaps for net fourball play--the lowest course handicap in the foursome will play off scratch, with each of the remaining players playing to the difference between their course handicap and the lowest.  For example, if the four players have course handicaps of 4, 7, 7, and 8, the 4 handicap will get 0 strokes, the two 7's will get strokes on handicap holes 1 - 3, and the 8 handicap will get strokes on handicap holes 1 - 4.  
 
-The handicaps in play for each match will be the course handicaps based on full GHIN indexes as of the date of the match.  For transparency, indices for all players will be updated bi-weekly with the GHIN updates on this site in the roster section [here](#roster)
+The handicaps in play for each match will be the course handicaps based on full GHIN indexes as of the date of the match.  For transparency, indices for all players will be updated bi-weekly with the GHIN updates on this site in the roster section [here](#roster).  Note that the Course Handicap calculation is for TPC Harding Park only, course handicaps will need to be handled by the teams themselves for matches conducted at other courses.
 
 ###Rules  
-USGA rules of golf and the [HPGC local tournament rules](http://www.golffusion.com/hardingparkgolf/content/1576305/Local-Tournament-Rules) will govern all play
+USGA rules of golf and the [HPGC local tournament rules](http://www.golffusion.com/hardingparkgolf/content/1576305/Local-Tournament-Rules) will govern all play.  For matches conducted at other courses, the Local Rules for All Competitions section of the [HPGC local tournament rules](http://www.golffusion.com/hardingparkgolf/content/1576305/Local-Tournament-Rules) will apply, along with any posted local rules at the course being utilized
 
 ###Schedule  
-Pool play will take place from June through the end of September, with playoffs to begin in October.  All matches, including the playoffs, will be self-scheduled, and players are reponsible for their own greens fees.  Early weekend times are always difficult at TPC Harding Park, so I recommend booking early as cancellation is free.
+Pool play will take place from May through the end of September, with playoffs to begin in October.  All matches, including the playoffs, will be self-scheduled, and players are reponsible for their own greens fees.  Early weekend times are always difficult at TPC Harding Park, so I recommend booking early as cancellation is free
 
 ###Pool Play  
-Teams have been grouped into five pools of four.  The first part of the tournament is round robin pool play--each team will play each otehr team in their pool once.  
+Teams have been grouped into five pools of five.  The first part of the tournament is round robin pool play--each team will play each otehr team in their pool once.  
 
 During pool play, matches will continue for all 18 holes, regardless of who wins.  Each hole won will be worth one point for the winning team, while halved holes will be worth a half point for both teams.  The team with the most holes won wins regardless, but total holes won will be important for breaking ties in the likely event that teams have the same record  
 
 In the event that a team needs to concede / forfeit a match, the team conceded to will count the win.  To protect the rest of the field, they will earn 9.5 "total holes won", and the concedign team will earn 0.
+
+###Posting Scores  
+Players are responsible for posting their own scores for handicap purposes; The Committee will not be doing so.  As a reminder, for handicap purposes, holes where players do not finish out (either because of a concession or because they cannot better their opponent) should be recorded as the score that the player most likely would have made on that hole, subject to ESC.
 
 ###Order of finish  
 Final standings within the pool will be based on:  
@@ -384,18 +226,20 @@ Final standings within the pool will be based on:
 2.  If tied on #2, head-to-head record  
 
 ###Playoffs  
-Eight teams will make the playoffs, the five pool winners plus three wildcard teams based on (1) pool play match record or (2) total holes won during pool play.
+Twelve teams will make the playoffs, the five pool winners plus seven wildcard teams based on (1) pool play match record or (2) total holes won during pool play.  The four highest seeds will receive a bye in the first round.
 
 Playoffs will be single elimination play.  In the event of a match being all square after 18 holes, extra holes will be played on flemming, according th the following, per TPC Harding Park:  
 
 *  Playoff sudden death will only be permitted on Fleming, regardless of the activity on Harding  
 *  Golfers will need to check into the golf shop after the 18th hole and advise of the playoff sudden death  
-*  Players will have to wait in theuir turn on Fleming 1  
-*  Players wo;; have to exit the course once the match is determined  
+*  Players will have to wait their turn on Fleming 1  
+*  Players will have to exit the course once the match is determined  
 
 Hole handicaps on Fleming are based on 9 hole matches, not 18.  So, for extra hole purposes, the handicap index will be $2 * n - 1$, where $n$ is the index listed on the Fleming score card.  Effectively, this follows the convention of all odd-indexed holes being on the front 9.   
 
+###Prizes
 
+TBD
 
 ##Roster  
 <a id="roster"></a>
