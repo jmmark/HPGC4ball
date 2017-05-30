@@ -106,7 +106,13 @@ findWinners <- function(group) {
     q$Team[1]
 }
 
+# Kahn/Lee def. Harrington/De Silva, 11.5 - 6.5 (5 and 4)
 
+pooler <- giveRes(pooler, 16, 9, 11.5, 6.5)
+
+# Cook/Sokitch halved with Solomon/Simpson, 9 - 9 (AS)
+
+pooler <- giveRes(pooler, 1, 13, 9, 9)
 
 ## Now sort the standings
 pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"], decreasing = TRUE),]
@@ -141,6 +147,12 @@ pander(q,row.names=FALSE, style = "simple", split.table = 240)
 
 ##Pool Play  
 <a id="pp"></a>  
+
+###Pool Results  
+
+* 5/27 - Kahn/Lee def. Harrington/De Silva, 11.5 - 6.5 (5 and 4)  
+* 5/28 - Cook/Sokitch halved with Solomon/Simpson, 9 - 9 (AS)  
+
 
 
 ###Group A  
