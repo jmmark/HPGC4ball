@@ -114,6 +114,10 @@ pooler <- giveRes(pooler, 16, 9, 11.5, 6.5)
 
 pooler <- giveRes(pooler, 1, 13, 9, 9)
 
+#* 6/10 - Momota/Goodman def. Schneider/Drish, 9.5 - 8.5 (2 and 1)
+
+pooler <- giveRes(pooler, 22, 15, 9.5, 8.5)
+
 # * 6/15 - Bonsall/Betts def. Schneider/Drish, 9.5 - 8.5 (1 up)  
 
 pooler <- giveRes(pooler, 4, 15, 9.5, 8.5)
@@ -129,6 +133,10 @@ pooler <- giveRes(pooler, 20, 10, 9, 9)
 # * 7/2 - Cook/Sokitch def. Pettersson/Beauduy, 10-8 (1 up) 
 
 pooler <- giveRes(pooler, 16, 12, 10, 8)
+
+#* 7/8 - Scroggins/Bernick def. Hubregsen/Sodergren, 9.5 - 8.5 (1 up)
+
+pooler <- giveRes(pooler, 14, 7, 9.5, 8.5)
 
 ## Now sort the standings
 pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"], decreasing = TRUE),]
@@ -169,11 +177,12 @@ pander(q,row.names=FALSE, style = "simple", split.table = 240)
 
 * 5/27 - Kahn/Lee def. Harrington/De Silva, 11.5 - 6.5 (5 and 4)  
 * 5/28 - Cook/Sokitch halved with Solomon/Simpson, 9 - 9 (AS)  
+* 6/10 - Momota/Goodman def. Schneider/Drish, 9.5 - 8.5 (2 and 1)
 * 6/15 - Bonsall/Betts def. Schneider/Drish, 9.5 - 8.5 (1 up)  
 * 6/17 - Bonsall/Betts def. Momota/Goodman, 12 - 6 (7 and 5)  
 * 6/23 - Ota/Yeh halved with Brennan/Henderson, 9 - 9 (AS)  
-* 7/2 - Cook/Sokitch def. Pettersson/Beauduy, 10-8 (1 up)  
-
+* 7/2 - Cook/Sokitch def. Pettersson/Beauduy, 10 - 8 (1 up)  
+* 7/8 - Scroggins/Bernick def. Hubregsen/Sodergren, 9.5 - 8.5 (1 up)  
 
 
 ###Group A  
