@@ -132,7 +132,7 @@ pooler <- giveRes(pooler, 20, 10, 9, 9)
 
 # * 7/2 - Cook/Sokitch def. Pettersson/Beauduy, 10-8 (1 up) 
 
-pooler <- giveRes(pooler, 16, 12, 10, 8)
+pooler <- giveRes(pooler, 1, 12, 10, 8)
 
 #* 7/8 - Scroggins/Bernick def. Hubregsen/Sodergren, 9.5 - 8.5 (1 up)
 
