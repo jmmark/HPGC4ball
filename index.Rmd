@@ -138,6 +138,27 @@ pooler <- giveRes(pooler, 1, 12, 10, 8)
 
 pooler <- giveRes(pooler, 14, 7, 9.5, 8.5)
 
+# * 7/23 - Dhadal/Tao def. Costello/Daly, 10.5 - 7.5 (3 and 2)  
+
+pooler <- giveRes(pooler, 3, 6, 10.5, 7.5)
+
+# * 7/26 - Atkinson/Molke def. Ota/Yeh, 11 - 7 (4 and 3)  
+
+pooler <- giveRes(pooler, 17, 20, 11, 7)
+
+# * 7/29 - Harrington/De Silva def. Pettersson/Beauduy, 10 - 8 (2 up)  
+
+pooler <- giveRes(pooler, 9, 12, 10, 8)
+
+# * 7/30 - Dhadal/Tao def. Hubregsen/Sodergren, 11 - 7 (4 and 3)  
+
+pooler <- giveRes(pooler, 3, 7, 11, 7)
+
+# * 7/31 - Atkinson/Mole def. Brennan/Henderson, 9.5 - 8.5 (1 up)  
+
+pooler <- giveRes(pooler, 17, 10, 9.5, 8.5)
+
+
 ## Now sort the standings
 pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"], decreasing = TRUE),]
 
@@ -183,6 +204,13 @@ pander(q,row.names=FALSE, style = "simple", split.table = 240)
 * 6/23 - Ota/Yeh halved with Brennan/Henderson, 9 - 9 (AS)  
 * 7/2 - Cook/Sokitch def. Pettersson/Beauduy, 10 - 8 (1 up)  
 * 7/8 - Scroggins/Bernick def. Hubregsen/Sodergren, 9.5 - 8.5 (1 up)  
+* 7/23 - Dhadal/Tao def. Costello/Daly, 10.5 - 7.5 (3 and 2)  
+* 7/26 - Atkinson/Molke def. Ota/Yeh, 11 - 7 (4 and 3)  
+* 7/29 - Harrington/De Silva def. Pettersson/Beauduy, 10 - 8 (2 up)  
+* 7/30 - Dhadal/Tao def. Hubregsen/Sodergren, 11 - 7 (4 and 3)  
+* 7/31 - Atkinson/Mole def. Brennan/Henderson, 9.5 - 8.5 (1 up)  
+
+
 
 
 ###Group A  
