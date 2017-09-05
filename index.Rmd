@@ -194,6 +194,10 @@ pooler <- giveRes(pooler, 9, 1, 10.5, 7.5)
 
 pooler <- giveRes(pooler, 14, 21, 11, 7)
 
+#* 9/3 - Harrington/De Silva def. Solomon/Simpson, 10 - 8 (2 and 1)  
+
+pooler <- giveRes(pooler, 8, 13, 10, 8)
+
 
 ## Now sort the standings
 pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"], decreasing = TRUE),]
@@ -252,8 +256,10 @@ pander(q,row.names=FALSE, style = "simple", split.table = 240)
 * 8/6 - Dhadal/Tao def. Scroggins/Bernick, 10.5 - 7.5 (4 and 3)  
 * 8/19 - Scroggins/Bernick halved with Costello/Daly, 9 - 9 (AS)  
 * 8/20 - Schroeder/Beatty halved with Clifford/Shirbroun, 9 - 9 (AS)  
-* 8/26 - Harrington/De Silfa def. Cook/Sokitch, 10.5 - 7.5 (3 and 2)  
+* 8/26 - Harrington/De Silva def. Cook/Sokitch, 10.5 - 7.5 (3 and 2)  
 * 8/26 - Scroggins/Bernick def. Beer/Debruyn, 11 - 7 (4 and 3)  
+* 9/3 - Harrington/De Silva def. Solomon/Simpson, 10 - 8 (2 and 1)  
+
 
 
 
