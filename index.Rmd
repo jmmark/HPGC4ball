@@ -210,6 +210,14 @@ pooler <- giveRes(pooler, 4, 19, 10.5, 7.5)
 
 pooler <- giveRes(pooler, 2, 23, 9.5, 8.5)
 
+# * 9/17 - Markman/Notaney def. Bonsall/Betts, 11.5 - 6.5 (4 and 3)  
+
+pooler <- giveRes(pooler, 5, 4, 11.5, 6.5)
+
+# * 9/17 - Ippolito/Breininger def. Brennan/Henderson, 13.5 - 4.5 (6 and 4)  
+
+pooler <- giveRes(pooler, 25, 10, 13.5, 4.5)
+
 
 ## Now sort the standings
 pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"], decreasing = TRUE),]
@@ -274,6 +282,9 @@ pander(q,row.names=FALSE, style = "simple", split.table = 240)
 * 9/3 - Harrington/De Silva def. Solomon/Simpson, 10 - 8 (2 and 1)  
 * 9/8 - Bonsall/Betts def. Russell/Zywicke, 10.5 - 7.5 (3 and 2)  
 * 9/14 - Mellinger/Selmi def. Moore/Vines, 9.5 - 8.5 (1 up)  
+* 9/17 - Markman/Notaney def. Bonsall/Betts, 11.5 - 6.5 (4 and 3)  
+* 9/17 - Ippolito/Breininger def. Brennan/Henderson, 13.5 - 4.5 (6 and 4)  
+
 
 
 
