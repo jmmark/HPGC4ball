@@ -230,6 +230,10 @@ pooler <- giveRes(pooler, 24, 23, 9.5, 8.5)
 
 pooler <- giveRes(pooler, 5, 22, 10, 8)  
 
+# * 9/30 - Costello/Daly def. Beer/Debruyn, 13 - 5 (7 and 6)  
+
+pooler <- giveRes(pooler, 6, 21, 13, 5)  
+
 ## Now sort the standings
 pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"], decreasing = TRUE),]
 
@@ -298,6 +302,7 @@ pander(q,row.names=FALSE, style = "simple", split.table = 240)
 * 9/21 - Russell/Zywicke def. Markman/Notaney, 10 - 8 (2 up) 
 * 9/26 - Rovetti/Wellbeloved def. Moore/Vines, 9.5 - 8.5 (1 up)  
 * 9/28 - Markman/Notaney def. Momota/Goodman, 10 - 8 (2 and 1)  
+* 9/30 - Costello/Daly def. Beer/Debruyn, 13 - 5 (7 and 6)  
 
 
 
