@@ -238,6 +238,14 @@ pooler <- giveRes(pooler, 6, 21, 13, 5)
 
 pooler <- giveRes(pooler, 1, 16, 9, 9)  
 
+# * 10/3 - Rovetti/Wellbeloved def. Mellinger/Selmi, 10 - 8 (2 and 1)  
+
+pooler <- giveRes(pooler, 24, 2, 10, 8)  
+
+# * 10/4 - Kahn/Lee def. Petterson/Beaduy, 9.5 - 0 (Conceded)  
+
+pooler <- giveRes(pooler, 16, 12, 9.5, 0)  
+
 ## Now sort the standings
 pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"], decreasing = TRUE),]
 
@@ -308,6 +316,8 @@ pander(q,row.names=FALSE, style = "simple", split.table = 240)
 * 9/28 - Markman/Notaney def. Momota/Goodman, 10 - 8 (2 and 1)  
 * 9/30 - Costello/Daly def. Beer/Debruyn, 13 - 5 (7 and 6)  
 * 10/1 - Cook/Sokitch halved with Kahn/Lee, 9 - 9 (AS)  
+* 10/3 - Rovetti/Wellbeloved def. Mellinger/Selmi, 10 - 8 (2 and 1)  
+* 10/4 - Kahn/Lee def. Petterson/Beaduy, 9.5 - 0 (Conceded)  
 
 
 
