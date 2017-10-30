@@ -12,8 +12,16 @@ class GHINS(object):
         url = ("http://widgets.ghin.com/HandicapLookup.aspx?entry=1&"
             "ghinno=%s&css=default&dynamic=&small=0"
             "&showheader=1&showheadertext=1&showfootertext=1&tab=2") %(bigGhin,)
+        hdr = [('User-Agent', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11'),
+               ('Accept', 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'),
+               ('Referer', 'https://cssspritegenerator.com'),
+               ('Accept-Charset', 'ISO-8859-1,utf-8;q=0.7,*;q=0.3'),
+               ('Accept-Encoding', 'none'),
+               ('Accept-Language', 'en-US,en;q=0.8'),
+               ('Connection', 'keep-alive')]
         br = mechanize.Browser()
         br.set_handle_robots(False)
+        br.addheaders = hdr
         results = br.open(url)
         content = results.read()
         mySoup = BeautifulSoup(content,"html.parser")
@@ -34,6 +42,8 @@ with open("../currentRoster.csv","r") as csvfile:
         ghinList.append(curGhin)
 
 bigGhin = ",".join(ghinList)
+
+print bigGhin
 
 tryMe = GHINS(bigGhin)
 
