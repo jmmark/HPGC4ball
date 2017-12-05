@@ -285,6 +285,8 @@ seeds <- paste(pOffs[,3],pOffs[,4], sep = "/")
     +  11/26 -- `r seeds[11]` def. `r seeds[3]`, 4 and 3  
     
 *  `r seeds[4]` vs `r seeds[12]`  
+    +  12/3 -- `r seeds[4]` def. `r seeds[12]`, 3 and 2  
+    
 
 
 ###Round of 12  
