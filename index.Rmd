@@ -277,10 +277,20 @@ seeds <- paste(pOffs[,3],pOffs[,4], sep = "/")
 ##Playoffs  
 <a id = "po"></a>   
 
+###Semifinals  
+
+*  `r seeds[8]` vs `r seeds[4]`  
+*  `r seeds[10]` vs `r seeds[11]`  
+
+
 ###Quarterfinals  
 
 *  `r seeds[1]` vs `r seeds[8]`  
+    + 12/16 -- `r seeds[8]` def. `r seeds[1]`, 19 holes  
+    
 *  `r seeds[2]` vs `r seeds[10]`  
+    + 12/17 -- `r seeds[10]` def. `r seeds[2]`, 4 and 3  
+    
 *  `r seeds[3]` vs `r seeds[11]` 
     +  11/26 -- `r seeds[11]` def. `r seeds[3]`, 4 and 3  
     
