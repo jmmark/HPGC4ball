@@ -71,7 +71,9 @@ with open("../indexResults.csv","wb") as csvfile:
         bigGhin = ",".join(ghinList[k*10:maxInd])
 
         tryMe = GHINS(bigGhin)
+        print tryMe.htmlGhin
         for i in range(0,len(tryMe.htmlGhin)):
+
 
             writer.writerow({"ghin":tryMe.htmlGhin[i].string.strip(),
                 "index":tryMe.htmlIdx[i].string.strip(),
