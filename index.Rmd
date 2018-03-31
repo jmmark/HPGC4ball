@@ -280,6 +280,7 @@ seeds <- paste(pOffs[,3],pOffs[,4], sep = "/")
 ###Finals  
 
 * `r seeds[8]` vs `r seeds[11]`  
+    +  3/25 -- `r seeds[8]` def. `r seeds[11]`, 2 up
 
 
 ###Semifinals  
