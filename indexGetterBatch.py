@@ -71,13 +71,17 @@ with open("../indexResults.csv","wb") as csvfile:
         bigGhin = ",".join(ghinList[k*10:maxInd])
 
         tryMe = GHINS(bigGhin)
-        print tryMe.htmlGhin
+        print tryMe.htmlGhin, tryMe.htmlIdx
         for i in range(0,len(tryMe.htmlGhin)):
+            ghin = tryMe.htmlGhin[i].string.strip()
+            index = tryMe.htmlIdx[i].string.strip()
+            index = index.replace("+","-")
+            asof = tryMe.htmlEffDt[i].string.strip()
 
 
-            writer.writerow({"ghin":tryMe.htmlGhin[i].string.strip(),
-                "index":tryMe.htmlIdx[i].string.strip(),
-                "asOf":tryMe.htmlEffDt[i].string.strip()})
+            writer.writerow({"ghin":ghin,
+                "index":index,
+                "asOf":asof})
 #    for ghin in ghinList:
 #        i = i + 1
 #        print i

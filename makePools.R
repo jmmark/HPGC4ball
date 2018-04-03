@@ -1,7 +1,7 @@
 library(tidyr)
 roster <- read.csv("../currentRoster.csv")
 
-teams_involved <- 25
+teams_involved <- 20
 
 teamNo <- c(1:teams_involved, 1:teams_involved)
 teamNo <- teamNo[order(teamNo)]
@@ -11,8 +11,8 @@ roster <- roster[order(roster$team_id),]
 roster$teamNo <- teamNo
 print(roster)
 
-set.seed(2017)
-pools <- rep(c("A","B","C","D","E"),5)
+set.seed(2018)
+pools <- rep(c("A","B","C","D","E"),4)
 pools <- sample(pools,length(pools))
 print(pools)
 

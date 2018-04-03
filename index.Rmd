@@ -1,5 +1,5 @@
 ---
-title: "HPGC Fourball Match Play 2017"
+title: "HPGC Fourball Match Play 2018"
 output: html_document
 ---
 
@@ -14,11 +14,11 @@ Last updated: `r format(Sys.time(),"%b %d, %Y %H:%M")`
 
 ##Table of Contents  
 
-1.  [Playoffs](#po)
-2.  [Pool Play](#pp)  
+1.  [Pool Play](#pp)  
 3.  [Tournament Format](#format)  
 4.  [Roster (including current handicaps)](#roster)  
-5.  [2016 tournament](final2016.html)
+5.  [2017 tournament](final2017.html)  
+6.  [2016 tournament](final2016.html)
   
 
 
@@ -111,324 +111,69 @@ findWinners <- function(group) {
     q$Team[1]
 }
 
-# Kahn/Lee def. Harrington/De Silva, 11.5 - 6.5 (5 and 4)
-
-pooler <- giveRes(pooler, 16, 9, 11.5, 6.5)
-
-# Cook/Sokitch halved with Solomon/Simpson, 9 - 9 (AS)
-
-pooler <- giveRes(pooler, 1, 13, 9, 9)
-
-#* 6/10 - Momota/Goodman def. Schneider/Drish, 9.5 - 8.5 (2 and 1)
-
-pooler <- giveRes(pooler, 22, 15, 9.5, 8.5)
-
-# * 6/15 - Bonsall/Betts def. Schneider/Drish, 9.5 - 8.5 (1 up)  
-
-pooler <- giveRes(pooler, 4, 15, 9.5, 8.5)
-
-# * 6/17 - Bonsall/Betts def. Momota/Goodman, 12 - 6 (7 and 5)  
-
-pooler <- giveRes(pooler, 4, 22, 12, 6)
-
-# * 6/23 - Ota/Yeh halved with Brennan/Henderson, 9 - 9 (AS)  
-
-pooler <- giveRes(pooler, 20, 10, 9, 9)
-
-# * 7/2 - Cook/Sokitch def. Pettersson/Beauduy, 10-8 (1 up) 
-
-pooler <- giveRes(pooler, 1, 12, 10, 8)
-
-#* 7/8 - Scroggins/Bernick def. Hubregsen/Sodergren, 9.5 - 8.5 (1 up)
-
-pooler <- giveRes(pooler, 14, 7, 9.5, 8.5)
-
-# * 7/23 - Dhadal/Tao def. Costello/Daly, 10.5 - 7.5 (3 and 2)  
-
-pooler <- giveRes(pooler, 3, 6, 10.5, 7.5)
-
-# * 7/26 - Atkinson/Molke def. Ota/Yeh, 11 - 7 (4 and 3)  
-
-pooler <- giveRes(pooler, 17, 20, 11, 7)
-
-# * 7/29 - Harrington/De Silva def. Pettersson/Beauduy, 10 - 8 (2 up)  
-
-pooler <- giveRes(pooler, 9, 12, 10, 8)
-
-# * 7/30 - Dhadal/Tao def. Hubregsen/Sodergren, 11 - 7 (4 and 3)  
-
-pooler <- giveRes(pooler, 3, 7, 11, 7)
-
-# * 7/31 - Atkinson/Mole def. Brennan/Henderson, 9.5 - 8.5 (1 up)  
-
-pooler <- giveRes(pooler, 17, 10, 9.5, 8.5)
-
-# * 8/2 - Ota/Yeh def. Bartz/Bartz, 10 - 8 (3 and 2)  
-
-pooler <- giveRes(pooler, 20, 18, 10, 8)
-
-# * 8/5 - Ota/Yeh def. Brenninger/Ippolito, 10 - 8 (3 and 2)  
-
-pooler <- giveRes(pooler, 20, 25, 10, 8)
-
-#* 8/5 - Beatty/Schroeder def. Selmi/Mellinger, 9.5 - 8.5 (1 up)
-
-pooler <- giveRes(pooler, 8, 2, 9.5, 8.5)
-
-# * 8/6 - Costello/Daly def. Hubregsen/Sodergren, 11.5 - 6.5 (5 and 3)  
-
-pooler <- giveRes(pooler, 6, 7, 11.5, 6.5)
-
-# * 8/6 - Dhadal/Tao def. Scroggins/Bernick, 10.5 - 7.5 (4 and 3)  
-
-pooler <- giveRes(pooler, 3, 14, 10.5, 7.5)
-
-# * 8/19 - Scroggins/Bernick halved with Costello/Daly, 9 - 9 (AS)  
-
-pooler <- giveRes(pooler, 14, 6, 9, 9)
-
-# * 8/20 - Schroeder/Beatty halved with Clifford/Shirbroun, 9 - 9 (AS)  
-
-pooler <- giveRes(pooler, 8, 11, 9, 9)
-
-# * 8/26 - Harrington/De Silfa def. Cook/Sokitch, 10.5 - 7.5 (3 and 2)  
-
-pooler <- giveRes(pooler, 9, 1, 10.5, 7.5)
-
-# * 8/26 - Scroggins/Bernick def. Beer/Debruyn, 11 - 7 (4 and 3)  
-
-pooler <- giveRes(pooler, 14, 21, 11, 7)  
-
-# * 9/2 - Rovetti/Welbeloved def. Clifford/Shirbroun, 10 - 8 (4 and 3) 
-
-pooler <- giveRes(pooler, 24, 11, 10, 8)  
-
-#* 9/3 - Harrington/De Silva def. Solomon/Simpson, 10 - 8 (2 and 1)  
-
-pooler <- giveRes(pooler, 9, 13, 10, 8)  
-
-# * 9/8 - Bonsall/Betts def. Russell/Zywicke, 10.5 - 7.5 (3 and 2)  
-
-pooler <- giveRes(pooler, 4, 19, 10.5, 7.5)
-
-# * 9/14 - Mellinger/Selmi def. Moore/Vines, 9.5 - 8.5 (1 up)  
-
-pooler <- giveRes(pooler, 2, 23, 9.5, 8.5)
-
-# * 9/17 - Markman/Notaney def. Bonsall/Betts, 11.5 - 6.5 (4 and 3)  
-
-pooler <- giveRes(pooler, 5, 4, 11.5, 6.5)
-
-# * 9/17 - Ippolito/Breininger def. Brennan/Henderson, 13.5 - 4.5 (6 and 4)  
-
-pooler <- giveRes(pooler, 25, 10, 13.5, 4.5)
-
-# * 9/21 - Russell/Zywicke def. Markman/Notaney, 10 - 8 (2 up)  
-
-pooler <- giveRes(pooler, 19, 5, 10, 8)  
-
-# * 9/26 - Rovetti/Wellbeloved def. Moore/Vines, 9.5 - 8.5 (1 up)  
-
-pooler <- giveRes(pooler, 24, 23, 9.5, 8.5)  
-
-# * 9/28 - Markman/Notaney def. Momota/Goodman, 10 - 8 (2 and 1)  
-
-pooler <- giveRes(pooler, 5, 22, 10, 8)  
-
-# * 9/30 - Costello/Daly def. Beer/Debruyn, 13 - 5 (7 and 6)  
-
-pooler <- giveRes(pooler, 6, 21, 13, 5)  
-
-# * 10/1 - Cook/Sokitch halved with Kahn/Lee, 9 - 9 (AS)  
-
-pooler <- giveRes(pooler, 1, 16, 9, 9)  
-
-# * 10/2 - Solomon/Simpson def. Kahn/Lee, 11 - 7 (5 and 4)  
-
-pooler <- giveRes(pooler, 13, 16, 11, 7)  
-
-# * 10/3 - Rovetti/Wellbeloved def. Mellinger/Selmi, 10 - 8 (2 and 1)  
-
-pooler <- giveRes(pooler, 24, 2, 10, 8)  
-
-# * 10/4 - Kahn/Lee def. Petterson/Beaduy, 9.5 - 0 (Conceded)  
-
-pooler <- giveRes(pooler, 16, 12, 9.5, 0)  
 
 ## Now sort the standings
 pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"], decreasing = TRUE),]
 
 
 
-winners <- sapply(c("A","B","C","D","E"), findWinners)
-
-pOffs <- pooler[pooler$Team %in% winners,]
-pOffs <- rbind(pOffs, pooler[!(pooler$Team %in% winners), ][1:7,])
-pOffs[,2] <- 1:12
-names(pOffs)[2] <- "Seed"
-pOffs$Method <- "Wild Card"
-pOffs$Method[1:5] <- "Won Group"
-
-seeds <- paste(pOffs[,3],pOffs[,4], sep = "/")
+# winners <- sapply(c("A","B","C","D","E"), findWinners)
+# 
+# pOffs <- pooler[pooler$Team %in% winners,]
+# pOffs <- rbind(pOffs, pooler[!(pooler$Team %in% winners), ][1:7,])
+# pOffs[,2] <- 1:12
+# names(pOffs)[2] <- "Seed"
+# pOffs$Method <- "Wild Card"
+# pOffs$Method[1:5] <- "Won Group"
+# 
+# seeds <- paste(pOffs[,3],pOffs[,4], sep = "/")
 
 
 ```
   
-##Playoffs  
-<a id = "po"></a>   
-
-###Finals  
-
-* `r seeds[8]` vs `r seeds[11]`  
-    +  3/25 -- `r seeds[8]` def. `r seeds[11]`, 2 up
-
-
-###Semifinals  
-
-*  `r seeds[8]` vs `r seeds[4]`  
-    +  1/21 -- `r seeds[8]` def. `r seeds[4]`, 19 holes  
-    
-*  `r seeds[10]` vs `r seeds[11]`  
-    + 1/21 -- `r seeds[11]` def. `r seeds[10]`, 4 and 3  
-
-
-###Quarterfinals  
-
-*  `r seeds[1]` vs `r seeds[8]`  
-    + 12/16 -- `r seeds[8]` def. `r seeds[1]`, 19 holes  
-    
-*  `r seeds[2]` vs `r seeds[10]`  
-    + 12/17 -- `r seeds[10]` def. `r seeds[2]`, 4 and 3  
-    
-*  `r seeds[3]` vs `r seeds[11]` 
-    +  11/26 -- `r seeds[11]` def. `r seeds[3]`, 4 and 3  
-    
-*  `r seeds[4]` vs `r seeds[12]`  
-    +  12/3 -- `r seeds[4]` def. `r seeds[12]`, 3 and 2  
-    
-
-
-###Round of 12  
-####Teams Receiving a Bye  
-
-*  `r seeds[1]`  
-*  `r seeds[2]`  
-*  `r seeds[3]`  
-*  `r seeds[4]`  
-
-####Matches  
-
-*  `r seeds[5]` vs `r seeds[12]`  
-    +  11/5 -- `r seeds[12]` def. `r seeds[5]`, 2 up  
-
-*  `r seeds[6]` vs `r seeds[11]`  
-    +  10/29 -- `r seeds [11]` def. `r seeds[6]`, 4 and 3  
-    
-*  `r seeds[7]` vs `r seeds[10]`  
-    +  10/29 -- `r seeds[10]` def. `r seeds[7]`, 1 up  
-    
-*  `r seeds[8]` vs `r seeds[9]`  
-    +  10/28 -- `r seeds[8]` def. `r seeds[9]`, 6 and 5  
-
-###Seeding  
-
-```{r echo=FALSE, results="asis", eval = TRUE}
-q <- pOffs[,c("Seed", "Player 1", "Player 2", "Method")]
-row.names(q) <- NULL
-pander(q,row.names=FALSE, style = "simple", split.table = 240)
-
-```  
-  
-Seeding based on: (1) Winning the group, (2) total points, (3) total holes won  
-
-
-
 
 ##Pool Play  
 <a id="pp"></a>  
 
 ###Pool Results  
 
-* 5/27 - Kahn/Lee def. Harrington/De Silva, 11.5 - 6.5 (5 and 4)  
-* 5/28 - Cook/Sokitch halved with Solomon/Simpson, 9 - 9 (AS)  
-* 6/10 - Momota/Goodman def. Schneider/Drish, 9.5 - 8.5 (2 and 1)
-* 6/15 - Bonsall/Betts def. Schneider/Drish, 9.5 - 8.5 (1 up)  
-* 6/17 - Bonsall/Betts def. Momota/Goodman, 12 - 6 (7 and 5)  
-* 6/23 - Ota/Yeh halved with Brennan/Henderson, 9 - 9 (AS)  
-* 7/2 - Cook/Sokitch def. Pettersson/Beauduy, 10 - 8 (1 up)  
-* 7/8 - Scroggins/Bernick def. Hubregsen/Sodergren, 9.5 - 8.5 (1 up)  
-* 7/23 - Dhadal/Tao def. Costello/Daly, 10.5 - 7.5 (3 and 2)  
-* 7/26 - Atkinson/Molke def. Ota/Yeh, 11 - 7 (4 and 3)  
-* 7/29 - Harrington/De Silva def. Pettersson/Beauduy, 10 - 8 (2 up)  
-* 7/30 - Dhadal/Tao def. Hubregsen/Sodergren, 11 - 7 (4 and 3)  
-* 7/31 - Atkinson/Mole def. Brennan/Henderson, 9.5 - 8.5 (1 up)
-* 8/2 - Ota/Yeh def. Bartz/Bartz, 10 - 8 (3 and 2)  
-* 8/5 - Ota/Yeh def. Brenninger/Ippolito, 10 - 8 (3 and 2)  
-* 8/5 - Schroeder/Beatty def. Mellinger/Selmi, 9.5 - 8.5 (1 up)  
-* 8/6 - Costello/Daly def. Hubregsen/Sodergren, 11.5 - 6.5 (5 and 3)  
-* 8/6 - Dhadal/Tao def. Scroggins/Bernick, 10.5 - 7.5 (4 and 3)  
-* 8/19 - Scroggins/Bernick halved with Costello/Daly, 9 - 9 (AS)  
-* 8/20 - Schroeder/Beatty halved with Clifford/Shirbroun, 9 - 9 (AS)  
-* 8/26 - Harrington/De Silva def. Cook/Sokitch, 10.5 - 7.5 (3 and 2)  
-* 8/26 - Scroggins/Bernick def. Beer/Debruyn, 11 - 7 (4 and 3)  
-* 9/2 - Rovetti/Wellbeloved def. Clifford/Shirbroun, 10 - 8 (4 and 3) 
-* 9/3 - Harrington/De Silva def. Solomon/Simpson, 10 - 8 (2 and 1)  
-* 9/8 - Bonsall/Betts def. Russell/Zywicke, 10.5 - 7.5 (3 and 2)  
-* 9/14 - Mellinger/Selmi def. Moore/Vines, 9.5 - 8.5 (1 up)  
-* 9/17 - Markman/Notaney def. Bonsall/Betts, 11.5 - 6.5 (4 and 3)  
-* 9/17 - Ippolito/Breininger def. Brennan/Henderson, 13.5 - 4.5 (6 and 4)  
-* 9/21 - Russell/Zywicke def. Markman/Notaney, 10 - 8 (2 up) 
-* 9/26 - Rovetti/Wellbeloved def. Moore/Vines, 9.5 - 8.5 (1 up)  
-* 9/28 - Markman/Notaney def. Momota/Goodman, 10 - 8 (2 and 1)  
-* 9/30 - Costello/Daly def. Beer/Debruyn, 13 - 5 (7 and 6)  
-* 10/1 - Cook/Sokitch halved with Kahn/Lee, 9 - 9 (AS)  
-* 10/2 - Solomon/Simpson def. Kahn/Lee, 11 - 7 (5 and 4)  
-* 10/3 - Rovetti/Wellbeloved def. Mellinger/Selmi, 10 - 8 (2 and 1)  
-* 10/4 - Kahn/Lee def. Petterson/Beaduy, 9.5 - 0 (Conceded)  
-
-
-
-
-
-
-
 
 ###Group A  
 ```{r echo=FALSE, results="asis"}
 
 
-doPander("A", TRUE)
+doPander("A", FALSE)
 ```  
 
 
 ###Group B  
 ```{r echo=FALSE, results="asis"}
 
-doPander("B", TRUE)
+doPander("B", FALSE)
 ``` 
 
 
 ###Group C  
 ```{r echo=FALSE, results="asis"}
 
-doPander("C", TRUE)
+doPander("C", FALSE)
 ``` 
 
 ###Group D  
 ```{r echo=FALSE, results="asis"}
 
-doPander("D", TRUE)
+doPander("D", FALSE)
 ``` 
 
 ###Group E  
 ```{r echo=FALSE, results="asis"}
 
-doPander("E", TRUE)
+doPander("E", FALSE)
 ```  
 
 
-###Wild Card  
-```{r echo = FALSE, results = "asis", eval=TRUE}
+  
+```{r echo = FALSE, results = "asis", eval=FALSE}
 
 
 
@@ -456,14 +201,14 @@ The handicaps in play for each match will be the course handicaps based on full 
 USGA rules of golf and the [HPGC local tournament rules](http://www.golffusion.com/hardingparkgolf/content/1576305/Local-Tournament-Rules) will govern all play.  For matches conducted at other courses, the Local Rules for All Competitions section of the [HPGC local tournament rules](http://www.golffusion.com/hardingparkgolf/content/1576305/Local-Tournament-Rules) will apply, along with any posted local rules at the course being utilized
 
 ###Schedule  
-Pool play will take place from May through the end of September, with playoffs to begin in October.  All matches, including the playoffs, will be self-scheduled, and players are reponsible for their own greens fees.  Early weekend times are always difficult at TPC Harding Park, so I recommend booking early as cancellation is free
+Pool play will take place from April through the end of September, with playoffs to begin in October.  All matches, including the playoffs, will be self-scheduled, and players are reponsible for their own greens fees.  Early weekend times are always difficult at TPC Harding Park, so I recommend booking early as cancellation is free
 
 ###Pool Play  
-Teams have been grouped into five pools of five.  The first part of the tournament is round robin pool play--each team will play each otehr team in their pool once.  
+Teams have been grouped into five pools of four.  The first part of the tournament is round robin pool play--each team will play each otehr team in their pool once.  
 
 During pool play, matches will continue for all 18 holes, regardless of who wins.  Each hole won will be worth one point for the winning team, while halved holes will be worth a half point for both teams.  The team with the most holes won wins regardless, but total holes won will be important for breaking ties in the likely event that teams have the same record  
 
-In the event that a team needs to concede / forfeit a match, the team conceded to will count the win.  To protect the rest of the field, they will earn 9.5 "total holes won", and the concedign team will earn 0.
+In the event that a team needs to concede / forfeit a match, the team conceded to will count the win.  To protect the rest of the field, they will earn 9.5 "total holes won", and the conceding team will earn 0.
 
 ###Posting Scores  
 Players are responsible for posting their own scores for handicap purposes; The Committee will not be doing so.  As a reminder, for handicap purposes, holes where players do not finish out (either because of a concession or because they cannot better their opponent) should be recorded as the score that the player most likely would have made on that hole, subject to ESC.
@@ -476,7 +221,7 @@ Final standings within the pool will be based on:
 2.  If tied on #2, head-to-head record  
 
 ###Playoffs  
-Twelve teams will make the playoffs, the five pool winners plus seven wildcard teams based on (1) pool play match record or (2) total holes won during pool play.  The four highest seeds will receive a bye in the first round.
+Ten teams will make the playoffs, the five pool winners plus five wildcard teams based on (1) pool play match record or (2) total holes won during pool play.  The six highest seeds will receive a bye in the first round.
 
 Playoffs will be single elimination play.  In the event of a match being all square after 18 holes, extra holes will be played on flemming, according th the following, per TPC Harding Park:  
 
@@ -489,7 +234,7 @@ Hole handicaps on Fleming are based on 9 hole matches, not 18.  So, for extra ho
 
 ###Prizes
 
-TBD
+50% of the prize pool to the winning team, 30% to the second place team, and 10% each to the two losing semi-finalists  
 
 ##Roster  
 <a id="roster"></a>
@@ -497,13 +242,15 @@ TBD
 
 ch <- function(idx) {
     isNH <- idx=="NH"
-    isPlus <- (substr(idx,1,1)=="+")
+    isPlus <- (substr(idx,1,1)=="-")
+    #print(isPlus)
     rating <- 124
     hin <- numeric(length(idx))
     hin[!isNH] <- as.numeric(idx[!isNH])
     chi <- character(length(idx))
     chi[!isNH] <- as.character(round(rating/113*hin[!isNH],0))
-    chi[isPlus&&chi!="0"] <- paste("+",chi[isPlus])
+    chi[isPlus & chi!="0"] <- paste0("+",substr(chi[isPlus & chi!="0"],2,10000L))
+    #print(isPlus & chi!="0")
     chi[isNH] <- "0"
     chi
     
@@ -513,6 +260,8 @@ roster <- read.csv("../rosterPools.csv")
 index <- read.csv("../indexResults.csv", colClasses = c("numeric","character","character"))
 roster <- merge(roster, index, by.x="ghin",by.y="ghin")
 roster$index[roster$ghin==9999999] <- "NH"
+roster$index[as.numeric(roster$index) < 0] <- 
+  paste0('+', substr(roster$index[as.numeric(roster$index) < 0],2,1000000L))
 
 roster <- roster[,c("Name","teamNo","pools","index","asOf")]
 
