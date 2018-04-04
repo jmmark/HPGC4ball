@@ -242,14 +242,14 @@ Hole handicaps on Fleming are based on 9 hole matches, not 18.  So, for extra ho
 
 ch <- function(idx) {
     isNH <- idx=="NH"
-    isPlus <- (substr(idx,1,1)=="-")
+    isPlus <- (substr(idx,1,1)=="+")
     #print(isPlus)
     rating <- 124
     hin <- numeric(length(idx))
     hin[!isNH] <- as.numeric(idx[!isNH])
     chi <- character(length(idx))
     chi[!isNH] <- as.character(round(rating/113*hin[!isNH],0))
-    chi[isPlus & chi!="0"] <- paste0("+",substr(chi[isPlus & chi!="0"],2,10000L))
+    chi[isPlus & chi!="0"] <- paste0("+",chi[isPlus & chi!="0"])
     #print(isPlus & chi!="0")
     chi[isNH] <- "0"
     chi
