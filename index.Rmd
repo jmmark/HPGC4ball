@@ -111,6 +111,11 @@ findWinners <- function(group) {
     q$Team[1]
 }
 
+# *  5/13 - Hubregsen/Sodergren def. Harrington/Ippolito, 11-7 (7 and 5)  
+pooler <- giveRes(pooler, 16, 6, 11, 7)
+
+# *  6/3  - Hesotian/Suzuki def. Molke/Atkinson, 11.5 - 6.5  
+pooler <- giveRes(pooler, 18, 4, 11.5, 6.5)
 
 ## Now sort the standings
 pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"], decreasing = TRUE),]
@@ -136,6 +141,10 @@ pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"
 <a id="pp"></a>  
 
 ###Pool Results  
+
+*  5/13 - Hubregsen/Sodergren def. Harrington/Ippolito, 11-7 (7 and 5)  
+*  6/3  - Hesotian/Suzuki def. Molke/Atkinson, 11.5 - 6.5  
+
 
 
 ###Group A  
