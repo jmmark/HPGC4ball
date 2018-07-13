@@ -120,6 +120,24 @@ pooler <- giveRes(pooler, 18, 4, 11.5, 6.5)
 # *  6/13 - Moore/Fullerton def. Schroeder/Beatty, 11 - 7 (5 and 3)
 pooler <- giveRes(pooler, 11, 1, 11, 7)
 
+# *  6/29 - Wellbeloved/Rovetti def. Cook/Sokitch, 10 - 8 (3 and 1)  
+pooler <- giveRes(pooler, 9, 3, 10, 8)
+
+# *  6/30 - Cook/Sokitch def. Moore/Fullerton, 10 - 8 (2 and 1)  
+pooler <- giveRes(pooler, 3, 11, 10, 8)
+
+# *  7/3 - Schneider/Drish def. Hubregsen/Sodergren, 9.5 - 8.5 (1 up)  
+pooler <- giveRes(pooler, 10, 16, 9.5, 8.5)
+
+# *  7/3 - Yeh/Ota concede to Bonsall/Betts, 9.5 - 0
+pooler <- giveRes(pooler, 20, 12, 9.5, 0)
+
+# *  7/3 - Yeh/Ota concede to Bhatia/McKenna, 9.5 - 0
+pooler <- giveRes(pooler, 15, 12, 9.5, 0)
+
+# *  7/3 - Yeh/Ota concede to Russell/Highley, 9.5 - 0  
+pooler <- giveRes(pooler, 13, 12, 9.5, 0)
+
 ## Now sort the standings
 pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"], decreasing = TRUE),]
 
@@ -147,7 +165,14 @@ pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"
 
 *  5/13 - Hubregsen/Sodergren def. Harrington/Ippolito, 11 - 7 (7 and 5)  
 *  6/3  - Hesotian/Suzuki def. Molke/Atkinson, 11.5 - 6.5  
-*  6/13 - Moore/Fullerton def. Schroeder/Beatty, 11 - 7 (5 and 3)
+*  6/13 - Moore/Fullerton def. Schroeder/Beatty, 11 - 7 (5 and 3)  
+*  6/29 - Wellbeloved/Rovetti def. Cook/Sokitch, 10 - 8 (3 and 1)  
+*  6/30 - Cook/Sokitch def. Moore/Fullerton, 10 - 8 (2 and 1)  
+*  7/3 - Schneider/Drish def. Hubregsen/Sodergren, 9.5 - 8.5 (1 up)  
+*  7/3 - Yeh/Ota concede to Bonsall/Betts, 9.5 - 0  
+*  7/3 - Yeh/Ota concede to Bhatia/McKenna, 9.5 - 0  
+*  7/3 - Yeh/Ota concede to Russell/Highley, 9.5 - 0  
+
 
 
 
