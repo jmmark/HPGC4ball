@@ -147,6 +147,8 @@ pooler <- giveRes(pooler, 3, 1, 10, 8)
 # *  7/29 - Beauduy/Cucinella def. Hesotian/Suzuki, 10 - 8 (3 and 2)  
 pooler <- giveRes(pooler, 2, 18, 10, 8)
 
+#*  8/11 - Simpson/Solomon def. Beaduy/Cucinella, 9.5 - 8.5 (4 and 3) 
+pooler <- giveRes(pooler, 7, 2, 9.5, 8.5)
 
 ## Now sort the standings
 pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"], decreasing = TRUE),]
@@ -177,7 +179,7 @@ pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"
 *  6/3  - Hesotian/Suzuki def. Molke/Atkinson, 11.5 - 6.5  
 *  6/13 - Moore/Fullerton def. Schroeder/Beatty, 11 - 7 (5 and 3)  
 *  6/29 - Wellbeloved/Rovetti def. Cook/Sokitch, 10 - 8 (3 and 1)  
-*  6/30 - Cook/Sokitch def. Moore/Fullerton, 9.5 - 8.5 (2 and 1)  
+*  6/30 - Cook/Sokitch def. Moore/Fullerton, 9.5 - 8.5 (1 up)  
 *  7/3 - Schneider/Drish def. Hubregsen/Sodergren, 9.5 - 8.5 (1 up)  
 *  7/3 - Yeh/Ota concede to Bonsall/Betts, 9.5 - 0  
 *  7/3 - Yeh/Ota concede to Bhatia/McKenna, 9.5 - 0  
@@ -185,6 +187,7 @@ pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"
 *  7/13 - Markman/Notaney halve with Harrington/Ippolito, 9 - 9 (A/S)  
 *  7/22 - Cook/Sokitch def. Schroeder/Beatty, 10 - 8 (2 up)  
 *  7/29 - Beauduy/Cucinella def. Hesotian/Suzuki, 10 - 8 (3 and 2)  
+*  8/11 - Simpson/Solomon def. Beaduy/Cucinella, 9.5 - 8.5 (4 and 3)  
 
 
 
