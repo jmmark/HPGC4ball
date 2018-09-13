@@ -153,6 +153,12 @@ pooler <- giveRes(pooler, 7, 2, 9.5, 8.5)
 #*  8/26 - Schneider/Drish def. Markman/Notaney, 11 - 7 (4 and 3)
 pooler <- giveRes(pooler, 10, 14, 11, 7)
 
+#*  8/28 - Clifford/Shirbroun def. Tao/Dhadal, 10 - 8 (3 and 2)
+pooler <- giveRes(pooler, 8, 17, 10, 8)
+
+#*  9/7 - Moore/Fullerton def. Wellbeloved/Rovetti, 11.5 - 6.5 (4 and 3)
+pooler <- giveRes(pooler, 11, 9, 11.5, 6.5)
+
 ## Now sort the standings
 pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"], decreasing = TRUE),]
 
@@ -192,6 +198,8 @@ pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"
 *  7/29 - Beauduy/Cucinella def. Hesotian/Suzuki, 10 - 8 (3 and 2)  
 *  8/11 - Simpson/Solomon def. Beaduy/Cucinella, 9.5 - 8.5 (4 and 3)  
 *  8/26 - Schneider/Drish def. Markman/Notaney, 11 - 7 (4 and 3)  
+*  8/28 - Clifford/Shirbroun def. Tao/Dhadal, 10 - 8 (3 and 2)
+*  9/7 - Moore/Fullerton def. Wellbeloved/Rovetti, 11.5 - 6.5 (4 and 3)  
 
 
 
