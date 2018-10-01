@@ -171,6 +171,21 @@ pooler <- giveRes(pooler, 16, 14, 10.5, 7.5)
 #*  9/23 - Simpson/Solomon halve with Hesotian/Suzuki, 9 - 9 (A/S)      
 pooler <- giveRes(pooler, 7, 18, 9, 9)
 
+#*  9/25 - Wellbeloved/Rovetti def. Schroeder/BEatty, 9.5 - 8.5 (1 up)  
+pooler <- giveRes(pooler, 9, 1, 9.5, 8.5)
+
+# *  9/26 - Kahn/Fischler def. Clifford/Shirbroun, 10.5 - 7.5 (2 and 1)  
+pooler <- giveRes(pooler, 19, 8, 10.5, 7.5)
+
+# *  9/29 - Schneider/Drish def. Harrington/Ippolito, 9.5 - 8.5 (1 up)  
+pooler <- giveRes(pooler, 10, 6, 9.5, 8.5) 
+
+# *  9/30 - Molke/Atkinson def. Beauduy/Cucinella, 11.5 - 6.5 (4 and 3)  
+pooler <- giveRes(pooler, 4, 2, 11.5, 6.5) 
+
+# *  9/30 - Lefkowitz/O Fatharta def. Kahn/Fischler, 9.5 - 8.5 (1 up)  
+pooler <- giveRes(pooler, 5, 19, 9.5, 8.5)
+
 ## Now sort the standings
 pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"], decreasing = TRUE),]
 
@@ -216,7 +231,11 @@ pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"
 *  9/19 - Tao/Dhadhal concede to Kahn/Fischler, 9.5 - 0  
 *  9/23 - Hubregsen/Sodergren def. Markman/Notaney, 10.5 - 7.5 (2 and 1)  
 *  9/23 - Simpson/Solomon halve with Hesotian/Suzuki, 9 - 9 (A/S)  
-
+*  9/25 - Wellbeloved/Rovetti def. Schroeder/BEatty, 9.5 - 8.5 (1 up)  
+*  9/26 - Kahn/Fischler def. Clifford/Shirbroun, 10.5 - 7.5 (2 and 1)  
+*  9/29 - Schneider/Drish def. Harrington/Ippolito, 9.5 - 8.5 (1 up)  
+*  9/30 - Molke/Atkinson def. Beauduy/Cucinella, 11.5 - 6.5 (4 and 3)  
+*  9/30 - Lefkowitz/O Fatharta def. Kahn/Fischler, 9.5 - 8.5 (1 up)  
 
 
 
