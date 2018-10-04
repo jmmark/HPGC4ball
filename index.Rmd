@@ -1,6 +1,7 @@
 ---
 title: "HPGC Fourball Match Play 2018"
 output: html_document
+    
 ---
 
 ```{r echo=FALSE}
@@ -93,9 +94,9 @@ doPanderWC <- function(winners, complete = FALSE, eliminate = "X") {
     if (complete) {
         emphasize.italics.rows(1:4)
         lNames <- sapply(c(q[1,2], q[1,3], q[2,2], q[2,3], q[3,2], q[3,3],
-                           q[4,2], q[4,3]), pullLast)
+                           q[4,2], q[4,3], q[5,2], q[5,3]), pullLast)
         names(lNames) <- NULL
-        myCaption <- sprintf("%s/%s, %s/%s, %s/%s, and %s/%s advance!", 
+        myCaption <- sprintf("%s/%s, %s/%s, %s/%s,  %s/%s, and %s/%s advance!", 
                              lNames[1], lNames[2], lNames[3], lNames[4], lNames[5], lNames[6],
                              lNames[7], lNames[8], lNames[9], lNames[10],
                              lNames[11], lNames[12], lNames[13], lNames[14])
@@ -186,6 +187,9 @@ pooler <- giveRes(pooler, 4, 2, 11.5, 6.5)
 # *  9/30 - Lefkowitz/O Fatharta def. Kahn/Fischler, 9.5 - 8.5 (1 up)  
 pooler <- giveRes(pooler, 5, 19, 9.5, 8.5)
 
+# *  9/30 - Russell/Highley def. Bhatia/McKenna, 9.5 - 8.5 (1 up)  
+pooler <- giveRes(pooler, 13, 15, 9.5, 8.5)
+
 #*  10/2 - Simpson/Solomon def. Molke/Atkinson, 11.5 - 6.5 (5 and 3)  
 pooler <- giveRes(pooler, 7, 4, 11.5, 6.5)
 
@@ -194,14 +198,14 @@ pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"
 
 
 
-winners <- sapply(c("B","C","D","E"), findWinners)
+winners <- sapply(c("A","B","C","D","E"), findWinners)
 
 pOffs <- pooler[pooler$Team %in% winners,]
-pOffs <- rbind(pOffs, pooler[!(pooler$Team %in% winners), ][1:4,])
-pOffs[,2] <- 1:8
+pOffs <- rbind(pOffs, pooler[!(pooler$Team %in% winners), ][1:5,])
+pOffs[,2] <- 1:10
 names(pOffs)[2] <- "Seed"
 pOffs$Method <- "Wild Card"
-pOffs$Method[1:4] <- "Won Group"
+pOffs$Method[1:5] <- "Won Group"
 
 seeds <- paste(pOffs[,3],pOffs[,4], sep = "/")
 
@@ -212,13 +216,11 @@ seeds <- paste(pOffs[,3],pOffs[,4], sep = "/")
 
 ###Quarterfinals  
 
-*  `r seeds[1]` vs `r seeds[8]`  
+*  `r seeds[1]` vs winner of `r seeds[8]` or `r seeds [9]` 
    
-*  `r seeds[2]` vs `r seeds[7]`  
-   
+*  `r seeds[2]` vs winner of `r seeds[7]` or `r seeds [10]`   
     
 *  `r seeds[3]` vs `r seeds[6]` 
-   
     
 *  `r seeds[4]` vs `r seeds[5]`  
    
@@ -264,6 +266,7 @@ Seeding based on: (1) Winning the group, (2) total points, (3) total holes won
 *  9/29 - Schneider/Drish def. Harrington/Ippolito, 9.5 - 8.5 (1 up)  
 *  9/30 - Molke/Atkinson def. Beauduy/Cucinella, 11.5 - 6.5 (4 and 3)  
 *  9/30 - Lefkowitz/O Fatharta def. Kahn/Fischler, 9.5 - 8.5 (1 up)  
+*  9/30 - Russell/Highley def. Bhatia/McKenna, 9.5 - 8.5 (1 up)  
 *  10/2 - Simpson/Solomon def. Molke/Atkinson, 11.5 - 6.5 (5 and 3)  
 
 
@@ -273,7 +276,7 @@ Seeding based on: (1) Winning the group, (2) total points, (3) total holes won
 ```{r echo=FALSE, results="asis"}
 
 
-doPander("A", FALSE, "Group A Eliminated, No Matches Played")
+doPander("A", TRUE) #, "Group A Eliminated, No Matches Played")
 ```  
 
 
@@ -308,7 +311,7 @@ doPander("E", TRUE)
 
 
 
-doPanderWC(winners, TRUE, "A")
+doPanderWC(winners, TRUE)
 ```
 
 ##Tournament Format, Rules, and Schedule  
