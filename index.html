@@ -125,7 +125,7 @@ $(document).ready(function () {
 </div>
 
 
-<p>Last updated: Oct 04, 2018 15:54</p>
+<p>Last updated: Oct 23, 2018 11:19</p>
 <div id="table-of-contents" class="section level2">
 <h2>Table of Contents</h2>
 <ol style="list-style-type: decimal">
@@ -145,15 +145,223 @@ $(document).ready(function () {
 <div id="playoffs" class="section level2">
 <h2>Playoffs</h2>
 <p><a id="po"></a></p>
-<div id="quarterfinals" class="section level3">
-<h3>Quarterfinals</h3>
-<ul>
-<li><p>Todd Schneider/Derek Drish vs winner of Mark Cook/Michael Sokitch or Trim Wellbeloved/Rich Rovetti</p></li>
-<li><p>Jim Simpson/Felix Solomon vs winner of Jamie Kahn/Cal Fischler or Jack Hesotian/allen suzuki</p></li>
-<li><p>Gerard Moore/Steve Fullerton vs Patrick Hubregsen/Johan Sodergren</p></li>
-<li><p>Kieran Clifford/Randy Shirbroun vs Jay Russell/Brett Highley</p></li>
-</ul>
+
+
+<style type="text/css">
+
+.header{
+  height: 10%;
+}
+
+h4.level{
+  text-align: center;
+}
+
+.header>h1{
+  margin: auto;
+  text-align: center;
+  font-family: 'Dosis', sans-serif;
+  color: #205060
+}
+
+.bracket-container{
+  display: flex;
+  flex-direction: row;
+  height: 90%;
+  width: 100%;
+}
+
+.bracket-level{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+  flex-grow: 1;
+  transition: all ease .5s;
+}
+
+.bracket-level:hover{
+  width: 200%;
+}
+
+.bracket-matchup{
+  width: 90%;
+  margin: auto;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bracket-team{
+  height: 45%;
+  width: 100%;
+  background-color: #F5F5F5;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+  display: flex;
+  flex-direction: row;
+  transition: all ease .5s;
+}
+
+.bracket-name{
+  
+  width: 75%;
+  font-size: 0.8em;
+  padding: .2em;
+  line-height: 1.5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #2B2B2B;
+  text-align: left;
+}
+
+.bracket-score{
+  font-family: 'Open Sans', sans-serif;
+  font-size: .75em;
+  padding: .2em;
+  line-height: 1.5em;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #2B2B2B;
+  text-align: center;
+}
+
+.winner>.bracket-name, .winner>.bracket-score{
+  font-weight: bold;
+}
+
+.bracket-team:hover{
+  background-color: #E8E8E8;
+  height: 100%;
+  transition: all ease .5s;
+}
+
+.bracket-team:hover>.bracket-name{
+  overflow: none;
+  text-overflow: clip;
+  white-space: normal;
+  line-height: 1em;
+  align-self: center;
+  width: 100%;
+}
+
+.bracket-team:hover>.bracket-score{
+  display: none;
+}
+
+
+
+</style>
+
+
+  <div class="bracket-container">
+  <div class="bracket-level">
+  <h4 class = "level">Play-In</h4>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <div class="bracket-team loser">
+        
+        <div class="bracket-name">Mark Cook/Michael Sokitch</div>
+      </div>
+      <div class="bracket-team winner">
+        <div class="bracket-name">Trim Wellbeloved/Rich Rovetti</div><div class="bracket-score">2 and 1</div>
+      </div>
+    </div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <div class="bracket-team">
+        <div class="bracket-name">Jamie Kahn/Cal Fischler</div>
+      </div>
+      <div class="bracket-team">
+        <div class="bracket-name">Jack Hesotian/allen suzuki</div>
+      </div>
+    </div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup"></div>
+  </div>
+  
+  <div class="bracket-level">
+  <h4 class = "level">Quarterfinals</h4>
+    <div class="bracket-matchup">
+      <div class="bracket-team">
+        <div class="bracket-name">Todd Schneider/Derek Drish</div>
+      </div>
+      <div class="bracket-team">
+        <div class="bracket-name">Trim Wellbeloved/Rich Rovetti</div>
+      </div>
+    </div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <div class="bracket-team">
+        <div class="bracket-name">Kieran Clifford/Randy Shirbroun</div>
+      </div>
+      <div class="bracket-team">
+        <div class="bracket-name">Jay Russell/Brett Highley</div>
+      </div>
+    </div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <div class="bracket-team">
+        <div class="bracket-name">Jim Simpson/Felix Solomon</div>
+      </div>
+      <div class="bracket-team">
+        <div class="bracket-name">&nbsp</div>
+      </div>
+    </div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <div class="bracket-team">
+        <div class="bracket-name">Gerard Moore/Steve Fullerton</div>
+      </div>
+      <div class="bracket-team">
+        <div class="bracket-name">Patrick Hubregsen/Johan Sodergren</div>
+      </div>
+    </div>
+  </div>
+  <div class="bracket-level">
+  <h4 class = "level">Semifinals</h4>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <div class="bracket-team">
+        <div class="bracket-name">&nbsp</div>
+      </div>
+      <div class="bracket-team">
+        <div class="bracket-name">&nbsp</div>
+      </div>
+    </div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <div class="bracket-team">
+        <div class="bracket-name">&nbsp</div>
+      </div>
+      <div class="bracket-team">
+        <div class="bracket-name">&nbsp</div></div>
+      </div>
+    </div>
+  <div class="bracket-level">
+  <h4 class = "level">Finals</h4>
+  <div class="bracket-matchup"></div>
+  <div class="bracket-matchup"></div>
+  <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <div class="bracket-team">
+        <div class="bracket-name">&nbsp</div>
+      </div>
+      <div class="bracket-team">
+        <div class="bracket-name">&nbsp</div>
+      </div>
+    </div>
+  </div>
+  
+  </div>
 </div>
+
 <div id="seeding" class="section level3">
 <h3>Seeding</h3>
 <table>
@@ -849,8 +1057,8 @@ $(document).ready(function () {
 <td align="center">Steven Schroeder</td>
 <td align="center">1</td>
 <td align="center">B</td>
-<td align="center">5.5</td>
-<td align="center">10/01/2018</td>
+<td align="center">5.6</td>
+<td align="center">10/15/2018</td>
 <td align="center">6</td>
 </tr>
 <tr class="even">
@@ -858,7 +1066,7 @@ $(document).ready(function () {
 <td align="center">1</td>
 <td align="center">B</td>
 <td align="center">15.7</td>
-<td align="center">10/01/2018</td>
+<td align="center">10/15/2018</td>
 <td align="center">17</td>
 </tr>
 <tr class="odd">
@@ -866,31 +1074,31 @@ $(document).ready(function () {
 <td align="center">2</td>
 <td align="center">D</td>
 <td align="center">4.5</td>
-<td align="center">10/01/2018</td>
+<td align="center">10/15/2018</td>
 <td align="center">5</td>
 </tr>
 <tr class="even">
 <td align="center">Craig Cucinella</td>
 <td align="center">2</td>
 <td align="center">D</td>
-<td align="center">+1.7</td>
-<td align="center">10/01/2018</td>
+<td align="center">+1.6</td>
+<td align="center">10/15/2018</td>
 <td align="center">+2</td>
 </tr>
 <tr class="odd">
 <td align="center">Mark Cook</td>
 <td align="center">3</td>
 <td align="center">B</td>
-<td align="center">10.5</td>
-<td align="center">10/01/2018</td>
-<td align="center">12</td>
+<td align="center">10.2</td>
+<td align="center">10/15/2018</td>
+<td align="center">11</td>
 </tr>
 <tr class="even">
 <td align="center">Michael Sokitch</td>
 <td align="center">3</td>
 <td align="center">B</td>
 <td align="center">10.7</td>
-<td align="center">10/01/2018</td>
+<td align="center">10/15/2018</td>
 <td align="center">12</td>
 </tr>
 <tr class="odd">
@@ -898,15 +1106,15 @@ $(document).ready(function () {
 <td align="center">4</td>
 <td align="center">D</td>
 <td align="center">9.8</td>
-<td align="center">10/01/2018</td>
+<td align="center">10/15/2018</td>
 <td align="center">11</td>
 </tr>
 <tr class="even">
 <td align="center">Robert Molke</td>
 <td align="center">4</td>
 <td align="center">D</td>
-<td align="center">14.1</td>
-<td align="center">10/01/2018</td>
+<td align="center">13.8</td>
+<td align="center">10/15/2018</td>
 <td align="center">15</td>
 </tr>
 <tr class="odd">
@@ -914,15 +1122,15 @@ $(document).ready(function () {
 <td align="center">5</td>
 <td align="center">C</td>
 <td align="center">0.1</td>
-<td align="center">10/01/2018</td>
+<td align="center">10/15/2018</td>
 <td align="center">0</td>
 </tr>
 <tr class="even">
 <td align="center">Mathew Lefkowitz</td>
 <td align="center">5</td>
 <td align="center">C</td>
-<td align="center">11.0</td>
-<td align="center">10/01/2018</td>
+<td align="center">10.6</td>
+<td align="center">10/15/2018</td>
 <td align="center">12</td>
 </tr>
 <tr class="odd">
@@ -930,7 +1138,7 @@ $(document).ready(function () {
 <td align="center">6</td>
 <td align="center">E</td>
 <td align="center">8.8</td>
-<td align="center">10/01/2018</td>
+<td align="center">10/15/2018</td>
 <td align="center">10</td>
 </tr>
 <tr class="even">
@@ -938,15 +1146,15 @@ $(document).ready(function () {
 <td align="center">6</td>
 <td align="center">E</td>
 <td align="center">4.5</td>
-<td align="center">10/01/2018</td>
+<td align="center">10/15/2018</td>
 <td align="center">5</td>
 </tr>
 <tr class="odd">
 <td align="center">Felix Solomon</td>
 <td align="center">7</td>
 <td align="center">D</td>
-<td align="center">9.8</td>
-<td align="center">10/01/2018</td>
+<td align="center">10.2</td>
+<td align="center">10/15/2018</td>
 <td align="center">11</td>
 </tr>
 <tr class="even">
@@ -954,7 +1162,7 @@ $(document).ready(function () {
 <td align="center">7</td>
 <td align="center">D</td>
 <td align="center">4.2</td>
-<td align="center">10/01/2018</td>
+<td align="center">10/15/2018</td>
 <td align="center">5</td>
 </tr>
 <tr class="odd">
@@ -962,7 +1170,7 @@ $(document).ready(function () {
 <td align="center">8</td>
 <td align="center">C</td>
 <td align="center">6.5</td>
-<td align="center">10/01/2018</td>
+<td align="center">10/15/2018</td>
 <td align="center">7</td>
 </tr>
 <tr class="even">
@@ -970,7 +1178,7 @@ $(document).ready(function () {
 <td align="center">8</td>
 <td align="center">C</td>
 <td align="center">9.9</td>
-<td align="center">10/01/2018</td>
+<td align="center">10/15/2018</td>
 <td align="center">11</td>
 </tr>
 <tr class="odd">
@@ -978,23 +1186,23 @@ $(document).ready(function () {
 <td align="center">9</td>
 <td align="center">B</td>
 <td align="center">10.2</td>
-<td align="center">10/01/2018</td>
+<td align="center">10/15/2018</td>
 <td align="center">11</td>
 </tr>
 <tr class="even">
 <td align="center">Rich Rovetti</td>
 <td align="center">9</td>
 <td align="center">B</td>
-<td align="center">8.9</td>
-<td align="center">10/01/2018</td>
+<td align="center">9.1</td>
+<td align="center">10/15/2018</td>
 <td align="center">10</td>
 </tr>
 <tr class="odd">
 <td align="center">Derek Drish</td>
 <td align="center">10</td>
 <td align="center">E</td>
-<td align="center">5.6</td>
-<td align="center">10/01/2018</td>
+<td align="center">5.2</td>
+<td align="center">10/15/2018</td>
 <td align="center">6</td>
 </tr>
 <tr class="even">
@@ -1002,31 +1210,31 @@ $(document).ready(function () {
 <td align="center">10</td>
 <td align="center">E</td>
 <td align="center">3.6</td>
-<td align="center">10/01/2018</td>
+<td align="center">10/15/2018</td>
 <td align="center">4</td>
 </tr>
 <tr class="odd">
 <td align="center">Gerard Moore</td>
 <td align="center">11</td>
 <td align="center">B</td>
-<td align="center">16.5</td>
-<td align="center">10/01/2018</td>
-<td align="center">18</td>
+<td align="center">16.9</td>
+<td align="center">10/15/2018</td>
+<td align="center">19</td>
 </tr>
 <tr class="even">
 <td align="center">Steve Fullerton</td>
 <td align="center">11</td>
 <td align="center">B</td>
 <td align="center">12.5</td>
-<td align="center">10/01/2018</td>
+<td align="center">10/15/2018</td>
 <td align="center">14</td>
 </tr>
 <tr class="odd">
 <td align="center">Doug Ota</td>
 <td align="center">12</td>
 <td align="center">A</td>
-<td align="center">20.2</td>
-<td align="center">10/01/2018</td>
+<td align="center">20.4</td>
+<td align="center">10/15/2018</td>
 <td align="center">22</td>
 </tr>
 <tr class="even">
@@ -1034,7 +1242,7 @@ $(document).ready(function () {
 <td align="center">12</td>
 <td align="center">A</td>
 <td align="center">20.3</td>
-<td align="center">10/01/2018</td>
+<td align="center">10/15/2018</td>
 <td align="center">22</td>
 </tr>
 <tr class="odd">
@@ -1042,7 +1250,7 @@ $(document).ready(function () {
 <td align="center">13</td>
 <td align="center">A</td>
 <td align="center">0.8</td>
-<td align="center">10/01/2018</td>
+<td align="center">10/15/2018</td>
 <td align="center">1</td>
 </tr>
 <tr class="even">
@@ -1050,31 +1258,31 @@ $(document).ready(function () {
 <td align="center">13</td>
 <td align="center">A</td>
 <td align="center">6.0</td>
-<td align="center">10/01/2018</td>
+<td align="center">10/15/2018</td>
 <td align="center">7</td>
 </tr>
 <tr class="odd">
 <td align="center">Ash Notaney</td>
 <td align="center">14</td>
 <td align="center">E</td>
-<td align="center">10.8</td>
-<td align="center">10/01/2018</td>
+<td align="center">10.6</td>
+<td align="center">10/15/2018</td>
 <td align="center">12</td>
 </tr>
 <tr class="even">
 <td align="center">Jake Markman</td>
 <td align="center">14</td>
 <td align="center">E</td>
-<td align="center">2.6</td>
-<td align="center">10/01/2018</td>
-<td align="center">3</td>
+<td align="center">2.1</td>
+<td align="center">10/15/2018</td>
+<td align="center">2</td>
 </tr>
 <tr class="odd">
 <td align="center">Ajay Bhatia</td>
 <td align="center">15</td>
 <td align="center">A</td>
-<td align="center">16.6</td>
-<td align="center">10/01/2018</td>
+<td align="center">16.8</td>
+<td align="center">10/15/2018</td>
 <td align="center">18</td>
 </tr>
 <tr class="even">
@@ -1082,7 +1290,7 @@ $(document).ready(function () {
 <td align="center">15</td>
 <td align="center">A</td>
 <td align="center">16.8</td>
-<td align="center">10/01/2018</td>
+<td align="center">10/15/2018</td>
 <td align="center">18</td>
 </tr>
 <tr class="odd">
@@ -1090,47 +1298,47 @@ $(document).ready(function () {
 <td align="center">16</td>
 <td align="center">E</td>
 <td align="center">7.4</td>
-<td align="center">10/01/2018</td>
+<td align="center">10/15/2018</td>
 <td align="center">8</td>
 </tr>
 <tr class="even">
 <td align="center">Patrick Hubregsen</td>
 <td align="center">16</td>
 <td align="center">E</td>
-<td align="center">4.6</td>
-<td align="center">10/01/2018</td>
-<td align="center">5</td>
+<td align="center">5.1</td>
+<td align="center">10/15/2018</td>
+<td align="center">6</td>
 </tr>
 <tr class="odd">
 <td align="center">Naresh Dhadhal</td>
 <td align="center">17</td>
 <td align="center">C</td>
-<td align="center">9.6</td>
-<td align="center">10/01/2018</td>
+<td align="center">9.7</td>
+<td align="center">10/15/2018</td>
 <td align="center">11</td>
 </tr>
 <tr class="even">
 <td align="center">Simon Tao</td>
 <td align="center">17</td>
 <td align="center">C</td>
-<td align="center">12.5</td>
-<td align="center">10/01/2018</td>
-<td align="center">14</td>
+<td align="center">11.7</td>
+<td align="center">10/15/2018</td>
+<td align="center">13</td>
 </tr>
 <tr class="odd">
 <td align="center">Jack Hesotian</td>
 <td align="center">18</td>
 <td align="center">D</td>
 <td align="center">8.1</td>
-<td align="center">10/01/2018</td>
+<td align="center">10/15/2018</td>
 <td align="center">9</td>
 </tr>
 <tr class="even">
 <td align="center">allen suzuki</td>
 <td align="center">18</td>
 <td align="center">D</td>
-<td align="center">9.5</td>
-<td align="center">10/01/2018</td>
+<td align="center">8.9</td>
+<td align="center">10/15/2018</td>
 <td align="center">10</td>
 </tr>
 <tr class="odd">
@@ -1138,31 +1346,31 @@ $(document).ready(function () {
 <td align="center">19</td>
 <td align="center">C</td>
 <td align="center">6.4</td>
-<td align="center">10/01/2018</td>
+<td align="center">10/15/2018</td>
 <td align="center">7</td>
 </tr>
 <tr class="even">
 <td align="center">Jamie Kahn</td>
 <td align="center">19</td>
 <td align="center">C</td>
-<td align="center">6.4</td>
-<td align="center">10/01/2018</td>
+<td align="center">6.7</td>
+<td align="center">10/15/2018</td>
 <td align="center">7</td>
 </tr>
 <tr class="odd">
 <td align="center">Adam Betts</td>
 <td align="center">20</td>
 <td align="center">A</td>
-<td align="center">3.8</td>
-<td align="center">10/01/2018</td>
+<td align="center">3.7</td>
+<td align="center">10/15/2018</td>
 <td align="center">4</td>
 </tr>
 <tr class="even">
 <td align="center">Aaron Bonsall</td>
 <td align="center">20</td>
 <td align="center">A</td>
-<td align="center">18.1</td>
-<td align="center">10/01/2018</td>
+<td align="center">17.8</td>
+<td align="center">10/15/2018</td>
 <td align="center">20</td>
 </tr>
 </tbody>
