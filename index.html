@@ -125,7 +125,7 @@ $(document).ready(function () {
 </div>
 
 
-<p>Last updated: Oct 23, 2018 11:19</p>
+<p>Last updated: Oct 25, 2018 12:40</p>
 <div id="table-of-contents" class="section level2">
 <h2>Table of Contents</h2>
 <ol style="list-style-type: decimal">
@@ -182,13 +182,22 @@ h4.level{
 }
 
 .bracket-level:hover{
-  width: 200%;
+  width: 150%;
 }
 
 .bracket-matchup{
   width: 90%;
   margin: auto;
-  height: 50px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bracket-halfmatchup{
+  width: 90%;
+  margin: auto;
+  height: 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -202,11 +211,12 @@ h4.level{
   display: flex;
   flex-direction: row;
   transition: all ease .5s;
+  margin: 3px;
 }
 
 .bracket-name{
   
-  width: 75%;
+  width: 85%;
   font-size: 0.8em;
   padding: .2em;
   line-height: 1.5em;
@@ -219,7 +229,7 @@ h4.level{
 
 .bracket-score{
   font-family: 'Open Sans', sans-serif;
-  font-size: .75em;
+  font-size: .8em;
   padding: .2em;
   line-height: 1.5em;
   white-space: nowrap;
@@ -259,7 +269,7 @@ h4.level{
   <div class="bracket-container">
   <div class="bracket-level">
   <h4 class = "level">Play-In</h4>
-    <div class="bracket-matchup"></div>
+    <div class="bracket-halfmatchup"></div>
     <div class="bracket-matchup">
       <div class="bracket-team loser">
         
@@ -360,7 +370,7 @@ h4.level{
   </div>
   
   </div>
-</div>
+
 
 <div id="seeding" class="section level3">
 <h3>Seeding</h3>
