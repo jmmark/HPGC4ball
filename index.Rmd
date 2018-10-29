@@ -395,8 +395,8 @@ h4.level{
     </div>
     <div class="bracket-matchup"></div>
     <div class="bracket-matchup">
-      <div class="bracket-team">
-        <div class="bracket-name">`r seeds[3]`</div>
+      <div class="bracket-team winner">
+        <div class="bracket-name">`r seeds[3]`</div><div class = "bracket-score">5 and 4</div>
       </div>
       <div class="bracket-team">
         <div class="bracket-name">`r seeds[6]`</div>
@@ -422,7 +422,7 @@ h4.level{
         <div class="bracket-name">&nbsp</div>
       </div>
       <div class="bracket-team">
-        <div class="bracket-name">&nbsp</div></div>
+        <div class="bracket-name">`r seeds[3]`</div></div>
       </div>
     </div>
   <div class="bracket-level">
