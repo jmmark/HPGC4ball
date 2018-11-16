@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29f2ccc9-c28c-4da9-9e21-b846a9e475cf" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/index.Rmd" beforeDir="false" afterPath="$PROJECT_DIR$/index.Rmd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -70,7 +71,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -82,6 +82,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -164,6 +165,13 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/scratch.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="418" selection-end-column="541" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/indexGetterBatch.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1428">
