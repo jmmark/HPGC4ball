@@ -422,7 +422,7 @@ h4.level{
         <div class="bracket-name">`r seeds[2]`</div>
       </div>
       <div class="bracket-team">
-        <div class="bracket-name">`r seeds[3]`</div></div>
+        <div class="bracket-name">`r seeds[3]`</div>
       </div>
     </div>
   <div class="bracket-level">
