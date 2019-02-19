@@ -407,8 +407,8 @@ h4.level{
   <h4 class = "level">Semifinals</h4>
     <div class="bracket-matchup"></div>
     <div class="bracket-matchup">
-      <div class="bracket-team">
-        <div class="bracket-name">`r seeds[1]`</div>
+      <div class="bracket-team winner">
+        <div class="bracket-name">`r seeds[1]`</div><div class = "bracket-score">19 holes</div>
       </div>
       <div class="bracket-team">
         <div class="bracket-name">`r seeds[5]`</div>
@@ -433,7 +433,7 @@ h4.level{
   <div class="bracket-matchup"></div>
     <div class="bracket-matchup">
       <div class="bracket-team">
-        <div class="bracket-name">&nbsp</div>
+        <div class="bracket-name">`r seeds[1]`</div>
       </div>
       <div class="bracket-team">
         <div class="bracket-name">`r seeds[3]`</div>
