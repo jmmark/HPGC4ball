@@ -11,7 +11,7 @@ roster <- roster[order(roster$team_id),]
 roster$teamNo <- teamNo
 print(roster)
 
-set.seed(12)
+set.seed(2018)
 pools <- rep(c("A","B","C","D","E"),4)
 pools <- sample(pools,length(pools))
 print(pools)

@@ -20,8 +20,9 @@ Last updated: `r format(Sys.time(),"%b %d, %Y %H:%M")`
 2.  [Pool Play](#pp)  
 3.  [Tournament Format](#format)  
 4.  [Roster (including current handicaps)](#roster)  
-5.  [2017 tournament](final2017.html)  
-6.  [2016 tournament](final2016.html)
+5.  [2018 tournament](final2018.html)  
+6.  [2017 tournament](final2017.html)  
+7.  [2016 tournament](final2016.html)
   
 
 
@@ -42,13 +43,14 @@ assign_win <- function(in_frame, teamid) {
 assign_loss <- function(in_frame, teamid) {
     out_vect <- in_frame[teamid,]
     out_vect["Losses"] <- out_vect["Losses"] + 1
+    out_vect["Points"] <- out_vect["Points"] + 1
     out_vect
 }
 
 assign_tie <- function(in_frame, teamid) {
     out_vect <- in_frame[teamid,]
     out_vect["Ties"] <- out_vect["Ties"] + 1
-    out_vect["Points"] <- out_vect["Points"] + 1
+    out_vect["Points"] <- out_vect["Points"] + 2
     out_vect
 }
 
@@ -113,385 +115,280 @@ findWinners <- function(group) {
     q$Team[1]
 }
 
-# *  5/13 - Hubregsen/Sodergren def. Harrington/Ippolito, 11-7 (7 and 5)  
-pooler <- giveRes(pooler, 16, 6, 11, 7)
 
-# *  6/3  - Hesotian/Suzuki def. Molke/Atkinson, 11.5 - 6.5  
-pooler <- giveRes(pooler, 18, 4, 11.5, 6.5)
 
-# *  6/13 - Moore/Fullerton def. Schroeder/Beatty, 11 - 7 (5 and 3)
-pooler <- giveRes(pooler, 11, 1, 11, 7)
-
-# *  6/29 - Wellbeloved/Rovetti def. Cook/Sokitch, 10 - 8 (3 and 1)  
-pooler <- giveRes(pooler, 9, 3, 10, 8)
-
-# *  6/30 - Cook/Sokitch def. Moore/Fullerton, 10 - 8 (2 and 1)  
-pooler <- giveRes(pooler, 3, 11, 9.5, 8.5)
-
-# *  7/3 - Schneider/Drish def. Hubregsen/Sodergren, 9.5 - 8.5 (1 up)  
-pooler <- giveRes(pooler, 10, 16, 9.5, 8.5)
-
-# *  7/3 - Yeh/Ota concede to Bonsall/Betts, 9.5 - 0
-pooler <- giveRes(pooler, 20, 12, 9.5, 0)
-
-# *  7/3 - Yeh/Ota concede to Bhatia/McKenna, 9.5 - 0
-pooler <- giveRes(pooler, 15, 12, 9.5, 0)
-
-# *  7/3 - Yeh/Ota concede to Russell/Highley, 9.5 - 0  
-pooler <- giveRes(pooler, 13, 12, 9.5, 0)
-
-# *  7/13 - Markman/Notaney halve with Harrington/Ippolito, 9 - 9 (A/S)  
-pooler <- giveRes(pooler, 14, 6, 9, 9)
-
-# *  7/22 - Cook/Sokitch def. Schroeder/Beatty, 10 - 8 (2 up)  
-pooler <- giveRes(pooler, 3, 1, 10, 8)
-
-# *  7/29 - Beauduy/Cucinella def. Hesotian/Suzuki, 10 - 8 (3 and 2)  
-pooler <- giveRes(pooler, 2, 18, 10, 8)
-
-#*  8/11 - Simpson/Solomon def. Beaduy/Cucinella, 9.5 - 8.5 (4 and 3) 
-pooler <- giveRes(pooler, 7, 2, 9.5, 8.5)
-
-#*  8/26 - Schneider/Drish def. Markman/Notaney, 11 - 7 (4 and 3)
-pooler <- giveRes(pooler, 10, 14, 11, 7)
-
-#*  8/28 - Clifford/Shirbroun def. Tao/Dhadal, 10 - 8 (3 and 2)
-pooler <- giveRes(pooler, 8, 17, 10, 8)
-
-#*  9/7 - Moore/Fullerton def. Wellbeloved/Rovetti, 11.5 - 6.5 (4 and 3)
-pooler <- giveRes(pooler, 11, 9, 11.5, 6.5)
-
-#*  9/16 - Clifford/Shirbroun def. Lefkowitz/O Fatharta 10 - 8 (3 and 2)
-pooler <- giveRes(pooler, 8, 5, 11.5, 6.5)
-
-#*  9/19 - Tao/Dhadhal concede to Kahn/Fischler, 9.5 - 0  
-pooler <- giveRes(pooler, 19, 17, 9.5, 0)
-
-#*  9/23 - Hubregsen/Sodergren def. Markman/Notaney, 10.5 - 7.5 (2 and 1)    
-pooler <- giveRes(pooler, 16, 14, 10.5, 7.5)
-
-#*  9/23 - Simpson/Solomon halve with Hesotian/Suzuki, 9 - 9 (A/S)      
-pooler <- giveRes(pooler, 7, 18, 9, 9)
-
-#*  9/25 - Wellbeloved/Rovetti def. Schroeder/BEatty, 9.5 - 8.5 (1 up)  
-pooler <- giveRes(pooler, 9, 1, 9.5, 8.5)
-
-# *  9/26 - Kahn/Fischler def. Clifford/Shirbroun, 10.5 - 7.5 (2 and 1)  
-pooler <- giveRes(pooler, 19, 8, 10.5, 7.5)
-
-# *  9/29 - Schneider/Drish def. Harrington/Ippolito, 9.5 - 8.5 (1 up)  
-pooler <- giveRes(pooler, 10, 6, 9.5, 8.5) 
-
-# *  9/30 - Molke/Atkinson def. Beauduy/Cucinella, 11.5 - 6.5 (4 and 3)  
-pooler <- giveRes(pooler, 4, 2, 11.5, 6.5) 
-
-# *  9/30 - Lefkowitz/O Fatharta def. Kahn/Fischler, 9.5 - 8.5 (1 up)  
-pooler <- giveRes(pooler, 5, 19, 9.5, 8.5)
-
-# *  9/30 - Russell/Highley def. Bhatia/McKenna, 9.5 - 8.5 (1 up)  
-pooler <- giveRes(pooler, 13, 15, 9.5, 8.5)
-
-#*  10/2 - Simpson/Solomon def. Molke/Atkinson, 11.5 - 6.5 (5 and 3)  
-pooler <- giveRes(pooler, 7, 4, 11.5, 6.5)
+# EXAMPLE FROM 2018*  10/2 - Simpson/Solomon def. Molke/Atkinson, 11.5 - 6.5 (5 and 3)  
+#pooler <- giveRes(pooler, 7, 4, 11.5, 6.5)
 
 ## Now sort the standings
-pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"], decreasing = TRUE),]
+#pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"], decreasing = TRUE),]
 
 
 
-winners <- sapply(c("A","B","C","D","E"), findWinners)
+#winners <- sapply(c("A","B","C","D","E"), findWinners)
 
-pOffs <- pooler[pooler$Team %in% winners,]
-pOffs <- rbind(pOffs, pooler[!(pooler$Team %in% winners), ][1:5,])
-pOffs[,2] <- 1:10
-names(pOffs)[2] <- "Seed"
-pOffs$Method <- "Wild Card"
-pOffs$Method[1:5] <- "Won Group"
+#pOffs <- pooler[pooler$Team %in% winners,]
+#pOffs <- rbind(pOffs, pooler[!(pooler$Team %in% winners), ][1:5,])
+#pOffs[,2] <- 1:10
+#names(pOffs)[2] <- "Seed"
+#pOffs$Method <- "Wild Card"
+#pOffs$Method[1:5] <- "Won Group"
 
-seeds <- paste(pOffs[,3],pOffs[,4], sep = "/")
+#seeds <- paste(pOffs[,3],pOffs[,4], sep = "/")
+
+# 
+# ##Playoffs  
+# <a id = "po"></a>  
+# 
+# 
+# <!--html_preserve-->
+# 
+# <style type="text/css">
+# 
+# .header{
+#   height: 10%;
+# }
+# 
+# h4.level{
+#   text-align: center;
+# }
+# 
+# .header>h1{
+#   margin: auto;
+#   text-align: center;
+#   font-family: 'Dosis', sans-serif;
+#   color: #205060
+# }
+# 
+# .bracket-container{
+#   display: flex;
+#   flex-direction: row;
+#   height: 90%;
+#   width: 100%;
+# }
+# 
+# .bracket-level{
+#   display: flex;
+#   flex-direction: column;
+#   justify-content: space-around;
+#   height: 100%;
+#   width: 100%;
+#   flex-grow: 1;
+#   transition: all ease .5s;
+# }
+# 
+# .bracket-level:hover{
+#   width: 150%;
+# }
+# 
+# .bracket-matchup{
+#   width: 90%;
+#   margin: auto;
+#   height: 60px;
+#   display: flex;
+#   flex-direction: column;
+#   justify-content: space-between;
+# }
+# 
+# .bracket-halfmatchup{
+#   width: 90%;
+#   margin: auto;
+#   height: 15px;
+#   display: flex;
+#   flex-direction: column;
+#   justify-content: space-between;
+# }
+# 
+# .bracket-team{
+#   height: 45%;
+#   width: 100%;
+#   background-color: #F5F5F5;
+#   box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+#   display: flex;
+#   flex-direction: row;
+#   transition: all ease .5s;
+#   margin: 3px;
+# }
+# 
+# .bracket-name{
+#   
+#   width: 85%;
+#   font-size: 0.8em;
+#   padding: .2em;
+#   line-height: 1.5em;
+#   overflow: hidden;
+#   text-overflow: ellipsis;
+#   white-space: nowrap;
+#   color: #2B2B2B;
+#   text-align: left;
+# }
+# 
+# .bracket-score{
+#   font-family: 'Open Sans', sans-serif;
+#   font-size: .8em;
+#   padding: .2em;
+#   line-height: 1.5em;
+#   white-space: nowrap;
+#   overflow: hidden;
+#   color: #2B2B2B;
+#   text-align: center;
+# }
+# 
+# .winner>.bracket-name, .winner>.bracket-score{
+#   font-weight: bold;
+# }
+# 
+# .bracket-team:hover{
+#   background-color: #E8E8E8;
+#   height: 100%;
+#   transition: all ease .5s;
+# }
+# 
+# .bracket-team:hover>.bracket-name{
+#   overflow: none;
+#   text-overflow: clip;
+#   white-space: normal;
+#   line-height: 1em;
+#   align-self: center;
+#   width: 100%;
+# }
+# 
+# .bracket-team:hover>.bracket-score{
+#   display: none;
+# }
+# 
+# 
+# 
+# </style>
+# 
+# 
+#   <div class="bracket-container">
+#   <div class="bracket-level">
+#   <h4 class = "level">Play-In</h4>
+#     <div class="bracket-halfmatchup"></div>
+#     <div class="bracket-matchup">
+#       <div class="bracket-team loser">
+#         
+#         <div class="bracket-name">`r seeds[8]`</div>
+#       </div>
+#       <div class="bracket-team winner">
+#         <div class="bracket-name">`r seeds[9]`</div><div class="bracket-score">2 and 1</div>
+#       </div>
+#     </div>
+#     <div class="bracket-matchup"></div>
+#     <div class="bracket-matchup"></div>
+#     <div class="bracket-matchup"></div>
+#     <div class="bracket-matchup">
+#       <div class="bracket-team loser">
+#         <div class="bracket-name">`r seeds[7]`</div>
+#       </div>
+#       <div class="bracket-team winner">
+#         <div class="bracket-name">`r seeds[10]`</div><div class="bracket-score">3 and 1</div>
+#       </div>
+#     </div>
+#     <div class="bracket-matchup"></div>
+#     <div class="bracket-matchup"></div>
+#   </div>
+#   
+#   <div class="bracket-level">
+#   <h4 class = "level">Quarterfinals</h4>
+#     <div class="bracket-matchup">
+#       <div class="bracket-team winner">
+#         <div class="bracket-name">`r seeds[1]`</div><div class = "bracket-score">20 holes</div>
+#       </div>
+#       <div class="bracket-team">
+#         <div class="bracket-name">`r seeds[9]`</div>
+#       </div>
+#     </div>
+#     <div class="bracket-matchup"></div>
+#     <div class="bracket-matchup">
+#       <div class="bracket-team">
+#         <div class="bracket-name">`r seeds[4]`</div>
+#       </div>
+#       <div class="bracket-team winner">
+#         <div class="bracket-name">`r seeds[5]`</div><div class = "bracket-score">1 up </div>
+#       </div>
+#     </div>
+#     <div class="bracket-matchup"></div>
+#     <div class="bracket-matchup">
+#       <div class="bracket-team winner">
+#         <div class="bracket-name">`r seeds[2]`</div><div class = "bracket-score">1 up </div>
+#       </div>
+#       <div class="bracket-team">
+#         <div class="bracket-name">`r seeds[10]`</div>
+#       </div>
+#     </div>
+#     <div class="bracket-matchup"></div>
+#     <div class="bracket-matchup">
+#       <div class="bracket-team winner">
+#         <div class="bracket-name">`r seeds[3]`</div><div class = "bracket-score">5 and 4</div>
+#       </div>
+#       <div class="bracket-team">
+#         <div class="bracket-name">`r seeds[6]`</div>
+#       </div>
+#     </div>
+#   </div>
+#   <div class="bracket-level">
+#   <h4 class = "level">Semifinals</h4>
+#     <div class="bracket-matchup"></div>
+#     <div class="bracket-matchup">
+#       <div class="bracket-team winner">
+#         <div class="bracket-name">`r seeds[1]`</div><div class = "bracket-score">19 holes</div>
+#       </div>
+#       <div class="bracket-team">
+#         <div class="bracket-name">`r seeds[5]`</div>
+#       </div>
+#     </div>
+#     <div class="bracket-matchup"></div>
+#     <div class="bracket-matchup"></div>
+#     <div class="bracket-matchup"></div>
+#     <div class="bracket-matchup">
+#       <div class="bracket-team">
+#         <div class="bracket-name">`r seeds[2]`</div>
+#       </div>
+#       <div class="bracket-team winner">
+#         <div class="bracket-name">`r seeds[3]`</div><div class = "bracket-score">1 up</div>
+#       </div>
+#     </div>
+#   </div>
+#   <div class="bracket-level">
+#   <h4 class = "level">Finals</h4>
+#   <div class="bracket-matchup"></div>
+#   <div class="bracket-matchup"></div>
+#   <div class="bracket-matchup"></div>
+#     <div class="bracket-matchup">
+#       <div class="bracket-team">
+#         <div class="bracket-name">`r seeds[1]`</div>
+#       </div>
+#       <div class="bracket-team">
+#         <div class="bracket-name">`r seeds[3]`</div>
+#       </div>
+#     </div>
+#   </div>
+#   
+#   </div>
+# 
+# <!--/html_preserve-->
 
 
 ```
-##Playoffs  
-<a id = "po"></a>  
-
-
-<!--html_preserve-->
-
-<style type="text/css">
-
-.header{
-  height: 10%;
-}
-
-h4.level{
-  text-align: center;
-}
-
-.header>h1{
-  margin: auto;
-  text-align: center;
-  font-family: 'Dosis', sans-serif;
-  color: #205060
-}
-
-.bracket-container{
-  display: flex;
-  flex-direction: row;
-  height: 90%;
-  width: 100%;
-}
-
-.bracket-level{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 100%;
-  width: 100%;
-  flex-grow: 1;
-  transition: all ease .5s;
-}
-
-.bracket-level:hover{
-  width: 150%;
-}
-
-.bracket-matchup{
-  width: 90%;
-  margin: auto;
-  height: 60px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.bracket-halfmatchup{
-  width: 90%;
-  margin: auto;
-  height: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.bracket-team{
-  height: 45%;
-  width: 100%;
-  background-color: #F5F5F5;
-  box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
-  display: flex;
-  flex-direction: row;
-  transition: all ease .5s;
-  margin: 3px;
-}
-
-.bracket-name{
-  
-  width: 85%;
-  font-size: 0.8em;
-  padding: .2em;
-  line-height: 1.5em;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  color: #2B2B2B;
-  text-align: left;
-}
-
-.bracket-score{
-  font-family: 'Open Sans', sans-serif;
-  font-size: .8em;
-  padding: .2em;
-  line-height: 1.5em;
-  white-space: nowrap;
-  overflow: hidden;
-  color: #2B2B2B;
-  text-align: center;
-}
-
-.winner>.bracket-name, .winner>.bracket-score{
-  font-weight: bold;
-}
-
-.bracket-team:hover{
-  background-color: #E8E8E8;
-  height: 100%;
-  transition: all ease .5s;
-}
-
-.bracket-team:hover>.bracket-name{
-  overflow: none;
-  text-overflow: clip;
-  white-space: normal;
-  line-height: 1em;
-  align-self: center;
-  width: 100%;
-}
-
-.bracket-team:hover>.bracket-score{
-  display: none;
-}
-
-
-
-</style>
-
-
-  <div class="bracket-container">
-  <div class="bracket-level">
-  <h4 class = "level">Play-In</h4>
-    <div class="bracket-halfmatchup"></div>
-    <div class="bracket-matchup">
-      <div class="bracket-team loser">
-        
-        <div class="bracket-name">`r seeds[8]`</div>
-      </div>
-      <div class="bracket-team winner">
-        <div class="bracket-name">`r seeds[9]`</div><div class="bracket-score">2 and 1</div>
-      </div>
-    </div>
-    <div class="bracket-matchup"></div>
-    <div class="bracket-matchup"></div>
-    <div class="bracket-matchup"></div>
-    <div class="bracket-matchup">
-      <div class="bracket-team loser">
-        <div class="bracket-name">`r seeds[7]`</div>
-      </div>
-      <div class="bracket-team winner">
-        <div class="bracket-name">`r seeds[10]`</div><div class="bracket-score">3 and 1</div>
-      </div>
-    </div>
-    <div class="bracket-matchup"></div>
-    <div class="bracket-matchup"></div>
-  </div>
-  
-  <div class="bracket-level">
-  <h4 class = "level">Quarterfinals</h4>
-    <div class="bracket-matchup">
-      <div class="bracket-team winner">
-        <div class="bracket-name">`r seeds[1]`</div><div class = "bracket-score">20 holes</div>
-      </div>
-      <div class="bracket-team">
-        <div class="bracket-name">`r seeds[9]`</div>
-      </div>
-    </div>
-    <div class="bracket-matchup"></div>
-    <div class="bracket-matchup">
-      <div class="bracket-team">
-        <div class="bracket-name">`r seeds[4]`</div>
-      </div>
-      <div class="bracket-team winner">
-        <div class="bracket-name">`r seeds[5]`</div><div class = "bracket-score">1 up </div>
-      </div>
-    </div>
-    <div class="bracket-matchup"></div>
-    <div class="bracket-matchup">
-      <div class="bracket-team winner">
-        <div class="bracket-name">`r seeds[2]`</div><div class = "bracket-score">1 up </div>
-      </div>
-      <div class="bracket-team">
-        <div class="bracket-name">`r seeds[10]`</div>
-      </div>
-    </div>
-    <div class="bracket-matchup"></div>
-    <div class="bracket-matchup">
-      <div class="bracket-team winner">
-        <div class="bracket-name">`r seeds[3]`</div><div class = "bracket-score">5 and 4</div>
-      </div>
-      <div class="bracket-team">
-        <div class="bracket-name">`r seeds[6]`</div>
-      </div>
-    </div>
-  </div>
-  <div class="bracket-level">
-  <h4 class = "level">Semifinals</h4>
-    <div class="bracket-matchup"></div>
-    <div class="bracket-matchup">
-      <div class="bracket-team winner">
-        <div class="bracket-name">`r seeds[1]`</div><div class = "bracket-score">19 holes</div>
-      </div>
-      <div class="bracket-team">
-        <div class="bracket-name">`r seeds[5]`</div>
-      </div>
-    </div>
-    <div class="bracket-matchup"></div>
-    <div class="bracket-matchup"></div>
-    <div class="bracket-matchup"></div>
-    <div class="bracket-matchup">
-      <div class="bracket-team">
-        <div class="bracket-name">`r seeds[2]`</div>
-      </div>
-      <div class="bracket-team winner">
-        <div class="bracket-name">`r seeds[3]`</div><div class = "bracket-score">1 up</div>
-      </div>
-    </div>
-  </div>
-  <div class="bracket-level">
-  <h4 class = "level">Finals</h4>
-  <div class="bracket-matchup"></div>
-  <div class="bracket-matchup"></div>
-  <div class="bracket-matchup"></div>
-    <div class="bracket-matchup">
-      <div class="bracket-team">
-        <div class="bracket-name">`r seeds[1]`</div>
-      </div>
-      <div class="bracket-team">
-        <div class="bracket-name">`r seeds[3]`</div>
-      </div>
-    </div>
-  </div>
-  
-  </div>
-
-<!--/html_preserve-->
-
-
-
    
 
-###Seeding  
 
-```{r echo=FALSE, results="asis", eval = TRUE}
+
+```{r echo=FALSE, results="asis", eval = FALSE}
 q <- pOffs[,c("Seed", "Player 1", "Player 2", "Method")]
 row.names(q) <- NULL
 pander(q,row.names=FALSE, style = "simple", split.table = 240)
 
 ```  
-  
-Seeding based on: (1) Winning the group, (2) total points, (3) total holes won  
+
 
 ##Pool Play  
 <a id="pp"></a>  
 
 ###Pool Results  
 
-*  5/13 - Hubregsen/Sodergren def. Harrington/Ippolito, 11 - 7 (7 and 5)  
-*  6/3  - Hesotian/Suzuki def. Molke/Atkinson, 11.5 - 6.5  
-*  6/13 - Moore/Fullerton def. Schroeder/Beatty, 11 - 7 (5 and 3)  
-*  6/29 - Wellbeloved/Rovetti def. Cook/Sokitch, 10 - 8 (3 and 1)  
-*  6/30 - Cook/Sokitch def. Moore/Fullerton, 9.5 - 8.5 (1 up)  
-*  7/3 - Schneider/Drish def. Hubregsen/Sodergren, 9.5 - 8.5 (1 up)  
-*  7/3 - Yeh/Ota concede to Bonsall/Betts, 9.5 - 0  
-*  7/3 - Yeh/Ota concede to Bhatia/McKenna, 9.5 - 0  
-*  7/3 - Yeh/Ota concede to Russell/Highley, 9.5 - 0  
-*  7/13 - Markman/Notaney halve with Harrington/Ippolito, 9 - 9 (A/S)  
-*  7/22 - Cook/Sokitch def. Schroeder/Beatty, 10 - 8 (2 up)  
-*  7/29 - Beauduy/Cucinella def. Hesotian/Suzuki, 10 - 8 (3 and 2)  
-*  8/11 - Simpson/Solomon def. Beaduy/Cucinella, 9.5 - 8.5 (4 and 3)  
-*  8/26 - Schneider/Drish def. Markman/Notaney, 11 - 7 (4 and 3)  
-*  8/28 - Clifford/Shirbroun def. Tao/Dhadal, 10 - 8 (3 and 2)
-*  9/7 - Moore/Fullerton def. Wellbeloved/Rovetti, 11.5 - 6.5 (4 and 3)  
-*  9/16 - Clifford/Shirbroun def. Lefkowitz/O Fatharta 10 - 8 (3 and 2)  
-*  9/19 - Tao/Dhadhal concede to Kahn/Fischler, 9.5 - 0  
-*  9/23 - Hubregsen/Sodergren def. Markman/Notaney, 10.5 - 7.5 (2 and 1)  
-*  9/23 - Simpson/Solomon halve with Hesotian/Suzuki, 9 - 9 (A/S)  
-*  9/25 - Wellbeloved/Rovetti def. Schroeder/BEatty, 9.5 - 8.5 (1 up)  
-*  9/26 - Kahn/Fischler def. Clifford/Shirbroun, 10.5 - 7.5 (2 and 1)  
-*  9/29 - Schneider/Drish def. Harrington/Ippolito, 9.5 - 8.5 (1 up)  
-*  9/30 - Molke/Atkinson def. Beauduy/Cucinella, 11.5 - 6.5 (4 and 3)  
-*  9/30 - Lefkowitz/O Fatharta def. Kahn/Fischler, 9.5 - 8.5 (1 up)  
-*  9/30 - Russell/Highley def. Bhatia/McKenna, 9.5 - 8.5 (1 up)  
-*  10/2 - Simpson/Solomon def. Molke/Atkinson, 11.5 - 6.5 (5 and 3)  
 
 
 
@@ -500,39 +397,39 @@ Seeding based on: (1) Winning the group, (2) total points, (3) total holes won
 ```{r echo=FALSE, results="asis"}
 
 
-doPander("A", TRUE) #, "Group A Eliminated, No Matches Played")
+doPander("A", FALSE) #, "Group A Eliminated, No Matches Played")
 ```  
 
 
 ###Group B  
 ```{r echo=FALSE, results="asis"}
 
-doPander("B", TRUE)
+doPander("B", FALSE)
 ``` 
 
 
 ###Group C  
 ```{r echo=FALSE, results="asis"}
 
-doPander("C", TRUE)
+doPander("C", FALSE)
 ``` 
 
 ###Group D  
 ```{r echo=FALSE, results="asis"}
 
-doPander("D", TRUE)
+doPander("D", FALSE)
 ``` 
 
 ###Group E  
 ```{r echo=FALSE, results="asis"}
 
-doPander("E", TRUE)
+doPander("E", FALSE)
 ```  
 
 
-###Wild Card    
-```{r echo = FALSE, results = "asis", eval=TRUE}
-
+   
+```{r echo = FALSE, results = "asis", eval=FALSE}
+###Wild Card 
 
 
 doPanderWC(winners, TRUE)
@@ -559,7 +456,7 @@ The handicaps in play for each match will be the course handicaps based on full 
 USGA rules of golf and the [HPGC local tournament rules](http://www.golffusion.com/hardingparkgolf/content/1576305/Local-Tournament-Rules) will govern all play.  For matches conducted at other courses, the Local Rules for All Competitions section of the [HPGC local tournament rules](http://www.golffusion.com/hardingparkgolf/content/1576305/Local-Tournament-Rules) will apply, along with any posted local rules at the course being utilized
 
 ###Schedule  
-Pool play will take place from April through the end of September, with playoffs to begin in October.  All matches, including the playoffs, will be self-scheduled, and players are reponsible for their own greens fees.  Early weekend times are always difficult at TPC Harding Park, so I recommend booking early as cancellation is free
+Pool play will take place from Mid-March through the end of September, with playoffs to begin in October.  All matches, including the playoffs, will be self-scheduled, and players are reponsible for their own greens fees.  Early weekend times are always difficult at TPC Harding Park, so I recommend booking early as cancellation is free
 
 ###Pool Play  
 Teams have been grouped into five pools of four.  The first part of the tournament is round robin pool play--each team will play each otehr team in their pool once.  
@@ -574,7 +471,7 @@ Players are responsible for posting their own scores for handicap purposes; The 
 ###Order of finish  
 Final standings within the pool will be based on:  
 
-1.  Win/Loss record:  Wins are worth 3 points, ties are worth 1  
+1.  Win/Loss record:  Wins are worth 3 points, ties are worth 1, and completing a match is worth 1 for each team  
 2.  If tied on #1, total holes won
 2.  If tied on #2, head-to-head record  
 
@@ -604,7 +501,7 @@ ch <- function(idx) {
     #print(isPlus)
     rating <- 124
     hin <- numeric(length(idx))
-    hin[!isNH] <- as.numeric(idx[!isNH])
+    hin[!isNH] <- as.numeric(gsub("R","",idx[!isNH]))
     chi <- character(length(idx))
     chi[!isNH] <- as.character(round(rating/113*hin[!isNH],0))
     chi[isPlus & chi!="0"] <- paste0("+",chi[isPlus & chi!="0"])
@@ -618,8 +515,8 @@ roster <- read.csv("../rosterPools.csv")
 index <- read.csv("../indexResults.csv", colClasses = c("numeric","character","character"))
 roster <- merge(roster, index, by.x="ghin",by.y="ghin")
 roster$index[roster$ghin==9999999] <- "NH"
-roster$index[as.numeric(roster$index) < 0] <- 
-  paste0('+', substr(roster$index[as.numeric(roster$index) < 0],2,1000000L))
+roster$index[as.numeric(gsub("R","",roster$index)) < 0] <- 
+  paste0('+', substr(roster$index[as.numeric(gsub("R","",roster$index)) < 0],2,1000000L))
 
 roster <- roster[,c("Name","teamNo","pools","index","asOf")]
 

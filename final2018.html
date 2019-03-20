@@ -125,7 +125,7 @@ $(document).ready(function () {
 </div>
 
 
-<p>Last updated: Mar 19, 2019 21:57</p>
+<p>Last updated: Feb 18, 2019 22:03</p>
 <div id="table-of-contents" class="section level2">
 <h2>Table of Contents</h2>
 <ol style="list-style-type: decimal">
@@ -137,22 +137,383 @@ $(document).ready(function () {
 </li>
 <li><a href="#roster">Roster (including current handicaps)</a><br />
 </li>
-<li><a href="final2018.html">2018 tournament</a><br />
-</li>
 <li><a href="final2017.html">2017 tournament</a><br />
 </li>
 <li><a href="final2016.html">2016 tournament</a></li>
 </ol>
+</div>
+<div id="playoffs" class="section level2">
+<h2>Playoffs</h2>
+<p><a id="po"></a></p>
+
+
+<style type="text/css">
+
+.header{
+  height: 10%;
+}
+
+h4.level{
+  text-align: center;
+}
+
+.header>h1{
+  margin: auto;
+  text-align: center;
+  font-family: 'Dosis', sans-serif;
+  color: #205060
+}
+
+.bracket-container{
+  display: flex;
+  flex-direction: row;
+  height: 90%;
+  width: 100%;
+}
+
+.bracket-level{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+  flex-grow: 1;
+  transition: all ease .5s;
+}
+
+.bracket-level:hover{
+  width: 150%;
+}
+
+.bracket-matchup{
+  width: 90%;
+  margin: auto;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bracket-halfmatchup{
+  width: 90%;
+  margin: auto;
+  height: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bracket-team{
+  height: 45%;
+  width: 100%;
+  background-color: #F5F5F5;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+  display: flex;
+  flex-direction: row;
+  transition: all ease .5s;
+  margin: 3px;
+}
+
+.bracket-name{
+  
+  width: 85%;
+  font-size: 0.8em;
+  padding: .2em;
+  line-height: 1.5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #2B2B2B;
+  text-align: left;
+}
+
+.bracket-score{
+  font-family: 'Open Sans', sans-serif;
+  font-size: .8em;
+  padding: .2em;
+  line-height: 1.5em;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #2B2B2B;
+  text-align: center;
+}
+
+.winner>.bracket-name, .winner>.bracket-score{
+  font-weight: bold;
+}
+
+.bracket-team:hover{
+  background-color: #E8E8E8;
+  height: 100%;
+  transition: all ease .5s;
+}
+
+.bracket-team:hover>.bracket-name{
+  overflow: none;
+  text-overflow: clip;
+  white-space: normal;
+  line-height: 1em;
+  align-self: center;
+  width: 100%;
+}
+
+.bracket-team:hover>.bracket-score{
+  display: none;
+}
+
+
+
+</style>
+
+
+  <div class="bracket-container">
+  <div class="bracket-level">
+  <h4 class = "level">Play-In</h4>
+    <div class="bracket-halfmatchup"></div>
+    <div class="bracket-matchup">
+      <div class="bracket-team loser">
+        
+        <div class="bracket-name">Mark Cook/Michael Sokitch</div>
+      </div>
+      <div class="bracket-team winner">
+        <div class="bracket-name">Trim Wellbeloved/Rich Rovetti</div><div class="bracket-score">2 and 1</div>
+      </div>
+    </div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <div class="bracket-team loser">
+        <div class="bracket-name">Jamie Kahn/Cal Fischler</div>
+      </div>
+      <div class="bracket-team winner">
+        <div class="bracket-name">Jack Hesotian/allen suzuki</div><div class="bracket-score">3 and 1</div>
+      </div>
+    </div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup"></div>
+  </div>
+  
+  <div class="bracket-level">
+  <h4 class = "level">Quarterfinals</h4>
+    <div class="bracket-matchup">
+      <div class="bracket-team winner">
+        <div class="bracket-name">Todd Schneider/Derek Drish</div><div class = "bracket-score">20 holes</div>
+      </div>
+      <div class="bracket-team">
+        <div class="bracket-name">Trim Wellbeloved/Rich Rovetti</div>
+      </div>
+    </div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <div class="bracket-team">
+        <div class="bracket-name">Kieran Clifford/Randy Shirbroun</div>
+      </div>
+      <div class="bracket-team winner">
+        <div class="bracket-name">Jay Russell/Brett Highley</div><div class = "bracket-score">1 up </div>
+      </div>
+    </div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <div class="bracket-team winner">
+        <div class="bracket-name">Jim Simpson/Felix Solomon</div><div class = "bracket-score">1 up </div>
+      </div>
+      <div class="bracket-team">
+        <div class="bracket-name">Jack Hesotian/allen suzuki</div>
+      </div>
+    </div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <div class="bracket-team winner">
+        <div class="bracket-name">Gerard Moore/Steve Fullerton</div><div class = "bracket-score">5 and 4</div>
+      </div>
+      <div class="bracket-team">
+        <div class="bracket-name">Patrick Hubregsen/Johan Sodergren</div>
+      </div>
+    </div>
+  </div>
+  <div class="bracket-level">
+  <h4 class = "level">Semifinals</h4>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <div class="bracket-team winner">
+        <div class="bracket-name">Todd Schneider/Derek Drish</div><div class = "bracket-score">19 holes</div>
+      </div>
+      <div class="bracket-team">
+        <div class="bracket-name">Jay Russell/Brett Highley</div>
+      </div>
+    </div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <div class="bracket-team">
+        <div class="bracket-name">Jim Simpson/Felix Solomon</div>
+      </div>
+      <div class="bracket-team winner">
+        <div class="bracket-name">Gerard Moore/Steve Fullerton</div><div class = "bracket-score">1 up</div>
+      </div>
+    </div>
+  </div>
+  <div class="bracket-level">
+  <h4 class = "level">Finals</h4>
+  <div class="bracket-matchup"></div>
+  <div class="bracket-matchup"></div>
+  <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <div class="bracket-team">
+        <div class="bracket-name">Todd Schneider/Derek Drish</div>
+      </div>
+      <div class="bracket-team">
+        <div class="bracket-name">Gerard Moore/Steve Fullerton</div>
+      </div>
+    </div>
+  </div>
+  
+  </div>
+
+
+<div id="seeding" class="section level3">
+<h3>Seeding</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Seed</th>
+<th align="center">Player 1</th>
+<th align="center">Player 2</th>
+<th align="center">Method</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">Todd Schneider</td>
+<td align="center">Derek Drish</td>
+<td align="center">Won Group</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">Jim Simpson</td>
+<td align="center">Felix Solomon</td>
+<td align="center">Won Group</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">Gerard Moore</td>
+<td align="center">Steve Fullerton</td>
+<td align="center">Won Group</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="center">Kieran Clifford</td>
+<td align="center">Randy Shirbroun</td>
+<td align="center">Won Group</td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="center">Jay Russell</td>
+<td align="center">Brett Highley</td>
+<td align="center">Won Group</td>
+</tr>
+<tr class="even">
+<td align="center">6</td>
+<td align="center">Patrick Hubregsen</td>
+<td align="center">Johan Sodergren</td>
+<td align="center">Wild Card</td>
+</tr>
+<tr class="odd">
+<td align="center">7</td>
+<td align="center">Jamie Kahn</td>
+<td align="center">Cal Fischler</td>
+<td align="center">Wild Card</td>
+</tr>
+<tr class="even">
+<td align="center">8</td>
+<td align="center">Mark Cook</td>
+<td align="center">Michael Sokitch</td>
+<td align="center">Wild Card</td>
+</tr>
+<tr class="odd">
+<td align="center">9</td>
+<td align="center">Trim Wellbeloved</td>
+<td align="center">Rich Rovetti</td>
+<td align="center">Wild Card</td>
+</tr>
+<tr class="even">
+<td align="center">10</td>
+<td align="center">Jack Hesotian</td>
+<td align="center">allen suzuki</td>
+<td align="center">Wild Card</td>
+</tr>
+</tbody>
+</table>
+<p>Seeding based on: (1) Winning the group, (2) total points, (3) total holes won</p>
+</div>
 </div>
 <div id="pool-play" class="section level2">
 <h2>Pool Play</h2>
 <p><a id="pp"></a></p>
 <div id="pool-results" class="section level3">
 <h3>Pool Results</h3>
+<ul>
+<li>5/13 - Hubregsen/Sodergren def. Harrington/Ippolito, 11 - 7 (7 and 5)<br />
+</li>
+<li>6/3 - Hesotian/Suzuki def. Molke/Atkinson, 11.5 - 6.5<br />
+</li>
+<li>6/13 - Moore/Fullerton def. Schroeder/Beatty, 11 - 7 (5 and 3)<br />
+</li>
+<li>6/29 - Wellbeloved/Rovetti def. Cook/Sokitch, 10 - 8 (3 and 1)<br />
+</li>
+<li>6/30 - Cook/Sokitch def. Moore/Fullerton, 9.5 - 8.5 (1 up)<br />
+</li>
+<li>7/3 - Schneider/Drish def. Hubregsen/Sodergren, 9.5 - 8.5 (1 up)<br />
+</li>
+<li>7/3 - Yeh/Ota concede to Bonsall/Betts, 9.5 - 0<br />
+</li>
+<li>7/3 - Yeh/Ota concede to Bhatia/McKenna, 9.5 - 0<br />
+</li>
+<li>7/3 - Yeh/Ota concede to Russell/Highley, 9.5 - 0<br />
+</li>
+<li>7/13 - Markman/Notaney halve with Harrington/Ippolito, 9 - 9 (A/S)<br />
+</li>
+<li>7/22 - Cook/Sokitch def. Schroeder/Beatty, 10 - 8 (2 up)<br />
+</li>
+<li>7/29 - Beauduy/Cucinella def. Hesotian/Suzuki, 10 - 8 (3 and 2)<br />
+</li>
+<li>8/11 - Simpson/Solomon def. Beaduy/Cucinella, 9.5 - 8.5 (4 and 3)<br />
+</li>
+<li>8/26 - Schneider/Drish def. Markman/Notaney, 11 - 7 (4 and 3)<br />
+</li>
+<li>8/28 - Clifford/Shirbroun def. Tao/Dhadal, 10 - 8 (3 and 2)</li>
+<li>9/7 - Moore/Fullerton def. Wellbeloved/Rovetti, 11.5 - 6.5 (4 and 3)<br />
+</li>
+<li>9/16 - Clifford/Shirbroun def. Lefkowitz/O Fatharta 10 - 8 (3 and 2)<br />
+</li>
+<li>9/19 - Tao/Dhadhal concede to Kahn/Fischler, 9.5 - 0<br />
+</li>
+<li>9/23 - Hubregsen/Sodergren def. Markman/Notaney, 10.5 - 7.5 (2 and 1)<br />
+</li>
+<li>9/23 - Simpson/Solomon halve with Hesotian/Suzuki, 9 - 9 (A/S)<br />
+</li>
+<li>9/25 - Wellbeloved/Rovetti def. Schroeder/BEatty, 9.5 - 8.5 (1 up)<br />
+</li>
+<li>9/26 - Kahn/Fischler def. Clifford/Shirbroun, 10.5 - 7.5 (2 and 1)<br />
+</li>
+<li>9/29 - Schneider/Drish def. Harrington/Ippolito, 9.5 - 8.5 (1 up)<br />
+</li>
+<li>9/30 - Molke/Atkinson def. Beauduy/Cucinella, 11.5 - 6.5 (4 and 3)<br />
+</li>
+<li>9/30 - Lefkowitz/O Fatharta def. Kahn/Fischler, 9.5 - 8.5 (1 up)<br />
+</li>
+<li>9/30 - Russell/Highley def. Bhatia/McKenna, 9.5 - 8.5 (1 up)<br />
+</li>
+<li>10/2 - Simpson/Solomon def. Molke/Atkinson, 11.5 - 6.5 (5 and 3)</li>
+</ul>
 </div>
 <div id="group-a" class="section level3">
 <h3>Group A</h3>
 <table>
+<caption>Jay Russell and Brett Highley win Group A!</caption>
 <thead>
 <tr class="header">
 <th align="center">Team</th>
@@ -167,41 +528,41 @@ $(document).ready(function () {
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">2</td>
-<td align="center">Mark Cook</td>
-<td align="center">Michael Sokitch</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
+<td align="center"><strong><em>13</em></strong></td>
+<td align="center"><strong><em>Jay Russell</em></strong></td>
+<td align="center"><strong><em>Brett Highley</em></strong></td>
+<td align="center"><strong><em>2</em></strong></td>
+<td align="center"><strong><em>0</em></strong></td>
+<td align="center"><strong><em>0</em></strong></td>
+<td align="center"><strong><em>6</em></strong></td>
+<td align="center"><strong><em>19</em></strong></td>
 </tr>
 <tr class="even">
-<td align="center">6</td>
-<td align="center">Ken Harrington</td>
-<td align="center">Michael Ippolito</td>
+<td align="center">15</td>
+<td align="center">Ajay Bhatia</td>
+<td align="center">Todd McKenna</td>
+<td align="center">1</td>
+<td align="center">1</td>
 <td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
+<td align="center">3</td>
+<td align="center">18</td>
 </tr>
 <tr class="odd">
-<td align="center">17</td>
-<td align="center">Todd Schneider</td>
-<td align="center">Derek Drish</td>
+<td align="center">20</td>
+<td align="center">Aaron Bonsall</td>
+<td align="center">Adam Betts</td>
+<td align="center">1</td>
 <td align="center">0</td>
 <td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
+<td align="center">3</td>
+<td align="center">9.5</td>
 </tr>
 <tr class="even">
-<td align="center">20</td>
-<td align="center">John Tourlos</td>
-<td align="center">Oscar Geronimo</td>
+<td align="center">12</td>
+<td align="center">Michael Yeh</td>
+<td align="center">Doug Ota</td>
 <td align="center">0</td>
-<td align="center">0</td>
+<td align="center">3</td>
 <td align="center">0</td>
 <td align="center">0</td>
 <td align="center">0</td>
@@ -212,6 +573,7 @@ $(document).ready(function () {
 <div id="group-b" class="section level3">
 <h3>Group B</h3>
 <table>
+<caption>Gerard Moore and Steve Fullerton win Group B!</caption>
 <thead>
 <tr class="header">
 <th align="center">Team</th>
@@ -226,44 +588,44 @@ $(document).ready(function () {
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">1</td>
-<td align="center">Naresh Dhadhal</td>
-<td align="center">Simon Tao</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
+<td align="center"><strong><em>11</em></strong></td>
+<td align="center"><strong><em>Gerard Moore</em></strong></td>
+<td align="center"><strong><em>Steve Fullerton</em></strong></td>
+<td align="center"><strong><em>2</em></strong></td>
+<td align="center"><strong><em>1</em></strong></td>
+<td align="center"><strong><em>0</em></strong></td>
+<td align="center"><strong><em>6</em></strong></td>
+<td align="center"><strong><em>31</em></strong></td>
 </tr>
 <tr class="even">
 <td align="center">3</td>
-<td align="center">Martin Goodman</td>
-<td align="center">Randall Momota</td>
+<td align="center">Mark Cook</td>
+<td align="center">Michael Sokitch</td>
+<td align="center">2</td>
+<td align="center">1</td>
 <td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
+<td align="center">6</td>
+<td align="center">27.5</td>
 </tr>
 <tr class="odd">
-<td align="center">10</td>
-<td align="center">Paul Mori</td>
-<td align="center">Tony Rivera</td>
+<td align="center">9</td>
+<td align="center">Trim Wellbeloved</td>
+<td align="center">Rich Rovetti</td>
+<td align="center">2</td>
+<td align="center">1</td>
 <td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
+<td align="center">6</td>
+<td align="center">26</td>
 </tr>
 <tr class="even">
-<td align="center">16</td>
-<td align="center">Matthew Lefkowitz</td>
-<td align="center">Larry Cerf</td>
+<td align="center">1</td>
+<td align="center">Steven Schroeder</td>
+<td align="center">Michael Beatty</td>
+<td align="center">0</td>
+<td align="center">3</td>
 <td align="center">0</td>
 <td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
+<td align="center">23.5</td>
 </tr>
 </tbody>
 </table>
@@ -271,6 +633,7 @@ $(document).ready(function () {
 <div id="group-c" class="section level3">
 <h3>Group C</h3>
 <table>
+<caption>Kieran Clifford and Randy Shirbroun win Group C!</caption>
 <thead>
 <tr class="header">
 <th align="center">Team</th>
@@ -285,44 +648,44 @@ $(document).ready(function () {
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">5</td>
-<td align="center">Trim Wellbeloved</td>
-<td align="center">Rich Rovetti</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr class="even">
-<td align="center">12</td>
-<td align="center">Jim Kraft</td>
-<td align="center">Steve Mellinger</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr class="odd">
-<td align="center">18</td>
-<td align="center">Howard Riefs</td>
-<td align="center">Dan Ringer</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
+<td align="center"><strong><em>8</em></strong></td>
+<td align="center"><strong><em>Kieran Clifford</em></strong></td>
+<td align="center"><strong><em>Randy Shirbroun</em></strong></td>
+<td align="center"><strong><em>2</em></strong></td>
+<td align="center"><strong><em>1</em></strong></td>
+<td align="center"><strong><em>0</em></strong></td>
+<td align="center"><strong><em>6</em></strong></td>
+<td align="center"><strong><em>29</em></strong></td>
 </tr>
 <tr class="even">
 <td align="center">19</td>
-<td align="center">Scott Gilgallon</td>
-<td align="center">Paul Donlon</td>
+<td align="center">Jamie Kahn</td>
+<td align="center">Cal Fischler</td>
+<td align="center">2</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">6</td>
+<td align="center">28.5</td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="center">Mathew Lefkowitz</td>
+<td align="center">Diarmuid O Fatharta</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">3</td>
+<td align="center">16</td>
+</tr>
+<tr class="even">
+<td align="center">17</td>
+<td align="center">Simon Tao</td>
+<td align="center">Naresh Dhadhal</td>
+<td align="center">0</td>
+<td align="center">2</td>
 <td align="center">0</td>
 <td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
+<td align="center">8</td>
 </tr>
 </tbody>
 </table>
@@ -330,6 +693,7 @@ $(document).ready(function () {
 <div id="group-d" class="section level3">
 <h3>Group D</h3>
 <table>
+<caption>Jim Simpson and Felix Solomon win Group D!</caption>
 <thead>
 <tr class="header">
 <th align="center">Team</th>
@@ -344,44 +708,44 @@ $(document).ready(function () {
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">7</td>
-<td align="center">Kieran Clifford</td>
-<td align="center">Randy Shirbroun</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
+<td align="center"><strong><em>7</em></strong></td>
+<td align="center"><strong><em>Jim Simpson</em></strong></td>
+<td align="center"><strong><em>Felix Solomon</em></strong></td>
+<td align="center"><strong><em>2</em></strong></td>
+<td align="center"><strong><em>0</em></strong></td>
+<td align="center"><strong><em>1</em></strong></td>
+<td align="center"><strong><em>7</em></strong></td>
+<td align="center"><strong><em>30</em></strong></td>
 </tr>
 <tr class="even">
-<td align="center">8</td>
-<td align="center">Gordon Atkinson</td>
-<td align="center">Robert Molke</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
+<td align="center">18</td>
+<td align="center">Jack Hesotian</td>
+<td align="center">allen suzuki</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">4</td>
+<td align="center">28.5</td>
 </tr>
 <tr class="odd">
-<td align="center">11</td>
-<td align="center">Patrick Hubregsen</td>
+<td align="center">2</td>
 <td align="center">Derek Beauduy</td>
+<td align="center">Craig Cucinella</td>
+<td align="center">1</td>
+<td align="center">2</td>
 <td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
+<td align="center">3</td>
+<td align="center">25</td>
 </tr>
 <tr class="even">
-<td align="center">14</td>
-<td align="center">Jake Markman</td>
-<td align="center">Ash Notaney</td>
+<td align="center">4</td>
+<td align="center">Robert Molke</td>
+<td align="center">Gordon Atkinson</td>
+<td align="center">1</td>
+<td align="center">2</td>
 <td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
+<td align="center">3</td>
+<td align="center">24.5</td>
 </tr>
 </tbody>
 </table>
@@ -389,6 +753,7 @@ $(document).ready(function () {
 <div id="group-e" class="section level3">
 <h3>Group E</h3>
 <table>
+<caption>Todd Schneider and Derek Drish win Group E!</caption>
 <thead>
 <tr class="header">
 <th align="center">Team</th>
@@ -403,41 +768,211 @@ $(document).ready(function () {
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">4</td>
-<td align="center">Ger Moore</td>
-<td align="center">Steve Fullerton</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
+<td align="center"><strong><em>10</em></strong></td>
+<td align="center"><strong><em>Todd Schneider</em></strong></td>
+<td align="center"><strong><em>Derek Drish</em></strong></td>
+<td align="center"><strong><em>3</em></strong></td>
+<td align="center"><strong><em>0</em></strong></td>
+<td align="center"><strong><em>0</em></strong></td>
+<td align="center"><strong><em>9</em></strong></td>
+<td align="center"><strong><em>30</em></strong></td>
 </tr>
 <tr class="even">
-<td align="center">9</td>
-<td align="center">Steven Schroeder</td>
-<td align="center">Michael Beatty</td>
+<td align="center">16</td>
+<td align="center">Patrick Hubregsen</td>
+<td align="center">Johan Sodergren</td>
+<td align="center">2</td>
+<td align="center">1</td>
 <td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
+<td align="center">6</td>
+<td align="center">30</td>
 </tr>
 <tr class="odd">
-<td align="center">13</td>
-<td align="center">Dermot Stratton</td>
-<td align="center">Matt Strube</td>
+<td align="center">6</td>
+<td align="center">Ken Harrington</td>
+<td align="center">Michael Ippolito</td>
 <td align="center">0</td>
+<td align="center">2</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">24.5</td>
+</tr>
+<tr class="even">
+<td align="center">14</td>
+<td align="center">Jake Markman</td>
+<td align="center">Ash Notaney</td>
 <td align="center">0</td>
+<td align="center">2</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">23.5</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="wild-card" class="section level3">
+<h3>Wild Card</h3>
+<table>
+<caption>Hubregsen/Sodergren, Kahn/Fischler, Cook/Sokitch, Wellbeloved/Rovetti, and Hesotian/suzuki advance!</caption>
+<thead>
+<tr class="header">
+<th align="center">Team</th>
+<th align="center">Player 1</th>
+<th align="center">Player 2</th>
+<th align="center">Wins</th>
+<th align="center">Losses</th>
+<th align="center">Ties</th>
+<th align="center">Points</th>
+<th align="center">Holes Won</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><em>16</em></td>
+<td align="center"><em>Patrick Hubregsen</em></td>
+<td align="center"><em>Johan Sodergren</em></td>
+<td align="center"><em>2</em></td>
+<td align="center"><em>1</em></td>
+<td align="center"><em>0</em></td>
+<td align="center"><em>6</em></td>
+<td align="center"><em>30</em></td>
+</tr>
+<tr class="even">
+<td align="center"><em>19</em></td>
+<td align="center"><em>Jamie Kahn</em></td>
+<td align="center"><em>Cal Fischler</em></td>
+<td align="center"><em>2</em></td>
+<td align="center"><em>1</em></td>
+<td align="center"><em>0</em></td>
+<td align="center"><em>6</em></td>
+<td align="center"><em>28.5</em></td>
+</tr>
+<tr class="odd">
+<td align="center"><em>3</em></td>
+<td align="center"><em>Mark Cook</em></td>
+<td align="center"><em>Michael Sokitch</em></td>
+<td align="center"><em>2</em></td>
+<td align="center"><em>1</em></td>
+<td align="center"><em>0</em></td>
+<td align="center"><em>6</em></td>
+<td align="center"><em>27.5</em></td>
+</tr>
+<tr class="even">
+<td align="center"><em>9</em></td>
+<td align="center"><em>Trim Wellbeloved</em></td>
+<td align="center"><em>Rich Rovetti</em></td>
+<td align="center"><em>2</em></td>
+<td align="center"><em>1</em></td>
+<td align="center"><em>0</em></td>
+<td align="center"><em>6</em></td>
+<td align="center"><em>26</em></td>
+</tr>
+<tr class="odd">
+<td align="center">18</td>
+<td align="center">Jack Hesotian</td>
+<td align="center">allen suzuki</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">4</td>
+<td align="center">28.5</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">Derek Beauduy</td>
+<td align="center">Craig Cucinella</td>
+<td align="center">1</td>
+<td align="center">2</td>
 <td align="center">0</td>
+<td align="center">3</td>
+<td align="center">25</td>
+</tr>
+<tr class="odd">
+<td align="center">4</td>
+<td align="center">Robert Molke</td>
+<td align="center">Gordon Atkinson</td>
+<td align="center">1</td>
+<td align="center">2</td>
 <td align="center">0</td>
-<td align="center">0</td>
+<td align="center">3</td>
+<td align="center">24.5</td>
 </tr>
 <tr class="even">
 <td align="center">15</td>
-<td align="center">Jim Simpson</td>
-<td align="center">Felix Solomon</td>
+<td align="center">Ajay Bhatia</td>
+<td align="center">Todd McKenna</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">3</td>
+<td align="center">18</td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="center">Mathew Lefkowitz</td>
+<td align="center">Diarmuid O Fatharta</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">3</td>
+<td align="center">16</td>
+</tr>
+<tr class="even">
+<td align="center">20</td>
+<td align="center">Aaron Bonsall</td>
+<td align="center">Adam Betts</td>
+<td align="center">1</td>
 <td align="center">0</td>
 <td align="center">0</td>
+<td align="center">3</td>
+<td align="center">9.5</td>
+</tr>
+<tr class="odd">
+<td align="center">6</td>
+<td align="center">Ken Harrington</td>
+<td align="center">Michael Ippolito</td>
+<td align="center">0</td>
+<td align="center">2</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">24.5</td>
+</tr>
+<tr class="even">
+<td align="center">14</td>
+<td align="center">Jake Markman</td>
+<td align="center">Ash Notaney</td>
+<td align="center">0</td>
+<td align="center">2</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">23.5</td>
+</tr>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">Steven Schroeder</td>
+<td align="center">Michael Beatty</td>
+<td align="center">0</td>
+<td align="center">3</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">23.5</td>
+</tr>
+<tr class="even">
+<td align="center">17</td>
+<td align="center">Simon Tao</td>
+<td align="center">Naresh Dhadhal</td>
+<td align="center">0</td>
+<td align="center">2</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">8</td>
+</tr>
+<tr class="odd">
+<td align="center">12</td>
+<td align="center">Michael Yeh</td>
+<td align="center">Doug Ota</td>
+<td align="center">0</td>
+<td align="center">3</td>
 <td align="center">0</td>
 <td align="center">0</td>
 <td align="center">0</td>
@@ -472,7 +1007,7 @@ $(document).ready(function () {
 </div>
 <div id="schedule" class="section level3">
 <h3>Schedule</h3>
-<p>Pool play will take place from Mid-March through the end of September, with playoffs to begin in October. All matches, including the playoffs, will be self-scheduled, and players are reponsible for their own greens fees. Early weekend times are always difficult at TPC Harding Park, so I recommend booking early as cancellation is free</p>
+<p>Pool play will take place from April through the end of September, with playoffs to begin in October. All matches, including the playoffs, will be self-scheduled, and players are reponsible for their own greens fees. Early weekend times are always difficult at TPC Harding Park, so I recommend booking early as cancellation is free</p>
 </div>
 <div id="pool-play-1" class="section level3">
 <h3>Pool Play</h3>
@@ -488,13 +1023,13 @@ $(document).ready(function () {
 <h3>Order of finish</h3>
 <p>Final standings within the pool will be based on:</p>
 <ol style="list-style-type: decimal">
-<li>Win/Loss record: Wins are worth 3 points, ties are worth 1, and completing a match is worth 1 for each team<br />
+<li>Win/Loss record: Wins are worth 3 points, ties are worth 1<br />
 </li>
 <li>If tied on #1, total holes won</li>
 <li>If tied on #2, head-to-head record</li>
 </ol>
 </div>
-<div id="playoffs" class="section level3">
+<div id="playoffs-1" class="section level3">
 <h3>Playoffs</h3>
 <p>Ten teams will make the playoffs, the five pool winners plus five wildcard teams based on (1) pool play match record or (2) total holes won during pool play. The six highest seeds will receive a bye in the first round.</p>
 <p>Playoffs will be single elimination play. In the event of a match being all square after 18 holes, extra holes will be played on flemming, according th the following, per TPC Harding Park:</p>
@@ -530,324 +1065,324 @@ $(document).ready(function () {
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">Naresh Dhadhal</td>
+<td align="center">Steven Schroeder</td>
 <td align="center">1</td>
 <td align="center">B</td>
-<td align="center">9.4</td>
-<td align="center">03/15/2019</td>
-<td align="center">10</td>
+<td align="center">5.4</td>
+<td align="center">01/01/2019</td>
+<td align="center">6</td>
 </tr>
 <tr class="even">
-<td align="center">Simon Tao</td>
+<td align="center">Michael Beatty</td>
 <td align="center">1</td>
 <td align="center">B</td>
-<td align="center">13.3R</td>
-<td align="center">03/15/2019</td>
-<td align="center">15</td>
+<td align="center">15.2</td>
+<td align="center">01/01/2019</td>
+<td align="center">17</td>
+</tr>
+<tr class="odd">
+<td align="center">Derek Beauduy</td>
+<td align="center">2</td>
+<td align="center">D</td>
+<td align="center">4.9</td>
+<td align="center">01/01/2019</td>
+<td align="center">5</td>
+</tr>
+<tr class="even">
+<td align="center">Craig Cucinella</td>
+<td align="center">2</td>
+<td align="center">D</td>
+<td align="center">+1.5</td>
+<td align="center">01/01/2019</td>
+<td align="center">+2</td>
 </tr>
 <tr class="odd">
 <td align="center">Mark Cook</td>
-<td align="center">2</td>
-<td align="center">A</td>
-<td align="center">10.8</td>
-<td align="center">03/15/2019</td>
-<td align="center">12</td>
+<td align="center">3</td>
+<td align="center">B</td>
+<td align="center">10.0</td>
+<td align="center">01/01/2019</td>
+<td align="center">11</td>
 </tr>
 <tr class="even">
 <td align="center">Michael Sokitch</td>
-<td align="center">2</td>
-<td align="center">A</td>
-<td align="center">10.2</td>
-<td align="center">03/15/2019</td>
+<td align="center">3</td>
+<td align="center">B</td>
+<td align="center">10.1</td>
+<td align="center">01/01/2019</td>
 <td align="center">11</td>
 </tr>
 <tr class="odd">
-<td align="center">Martin Goodman</td>
-<td align="center">3</td>
-<td align="center">B</td>
-<td align="center">11.0</td>
-<td align="center">03/15/2019</td>
-<td align="center">12</td>
+<td align="center">Gordon Atkinson</td>
+<td align="center">4</td>
+<td align="center">D</td>
+<td align="center">9.6</td>
+<td align="center">01/01/2019</td>
+<td align="center">11</td>
 </tr>
 <tr class="even">
-<td align="center">Randall Momota</td>
-<td align="center">3</td>
-<td align="center">B</td>
-<td align="center">8.8</td>
-<td align="center">03/15/2019</td>
-<td align="center">10</td>
+<td align="center">Robert Molke</td>
+<td align="center">4</td>
+<td align="center">D</td>
+<td align="center">13.9</td>
+<td align="center">01/01/2019</td>
+<td align="center">15</td>
 </tr>
 <tr class="odd">
-<td align="center">Ger Moore</td>
-<td align="center">4</td>
-<td align="center">E</td>
-<td align="center">16.7</td>
-<td align="center">03/15/2019</td>
-<td align="center">18</td>
+<td align="center">Diarmuid O Fatharta</td>
+<td align="center">5</td>
+<td align="center">C</td>
+<td align="center">0.2</td>
+<td align="center">01/01/2019</td>
+<td align="center">0</td>
 </tr>
 <tr class="even">
-<td align="center">Steve Fullerton</td>
-<td align="center">4</td>
-<td align="center">E</td>
-<td align="center">10.8</td>
-<td align="center">03/15/2019</td>
+<td align="center">Mathew Lefkowitz</td>
+<td align="center">5</td>
+<td align="center">C</td>
+<td align="center">10.5</td>
+<td align="center">01/01/2019</td>
 <td align="center">12</td>
-</tr>
-<tr class="odd">
-<td align="center">Trim Wellbeloved</td>
-<td align="center">5</td>
-<td align="center">C</td>
-<td align="center">9.5</td>
-<td align="center">03/15/2019</td>
-<td align="center">10</td>
-</tr>
-<tr class="even">
-<td align="center">Rich Rovetti</td>
-<td align="center">5</td>
-<td align="center">C</td>
-<td align="center">7.7</td>
-<td align="center">03/15/2019</td>
-<td align="center">8</td>
 </tr>
 <tr class="odd">
 <td align="center">Michael Ippolito</td>
 <td align="center">6</td>
-<td align="center">A</td>
+<td align="center">E</td>
 <td align="center">8.8</td>
-<td align="center">03/15/2019</td>
+<td align="center">01/01/2019</td>
 <td align="center">10</td>
 </tr>
 <tr class="even">
 <td align="center">Ken Harrington</td>
 <td align="center">6</td>
-<td align="center">A</td>
-<td align="center">5.8</td>
-<td align="center">03/15/2019</td>
+<td align="center">E</td>
+<td align="center">5.0</td>
+<td align="center">01/01/2019</td>
+<td align="center">5</td>
+</tr>
+<tr class="odd">
+<td align="center">Felix Solomon</td>
+<td align="center">7</td>
+<td align="center">D</td>
+<td align="center">11.6</td>
+<td align="center">01/01/2019</td>
+<td align="center">13</td>
+</tr>
+<tr class="even">
+<td align="center">Jim Simpson</td>
+<td align="center">7</td>
+<td align="center">D</td>
+<td align="center">5.1</td>
+<td align="center">01/01/2019</td>
 <td align="center">6</td>
 </tr>
 <tr class="odd">
 <td align="center">Randy Shirbroun</td>
-<td align="center">7</td>
-<td align="center">D</td>
-<td align="center">8.6</td>
-<td align="center">03/15/2019</td>
-<td align="center">9</td>
+<td align="center">8</td>
+<td align="center">C</td>
+<td align="center">7.1</td>
+<td align="center">01/01/2019</td>
+<td align="center">8</td>
 </tr>
 <tr class="even">
 <td align="center">Kieran Clifford</td>
-<td align="center">7</td>
-<td align="center">D</td>
-<td align="center">9.5</td>
-<td align="center">03/15/2019</td>
-<td align="center">10</td>
+<td align="center">8</td>
+<td align="center">C</td>
+<td align="center">8.6</td>
+<td align="center">01/01/2019</td>
+<td align="center">9</td>
 </tr>
 <tr class="odd">
-<td align="center">Gordon Atkinson</td>
-<td align="center">8</td>
-<td align="center">D</td>
-<td align="center">10.0</td>
-<td align="center">03/15/2019</td>
+<td align="center">Trim Wellbeloved</td>
+<td align="center">9</td>
+<td align="center">B</td>
+<td align="center">9.9</td>
+<td align="center">01/01/2019</td>
 <td align="center">11</td>
 </tr>
 <tr class="even">
-<td align="center">Robert Molke</td>
+<td align="center">Rich Rovetti</td>
+<td align="center">9</td>
+<td align="center">B</td>
+<td align="center">7.7</td>
+<td align="center">01/01/2019</td>
 <td align="center">8</td>
-<td align="center">D</td>
-<td align="center">14.3</td>
-<td align="center">03/15/2019</td>
-<td align="center">16</td>
 </tr>
 <tr class="odd">
-<td align="center">Steven Schroeder</td>
-<td align="center">9</td>
+<td align="center">Derek Drish</td>
+<td align="center">10</td>
 <td align="center">E</td>
-<td align="center">5.8</td>
-<td align="center">03/15/2019</td>
+<td align="center">5.2</td>
+<td align="center">01/01/2019</td>
 <td align="center">6</td>
 </tr>
 <tr class="even">
-<td align="center">Michael Beatty</td>
-<td align="center">9</td>
+<td align="center">Todd Schneider</td>
+<td align="center">10</td>
 <td align="center">E</td>
-<td align="center">15.3</td>
-<td align="center">03/15/2019</td>
-<td align="center">17</td>
+<td align="center">4.0</td>
+<td align="center">01/01/2019</td>
+<td align="center">4</td>
 </tr>
 <tr class="odd">
-<td align="center">Tony Rivera</td>
-<td align="center">10</td>
+<td align="center">Gerard Moore</td>
+<td align="center">11</td>
 <td align="center">B</td>
-<td align="center">11.0</td>
-<td align="center">03/15/2019</td>
-<td align="center">12</td>
-</tr>
-<tr class="even">
-<td align="center">Paul Mori</td>
-<td align="center">10</td>
-<td align="center">B</td>
-<td align="center">16.8</td>
-<td align="center">03/15/2019</td>
+<td align="center">16.6</td>
+<td align="center">01/01/2019</td>
 <td align="center">18</td>
 </tr>
-<tr class="odd">
-<td align="center">Derek Beauduy</td>
-<td align="center">11</td>
-<td align="center">D</td>
-<td align="center">4.9</td>
-<td align="center">03/15/2019</td>
-<td align="center">5</td>
-</tr>
 <tr class="even">
-<td align="center">Patrick Hubregsen</td>
+<td align="center">Steve Fullerton</td>
 <td align="center">11</td>
-<td align="center">D</td>
-<td align="center">5.0</td>
-<td align="center">03/15/2019</td>
-<td align="center">5</td>
-</tr>
-<tr class="odd">
-<td align="center">Jim Kraft</td>
+<td align="center">B</td>
+<td align="center">10.5</td>
+<td align="center">01/01/2019</td>
 <td align="center">12</td>
-<td align="center">C</td>
-<td align="center">6.2</td>
-<td align="center">03/15/2019</td>
-<td align="center">7</td>
-</tr>
-<tr class="even">
-<td align="center">Steve Mellinger</td>
-<td align="center">12</td>
-<td align="center">C</td>
-<td align="center">13.0</td>
-<td align="center">03/15/2019</td>
-<td align="center">14</td>
 </tr>
 <tr class="odd">
-<td align="center">Dermot Stratton</td>
-<td align="center">13</td>
-<td align="center">E</td>
-<td align="center">10.3</td>
-<td align="center">03/15/2019</td>
-<td align="center">11</td>
+<td align="center">Doug Ota</td>
+<td align="center">12</td>
+<td align="center">A</td>
+<td align="center">19.8</td>
+<td align="center">01/01/2019</td>
+<td align="center">22</td>
 </tr>
 <tr class="even">
-<td align="center">Matt Strube</td>
+<td align="center">Michael Yeh</td>
+<td align="center">12</td>
+<td align="center">A</td>
+<td align="center">20.3</td>
+<td align="center">01/01/2019</td>
+<td align="center">22</td>
+</tr>
+<tr class="odd">
+<td align="center">Brett Highley</td>
 <td align="center">13</td>
-<td align="center">E</td>
-<td align="center">6.7</td>
-<td align="center">03/15/2019</td>
-<td align="center">7</td>
+<td align="center">A</td>
+<td align="center">2.6</td>
+<td align="center">01/01/2019</td>
+<td align="center">3</td>
+</tr>
+<tr class="even">
+<td align="center">Jay Russell</td>
+<td align="center">13</td>
+<td align="center">A</td>
+<td align="center">7.1</td>
+<td align="center">01/01/2019</td>
+<td align="center">8</td>
 </tr>
 <tr class="odd">
 <td align="center">Ash Notaney</td>
 <td align="center">14</td>
-<td align="center">D</td>
+<td align="center">E</td>
 <td align="center">10.8</td>
-<td align="center">03/15/2019</td>
+<td align="center">01/01/2019</td>
 <td align="center">12</td>
 </tr>
 <tr class="even">
 <td align="center">Jake Markman</td>
 <td align="center">14</td>
-<td align="center">D</td>
-<td align="center">1.9</td>
-<td align="center">03/15/2019</td>
-<td align="center">2</td>
+<td align="center">E</td>
+<td align="center">1.3</td>
+<td align="center">01/01/2019</td>
+<td align="center">1</td>
 </tr>
 <tr class="odd">
-<td align="center">Felix Solomon</td>
+<td align="center">Ajay Bhatia</td>
 <td align="center">15</td>
-<td align="center">E</td>
-<td align="center">13.0</td>
-<td align="center">03/15/2019</td>
-<td align="center">14</td>
+<td align="center">A</td>
+<td align="center">13.6</td>
+<td align="center">01/01/2019</td>
+<td align="center">15</td>
 </tr>
 <tr class="even">
-<td align="center">Jim Simpson</td>
+<td align="center">Todd McKenna</td>
 <td align="center">15</td>
+<td align="center">A</td>
+<td align="center">15.2</td>
+<td align="center">01/01/2019</td>
+<td align="center">17</td>
+</tr>
+<tr class="odd">
+<td align="center">Johan Sodergren</td>
+<td align="center">16</td>
 <td align="center">E</td>
-<td align="center">5.5</td>
-<td align="center">03/15/2019</td>
+<td align="center">7.1</td>
+<td align="center">01/01/2019</td>
+<td align="center">8</td>
+</tr>
+<tr class="even">
+<td align="center">Patrick Hubregsen</td>
+<td align="center">16</td>
+<td align="center">E</td>
+<td align="center">5.2</td>
+<td align="center">01/01/2019</td>
 <td align="center">6</td>
 </tr>
 <tr class="odd">
-<td align="center">Matthew Lefkowitz</td>
-<td align="center">16</td>
-<td align="center">B</td>
-<td align="center">10.8</td>
-<td align="center">03/15/2019</td>
+<td align="center">Naresh Dhadhal</td>
+<td align="center">17</td>
+<td align="center">C</td>
+<td align="center">10.0</td>
+<td align="center">01/01/2019</td>
+<td align="center">11</td>
+</tr>
+<tr class="even">
+<td align="center">Simon Tao</td>
+<td align="center">17</td>
+<td align="center">C</td>
+<td align="center">10.6</td>
+<td align="center">01/01/2019</td>
 <td align="center">12</td>
 </tr>
+<tr class="odd">
+<td align="center">Jack Hesotian</td>
+<td align="center">18</td>
+<td align="center">D</td>
+<td align="center">9.0</td>
+<td align="center">01/01/2019</td>
+<td align="center">10</td>
+</tr>
 <tr class="even">
-<td align="center">Larry Cerf</td>
-<td align="center">16</td>
-<td align="center">B</td>
+<td align="center">allen suzuki</td>
+<td align="center">18</td>
+<td align="center">D</td>
+<td align="center">10.2</td>
+<td align="center">01/01/2019</td>
+<td align="center">11</td>
+</tr>
+<tr class="odd">
+<td align="center">Cal Fischler</td>
+<td align="center">19</td>
+<td align="center">C</td>
+<td align="center">6.6</td>
+<td align="center">01/01/2019</td>
+<td align="center">7</td>
+</tr>
+<tr class="even">
+<td align="center">Jamie Kahn</td>
+<td align="center">19</td>
+<td align="center">C</td>
 <td align="center">5.7</td>
-<td align="center">03/15/2019</td>
+<td align="center">01/01/2019</td>
 <td align="center">6</td>
 </tr>
 <tr class="odd">
-<td align="center">Derek Drish</td>
-<td align="center">17</td>
+<td align="center">Adam Betts</td>
+<td align="center">20</td>
 <td align="center">A</td>
-<td align="center">4.8</td>
-<td align="center">03/15/2019</td>
-<td align="center">5</td>
-</tr>
-<tr class="even">
-<td align="center">Todd Schneider</td>
-<td align="center">17</td>
-<td align="center">A</td>
-<td align="center">3.8</td>
-<td align="center">03/15/2019</td>
+<td align="center">4.1</td>
+<td align="center">01/01/2019</td>
 <td align="center">4</td>
 </tr>
-<tr class="odd">
-<td align="center">Dan Ringer</td>
-<td align="center">18</td>
-<td align="center">C</td>
-<td align="center">16.9</td>
-<td align="center">03/15/2019</td>
-<td align="center">19</td>
-</tr>
 <tr class="even">
-<td align="center">Howard Riefs</td>
-<td align="center">18</td>
-<td align="center">C</td>
-<td align="center">14.5</td>
-<td align="center">03/15/2019</td>
-<td align="center">16</td>
-</tr>
-<tr class="odd">
-<td align="center">Paul Donlon</td>
-<td align="center">19</td>
-<td align="center">C</td>
-<td align="center">18.8</td>
-<td align="center">03/15/2019</td>
-<td align="center">21</td>
-</tr>
-<tr class="even">
-<td align="center">Scott Gilgallon</td>
-<td align="center">19</td>
-<td align="center">C</td>
-<td align="center">+0.4</td>
-<td align="center">03/15/2019</td>
-<td align="center">0</td>
-</tr>
-<tr class="odd">
-<td align="center">John Tourlos</td>
+<td align="center">Aaron Bonsall</td>
 <td align="center">20</td>
 <td align="center">A</td>
-<td align="center">12.5</td>
-<td align="center">03/15/2019</td>
-<td align="center">14</td>
-</tr>
-<tr class="even">
-<td align="center">Oscar Geronimo</td>
-<td align="center">20</td>
-<td align="center">A</td>
-<td align="center">5.8</td>
-<td align="center">03/15/2019</td>
-<td align="center">6</td>
+<td align="center">17.0</td>
+<td align="center">01/01/2019</td>
+<td align="center">19</td>
 </tr>
 </tbody>
 </table>

@@ -1,0 +1,630 @@
+---
+title: "HPGC Fourball Match Play 2018"
+output: html_document
+    
+    
+---
+
+```{r echo=FALSE}
+library(knitr)
+library(pander)
+```
+
+
+
+Last updated: `r format(Sys.time(),"%b %d, %Y %H:%M")`
+
+##Table of Contents  
+
+1.  [Playoffs](#po)  
+2.  [Pool Play](#pp)  
+3.  [Tournament Format](#format)  
+4.  [Roster (including current handicaps)](#roster)  
+5.  [2017 tournament](final2017.html)  
+6.  [2016 tournament](final2016.html)
+  
+
+
+
+```{r echo=FALSE}
+pooler <- read.csv("poolPlay.csv", stringsAsFactors = FALSE)
+
+
+names(pooler) = c("Team","Pool","Player 1","Player 2","Wins","Losses","Ties","Points","Holes Won")
+
+assign_win <- function(in_frame, teamid) {
+    out_vect <- in_frame[teamid,]
+    out_vect["Wins"] <- out_vect["Wins"] + 1
+    out_vect["Points"] <- out_vect["Points"] + 3
+    out_vect
+}
+
+assign_loss <- function(in_frame, teamid) {
+    out_vect <- in_frame[teamid,]
+    out_vect["Losses"] <- out_vect["Losses"] + 1
+    out_vect
+}
+
+assign_tie <- function(in_frame, teamid) {
+    out_vect <- in_frame[teamid,]
+    out_vect["Ties"] <- out_vect["Ties"] + 1
+    out_vect["Points"] <- out_vect["Points"] + 1
+    out_vect
+}
+
+giveRes <- function(in_frame, team1_id, team2_id, team1_points, team2_points) {
+    ret_frame <- in_frame
+    ret_frame[team1_id, "Holes Won"] <- ret_frame[team1_id, "Holes Won"] + team1_points
+    ret_frame[team2_id, "Holes Won"] <- ret_frame[team2_id, "Holes Won"] + team2_points
+    if (team1_points > team2_points) {
+        ret_frame[team1_id,] <- assign_win(ret_frame, team1_id)
+        ret_frame[team2_id,] <- assign_loss(ret_frame, team2_id)
+    } else if (team2_points > team1_points) {
+        ret_frame[team1_id,] <- assign_loss(ret_frame, team1_id)
+        ret_frame[team2_id,] <- assign_win(ret_frame, team2_id)
+    } else {
+        ret_frame[team1_id,] <- assign_tie(ret_frame, team1_id)
+        ret_frame[team2_id,] <- assign_tie(ret_frame, team2_id)
+    }
+    ret_frame
+}
+
+doPander <- function(group, complete = FALSE, captionOverride = NULL) {
+    # create the pander table for groups, announcing winners if complete
+    q <- pooler[pooler$Pool==group,-2]
+    row.names(q) <- NULL
+    if (complete) {
+        emphasize.strong.rows(1)
+        emphasize.italics.rows(1)
+        myCaption <- sprintf("%s and %s win Group %s!",q$`Player 1`[1], q$`Player 2`[1], group)
+    } else {
+        myCaption <- captionOverride
+    }
+    
+    pander(q,row.names=FALSE, style = "simple", split.table = 240, caption = myCaption)
+}
+
+pullLast <- function(nm) {
+    strsplit(nm," ")[[1]][2]
+}
+
+doPanderWC <- function(winners, complete = FALSE, eliminate = "X") {
+    # create the pander table for groups, announcing winners if complete
+    q <- pooler[!(pooler$Team %in% winners) & pooler$Pool != eliminate,-2]
+    row.names(q) <- NULL
+    if (complete) {
+        emphasize.italics.rows(1:4)
+        lNames <- sapply(c(q[1,2], q[1,3], q[2,2], q[2,3], q[3,2], q[3,3],
+                           q[4,2], q[4,3], q[5,2], q[5,3]), pullLast)
+        names(lNames) <- NULL
+        myCaption <- sprintf("%s/%s, %s/%s, %s/%s,  %s/%s, and %s/%s advance!", 
+                             lNames[1], lNames[2], lNames[3], lNames[4], lNames[5], lNames[6],
+                             lNames[7], lNames[8], lNames[9], lNames[10],
+                             lNames[11], lNames[12], lNames[13], lNames[14])
+    } else {
+        myCaption <- NULL
+    }
+    pander(q,row.names=FALSE, style = "simple", split.table = 240, caption = myCaption)
+}
+
+findWinners <- function(group) {
+    # find the winners for each group
+    q <- pooler[pooler$Pool==group,]
+    q$Team[1]
+}
+
+# *  5/13 - Hubregsen/Sodergren def. Harrington/Ippolito, 11-7 (7 and 5)  
+pooler <- giveRes(pooler, 16, 6, 11, 7)
+
+# *  6/3  - Hesotian/Suzuki def. Molke/Atkinson, 11.5 - 6.5  
+pooler <- giveRes(pooler, 18, 4, 11.5, 6.5)
+
+# *  6/13 - Moore/Fullerton def. Schroeder/Beatty, 11 - 7 (5 and 3)
+pooler <- giveRes(pooler, 11, 1, 11, 7)
+
+# *  6/29 - Wellbeloved/Rovetti def. Cook/Sokitch, 10 - 8 (3 and 1)  
+pooler <- giveRes(pooler, 9, 3, 10, 8)
+
+# *  6/30 - Cook/Sokitch def. Moore/Fullerton, 10 - 8 (2 and 1)  
+pooler <- giveRes(pooler, 3, 11, 9.5, 8.5)
+
+# *  7/3 - Schneider/Drish def. Hubregsen/Sodergren, 9.5 - 8.5 (1 up)  
+pooler <- giveRes(pooler, 10, 16, 9.5, 8.5)
+
+# *  7/3 - Yeh/Ota concede to Bonsall/Betts, 9.5 - 0
+pooler <- giveRes(pooler, 20, 12, 9.5, 0)
+
+# *  7/3 - Yeh/Ota concede to Bhatia/McKenna, 9.5 - 0
+pooler <- giveRes(pooler, 15, 12, 9.5, 0)
+
+# *  7/3 - Yeh/Ota concede to Russell/Highley, 9.5 - 0  
+pooler <- giveRes(pooler, 13, 12, 9.5, 0)
+
+# *  7/13 - Markman/Notaney halve with Harrington/Ippolito, 9 - 9 (A/S)  
+pooler <- giveRes(pooler, 14, 6, 9, 9)
+
+# *  7/22 - Cook/Sokitch def. Schroeder/Beatty, 10 - 8 (2 up)  
+pooler <- giveRes(pooler, 3, 1, 10, 8)
+
+# *  7/29 - Beauduy/Cucinella def. Hesotian/Suzuki, 10 - 8 (3 and 2)  
+pooler <- giveRes(pooler, 2, 18, 10, 8)
+
+#*  8/11 - Simpson/Solomon def. Beaduy/Cucinella, 9.5 - 8.5 (4 and 3) 
+pooler <- giveRes(pooler, 7, 2, 9.5, 8.5)
+
+#*  8/26 - Schneider/Drish def. Markman/Notaney, 11 - 7 (4 and 3)
+pooler <- giveRes(pooler, 10, 14, 11, 7)
+
+#*  8/28 - Clifford/Shirbroun def. Tao/Dhadal, 10 - 8 (3 and 2)
+pooler <- giveRes(pooler, 8, 17, 10, 8)
+
+#*  9/7 - Moore/Fullerton def. Wellbeloved/Rovetti, 11.5 - 6.5 (4 and 3)
+pooler <- giveRes(pooler, 11, 9, 11.5, 6.5)
+
+#*  9/16 - Clifford/Shirbroun def. Lefkowitz/O Fatharta 10 - 8 (3 and 2)
+pooler <- giveRes(pooler, 8, 5, 11.5, 6.5)
+
+#*  9/19 - Tao/Dhadhal concede to Kahn/Fischler, 9.5 - 0  
+pooler <- giveRes(pooler, 19, 17, 9.5, 0)
+
+#*  9/23 - Hubregsen/Sodergren def. Markman/Notaney, 10.5 - 7.5 (2 and 1)    
+pooler <- giveRes(pooler, 16, 14, 10.5, 7.5)
+
+#*  9/23 - Simpson/Solomon halve with Hesotian/Suzuki, 9 - 9 (A/S)      
+pooler <- giveRes(pooler, 7, 18, 9, 9)
+
+#*  9/25 - Wellbeloved/Rovetti def. Schroeder/BEatty, 9.5 - 8.5 (1 up)  
+pooler <- giveRes(pooler, 9, 1, 9.5, 8.5)
+
+# *  9/26 - Kahn/Fischler def. Clifford/Shirbroun, 10.5 - 7.5 (2 and 1)  
+pooler <- giveRes(pooler, 19, 8, 10.5, 7.5)
+
+# *  9/29 - Schneider/Drish def. Harrington/Ippolito, 9.5 - 8.5 (1 up)  
+pooler <- giveRes(pooler, 10, 6, 9.5, 8.5) 
+
+# *  9/30 - Molke/Atkinson def. Beauduy/Cucinella, 11.5 - 6.5 (4 and 3)  
+pooler <- giveRes(pooler, 4, 2, 11.5, 6.5) 
+
+# *  9/30 - Lefkowitz/O Fatharta def. Kahn/Fischler, 9.5 - 8.5 (1 up)  
+pooler <- giveRes(pooler, 5, 19, 9.5, 8.5)
+
+# *  9/30 - Russell/Highley def. Bhatia/McKenna, 9.5 - 8.5 (1 up)  
+pooler <- giveRes(pooler, 13, 15, 9.5, 8.5)
+
+#*  10/2 - Simpson/Solomon def. Molke/Atkinson, 11.5 - 6.5 (5 and 3)  
+pooler <- giveRes(pooler, 7, 4, 11.5, 6.5)
+
+## Now sort the standings
+pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"], decreasing = TRUE),]
+
+
+
+winners <- sapply(c("A","B","C","D","E"), findWinners)
+
+pOffs <- pooler[pooler$Team %in% winners,]
+pOffs <- rbind(pOffs, pooler[!(pooler$Team %in% winners), ][1:5,])
+pOffs[,2] <- 1:10
+names(pOffs)[2] <- "Seed"
+pOffs$Method <- "Wild Card"
+pOffs$Method[1:5] <- "Won Group"
+
+seeds <- paste(pOffs[,3],pOffs[,4], sep = "/")
+
+
+```
+##Playoffs  
+<a id = "po"></a>  
+
+
+<!--html_preserve-->
+
+<style type="text/css">
+
+.header{
+  height: 10%;
+}
+
+h4.level{
+  text-align: center;
+}
+
+.header>h1{
+  margin: auto;
+  text-align: center;
+  font-family: 'Dosis', sans-serif;
+  color: #205060
+}
+
+.bracket-container{
+  display: flex;
+  flex-direction: row;
+  height: 90%;
+  width: 100%;
+}
+
+.bracket-level{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+  flex-grow: 1;
+  transition: all ease .5s;
+}
+
+.bracket-level:hover{
+  width: 150%;
+}
+
+.bracket-matchup{
+  width: 90%;
+  margin: auto;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bracket-halfmatchup{
+  width: 90%;
+  margin: auto;
+  height: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bracket-team{
+  height: 45%;
+  width: 100%;
+  background-color: #F5F5F5;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+  display: flex;
+  flex-direction: row;
+  transition: all ease .5s;
+  margin: 3px;
+}
+
+.bracket-name{
+  
+  width: 85%;
+  font-size: 0.8em;
+  padding: .2em;
+  line-height: 1.5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #2B2B2B;
+  text-align: left;
+}
+
+.bracket-score{
+  font-family: 'Open Sans', sans-serif;
+  font-size: .8em;
+  padding: .2em;
+  line-height: 1.5em;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #2B2B2B;
+  text-align: center;
+}
+
+.winner>.bracket-name, .winner>.bracket-score{
+  font-weight: bold;
+}
+
+.bracket-team:hover{
+  background-color: #E8E8E8;
+  height: 100%;
+  transition: all ease .5s;
+}
+
+.bracket-team:hover>.bracket-name{
+  overflow: none;
+  text-overflow: clip;
+  white-space: normal;
+  line-height: 1em;
+  align-self: center;
+  width: 100%;
+}
+
+.bracket-team:hover>.bracket-score{
+  display: none;
+}
+
+
+
+</style>
+
+
+  <div class="bracket-container">
+  <div class="bracket-level">
+  <h4 class = "level">Play-In</h4>
+    <div class="bracket-halfmatchup"></div>
+    <div class="bracket-matchup">
+      <div class="bracket-team loser">
+        
+        <div class="bracket-name">`r seeds[8]`</div>
+      </div>
+      <div class="bracket-team winner">
+        <div class="bracket-name">`r seeds[9]`</div><div class="bracket-score">2 and 1</div>
+      </div>
+    </div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <div class="bracket-team loser">
+        <div class="bracket-name">`r seeds[7]`</div>
+      </div>
+      <div class="bracket-team winner">
+        <div class="bracket-name">`r seeds[10]`</div><div class="bracket-score">3 and 1</div>
+      </div>
+    </div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup"></div>
+  </div>
+  
+  <div class="bracket-level">
+  <h4 class = "level">Quarterfinals</h4>
+    <div class="bracket-matchup">
+      <div class="bracket-team winner">
+        <div class="bracket-name">`r seeds[1]`</div><div class = "bracket-score">20 holes</div>
+      </div>
+      <div class="bracket-team">
+        <div class="bracket-name">`r seeds[9]`</div>
+      </div>
+    </div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <div class="bracket-team">
+        <div class="bracket-name">`r seeds[4]`</div>
+      </div>
+      <div class="bracket-team winner">
+        <div class="bracket-name">`r seeds[5]`</div><div class = "bracket-score">1 up </div>
+      </div>
+    </div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <div class="bracket-team winner">
+        <div class="bracket-name">`r seeds[2]`</div><div class = "bracket-score">1 up </div>
+      </div>
+      <div class="bracket-team">
+        <div class="bracket-name">`r seeds[10]`</div>
+      </div>
+    </div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <div class="bracket-team winner">
+        <div class="bracket-name">`r seeds[3]`</div><div class = "bracket-score">5 and 4</div>
+      </div>
+      <div class="bracket-team">
+        <div class="bracket-name">`r seeds[6]`</div>
+      </div>
+    </div>
+  </div>
+  <div class="bracket-level">
+  <h4 class = "level">Semifinals</h4>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <div class="bracket-team winner">
+        <div class="bracket-name">`r seeds[1]`</div><div class = "bracket-score">19 holes</div>
+      </div>
+      <div class="bracket-team">
+        <div class="bracket-name">`r seeds[5]`</div>
+      </div>
+    </div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <div class="bracket-team">
+        <div class="bracket-name">`r seeds[2]`</div>
+      </div>
+      <div class="bracket-team winner">
+        <div class="bracket-name">`r seeds[3]`</div><div class = "bracket-score">1 up</div>
+      </div>
+    </div>
+  </div>
+  <div class="bracket-level">
+  <h4 class = "level">Finals</h4>
+  <div class="bracket-matchup"></div>
+  <div class="bracket-matchup"></div>
+  <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <div class="bracket-team">
+        <div class="bracket-name">`r seeds[1]`</div>
+      </div>
+      <div class="bracket-team">
+        <div class="bracket-name">`r seeds[3]`</div>
+      </div>
+    </div>
+  </div>
+  
+  </div>
+
+<!--/html_preserve-->
+
+
+
+   
+
+###Seeding  
+
+```{r echo=FALSE, results="asis", eval = TRUE}
+q <- pOffs[,c("Seed", "Player 1", "Player 2", "Method")]
+row.names(q) <- NULL
+pander(q,row.names=FALSE, style = "simple", split.table = 240)
+
+```  
+  
+Seeding based on: (1) Winning the group, (2) total points, (3) total holes won  
+
+##Pool Play  
+<a id="pp"></a>  
+
+###Pool Results  
+
+*  5/13 - Hubregsen/Sodergren def. Harrington/Ippolito, 11 - 7 (7 and 5)  
+*  6/3  - Hesotian/Suzuki def. Molke/Atkinson, 11.5 - 6.5  
+*  6/13 - Moore/Fullerton def. Schroeder/Beatty, 11 - 7 (5 and 3)  
+*  6/29 - Wellbeloved/Rovetti def. Cook/Sokitch, 10 - 8 (3 and 1)  
+*  6/30 - Cook/Sokitch def. Moore/Fullerton, 9.5 - 8.5 (1 up)  
+*  7/3 - Schneider/Drish def. Hubregsen/Sodergren, 9.5 - 8.5 (1 up)  
+*  7/3 - Yeh/Ota concede to Bonsall/Betts, 9.5 - 0  
+*  7/3 - Yeh/Ota concede to Bhatia/McKenna, 9.5 - 0  
+*  7/3 - Yeh/Ota concede to Russell/Highley, 9.5 - 0  
+*  7/13 - Markman/Notaney halve with Harrington/Ippolito, 9 - 9 (A/S)  
+*  7/22 - Cook/Sokitch def. Schroeder/Beatty, 10 - 8 (2 up)  
+*  7/29 - Beauduy/Cucinella def. Hesotian/Suzuki, 10 - 8 (3 and 2)  
+*  8/11 - Simpson/Solomon def. Beaduy/Cucinella, 9.5 - 8.5 (4 and 3)  
+*  8/26 - Schneider/Drish def. Markman/Notaney, 11 - 7 (4 and 3)  
+*  8/28 - Clifford/Shirbroun def. Tao/Dhadal, 10 - 8 (3 and 2)
+*  9/7 - Moore/Fullerton def. Wellbeloved/Rovetti, 11.5 - 6.5 (4 and 3)  
+*  9/16 - Clifford/Shirbroun def. Lefkowitz/O Fatharta 10 - 8 (3 and 2)  
+*  9/19 - Tao/Dhadhal concede to Kahn/Fischler, 9.5 - 0  
+*  9/23 - Hubregsen/Sodergren def. Markman/Notaney, 10.5 - 7.5 (2 and 1)  
+*  9/23 - Simpson/Solomon halve with Hesotian/Suzuki, 9 - 9 (A/S)  
+*  9/25 - Wellbeloved/Rovetti def. Schroeder/BEatty, 9.5 - 8.5 (1 up)  
+*  9/26 - Kahn/Fischler def. Clifford/Shirbroun, 10.5 - 7.5 (2 and 1)  
+*  9/29 - Schneider/Drish def. Harrington/Ippolito, 9.5 - 8.5 (1 up)  
+*  9/30 - Molke/Atkinson def. Beauduy/Cucinella, 11.5 - 6.5 (4 and 3)  
+*  9/30 - Lefkowitz/O Fatharta def. Kahn/Fischler, 9.5 - 8.5 (1 up)  
+*  9/30 - Russell/Highley def. Bhatia/McKenna, 9.5 - 8.5 (1 up)  
+*  10/2 - Simpson/Solomon def. Molke/Atkinson, 11.5 - 6.5 (5 and 3)  
+
+
+
+
+###Group A  
+```{r echo=FALSE, results="asis"}
+
+
+doPander("A", TRUE) #, "Group A Eliminated, No Matches Played")
+```  
+
+
+###Group B  
+```{r echo=FALSE, results="asis"}
+
+doPander("B", TRUE)
+``` 
+
+
+###Group C  
+```{r echo=FALSE, results="asis"}
+
+doPander("C", TRUE)
+``` 
+
+###Group D  
+```{r echo=FALSE, results="asis"}
+
+doPander("D", TRUE)
+``` 
+
+###Group E  
+```{r echo=FALSE, results="asis"}
+
+doPander("E", TRUE)
+```  
+
+
+###Wild Card    
+```{r echo = FALSE, results = "asis", eval=TRUE}
+
+
+
+doPanderWC(winners, TRUE)
+```
+
+##Tournament Format, Rules, and Schedule  
+<a id="format"></a>  
+
+###Match Format  
+This tournament is standard fourball match play--teams of two play against eachother in match play.  Both team members play their own ball, with the lower (net) score of the partners being the team's score for that hole.  If teams tie on a hole the hole is halved, there are no carry-overs  
+
+###Location  
+Pool play matches can occur at any course, provided both sides agree.  All playoff matches will be played at TPC Harding Park  
+
+###Tees  
+All matches at TPC Harding Park will be played from the white tees.  Matches at other courses will be played from whatever tees both sides can agree upon  
+
+###Handicaps  
+All matches will be played net.  We will follow the USGA method for assigning handicaps for net fourball play--the lowest course handicap in the foursome will play off scratch, with each of the remaining players playing to the difference between their course handicap and the lowest.  For example, if the four players have course handicaps of 4, 7, 7, and 8, the 4 handicap will get 0 strokes, the two 7's will get strokes on handicap holes 1 - 3, and the 8 handicap will get strokes on handicap holes 1 - 4.  
+
+The handicaps in play for each match will be the course handicaps based on full GHIN indexes as of the date of the match.  For transparency, indices for all players will be updated bi-weekly with the GHIN updates on this site in the roster section [here](#roster).  Note that the Course Handicap calculation is for TPC Harding Park only, course handicaps will need to be handled by the teams themselves for matches conducted at other courses.
+
+###Rules  
+USGA rules of golf and the [HPGC local tournament rules](http://www.golffusion.com/hardingparkgolf/content/1576305/Local-Tournament-Rules) will govern all play.  For matches conducted at other courses, the Local Rules for All Competitions section of the [HPGC local tournament rules](http://www.golffusion.com/hardingparkgolf/content/1576305/Local-Tournament-Rules) will apply, along with any posted local rules at the course being utilized
+
+###Schedule  
+Pool play will take place from April through the end of September, with playoffs to begin in October.  All matches, including the playoffs, will be self-scheduled, and players are reponsible for their own greens fees.  Early weekend times are always difficult at TPC Harding Park, so I recommend booking early as cancellation is free
+
+###Pool Play  
+Teams have been grouped into five pools of four.  The first part of the tournament is round robin pool play--each team will play each otehr team in their pool once.  
+
+During pool play, matches will continue for all 18 holes, regardless of who wins.  Each hole won will be worth one point for the winning team, while halved holes will be worth a half point for both teams.  The team with the most holes won wins regardless, but total holes won will be important for breaking ties in the likely event that teams have the same record  
+
+In the event that a team needs to concede / forfeit a match, the team conceded to will count the win.  To protect the rest of the field, they will earn 9.5 "total holes won", and the conceding team will earn 0.
+
+###Posting Scores  
+Players are responsible for posting their own scores for handicap purposes; The Committee will not be doing so.  As a reminder, for handicap purposes, holes where players do not finish out (either because of a concession or because they cannot better their opponent) should be recorded as the score that the player most likely would have made on that hole, subject to ESC.
+
+###Order of finish  
+Final standings within the pool will be based on:  
+
+1.  Win/Loss record:  Wins are worth 3 points, ties are worth 1  
+2.  If tied on #1, total holes won
+2.  If tied on #2, head-to-head record  
+
+###Playoffs  
+Ten teams will make the playoffs, the five pool winners plus five wildcard teams based on (1) pool play match record or (2) total holes won during pool play.  The six highest seeds will receive a bye in the first round.
+
+Playoffs will be single elimination play.  In the event of a match being all square after 18 holes, extra holes will be played on flemming, according th the following, per TPC Harding Park:  
+
+*  Playoff sudden death will only be permitted on Fleming, regardless of the activity on Harding  
+*  Golfers will need to check into the golf shop after the 18th hole and advise of the playoff sudden death  
+*  Players will have to wait their turn on Fleming 1  
+*  Players will have to exit the course once the match is determined  
+
+Hole handicaps on Fleming are based on 9 hole matches, not 18.  So, for extra hole purposes, the handicap index will be $2 * n - 1$, where $n$ is the index listed on the Fleming score card.  Effectively, this follows the convention of all odd-indexed holes being on the front 9.   
+
+###Prizes
+
+50% of the prize pool to the winning team, 30% to the second place team, and 10% each to the two losing semi-finalists  
+
+##Roster  
+<a id="roster"></a>
+```{r echo=FALSE}
+
+ch <- function(idx) {
+    isNH <- idx=="NH"
+    isPlus <- (substr(idx,1,1)=="+")
+    #print(isPlus)
+    rating <- 124
+    hin <- numeric(length(idx))
+    hin[!isNH] <- as.numeric(idx[!isNH])
+    chi <- character(length(idx))
+    chi[!isNH] <- as.character(round(rating/113*hin[!isNH],0))
+    chi[isPlus & chi!="0"] <- paste0("+",chi[isPlus & chi!="0"])
+    #print(isPlus & chi!="0")
+    chi[isNH] <- "0"
+    chi
+    
+}
+
+roster <- read.csv("../rosterPools.csv")
+index <- read.csv("../indexResults.csv", colClasses = c("numeric","character","character"))
+roster <- merge(roster, index, by.x="ghin",by.y="ghin")
+roster$index[roster$ghin==9999999] <- "NH"
+roster$index[as.numeric(roster$index) < 0] <- 
+  paste0('+', substr(roster$index[as.numeric(roster$index) < 0],2,1000000L))
+
+roster <- roster[,c("Name","teamNo","pools","index","asOf")]
+
+roster$'Course Handicap' <- ch(roster$index)
+names(roster) <- c("Player","Team","Pool","Handicap Index","Current As Of", "Course Handicap")
+roster <- roster[order(roster$Team),]
+pander(roster,row.names=FALSE, style = "simple", split.table = 240)
+```
