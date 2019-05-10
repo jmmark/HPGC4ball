@@ -36,7 +36,7 @@ names(pooler) = c("Team","Pool","Player 1","Player 2","Wins","Losses","Ties","Po
 assign_win <- function(in_frame, teamid) {
     out_vect <- in_frame[teamid,]
     out_vect["Wins"] <- out_vect["Wins"] + 1
-    out_vect["Points"] <- out_vect["Points"] + 3
+    out_vect["Points"] <- out_vect["Points"] + 4
     out_vect
 }
 
@@ -117,11 +117,17 @@ findWinners <- function(group) {
 
 
 
-# EXAMPLE FROM 2018*  10/2 - Simpson/Solomon def. Molke/Atkinson, 11.5 - 6.5 (5 and 3)  
-#pooler <- giveRes(pooler, 7, 4, 11.5, 6.5)
+
+# *  3/31 - Clifford/Shirbroun def. Hubregsen/Beauduy, 13 - 5 (6 and 4)  
+# *  5/5 - Lefkowitz/Cerf def. Dhadhal/Tao, 9.5 - 8.5 (1 up)  
+# *  5/4 - Dhadhal/Tao tied Mori/Rivera, 9 - 9 (tied) 
+
+pooler <- giveRes(pooler, 7, 11, 13, 5)
+pooler <- giveRes(pooler, 16, 1, 9.5, 8.5)
+pooler <- giveRes(pooler, 1, 10, 9, 9)
 
 ## Now sort the standings
-#pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"], decreasing = TRUE),]
+pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"], decreasing = TRUE),]
 
 
 
@@ -389,6 +395,9 @@ pander(q,row.names=FALSE, style = "simple", split.table = 240)
 
 ###Pool Results  
 
+*  3/31 - Clifford/Shirbroun def. Hubregsen/Beauduy, 13 - 5 (6 and 4)  
+*  5/5 - Lefkowitz/Cerf def. Dhadhal/Tao, 9.5 - 8.5 (1 up)  
+*  5/4 - Dhadhal/Tao tied Mori/Rivera, 9 - 9 (tied)  
 
 
 
@@ -459,7 +468,7 @@ USGA rules of golf and the [HPGC local tournament rules](http://www.golffusion.c
 Pool play will take place from Mid-March through the end of September, with playoffs to begin in October.  All matches, including the playoffs, will be self-scheduled, and players are reponsible for their own greens fees.  Early weekend times are always difficult at TPC Harding Park, so I recommend booking early as cancellation is free
 
 ###Pool Play  
-Teams have been grouped into five pools of four.  The first part of the tournament is round robin pool play--each team will play each otehr team in their pool once.  
+Teams have been grouped into five pools of four.  The first part of the tournament is round robin pool play--each team will play each other team in their pool once.  
 
 During pool play, matches will continue for all 18 holes, regardless of who wins.  Each hole won will be worth one point for the winning team, while halved holes will be worth a half point for both teams.  The team with the most holes won wins regardless, but total holes won will be important for breaking ties in the likely event that teams have the same record  
 
