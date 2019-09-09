@@ -125,6 +125,7 @@ findWinners <- function(group) {
 # *  
 # *  6/30 - Lefkowitz/Cerf def. Mori/Rivera, 10 - 8 (3 and 1)  
 #*  7/28 - Markman/Notaney def. Hubregsen/Beauduy, 10.5 - 7.5 (3 and 1)
+#*  8/22 - Wellbeloved/Rovetti def. Gilgallon/Donlon, 13 - 5 (7 and 6)
 
 pooler <- giveRes(pooler, 7, 11, 13, 5)
 pooler <- giveRes(pooler, 16, 1, 9.5, 8.5)
@@ -132,6 +133,7 @@ pooler <- giveRes(pooler, 1, 10, 9, 9)
 pooler <- giveRes(pooler, 16, 3, 11.5, 6.5)
 pooler <- giveRes(pooler, 16, 10, 10, 8)  
 pooler <- giveRes(pooler, 14, 11, 10.5, 7.5)
+pooler <- giveRes(pooler, 5, 19, 13, 5)
 
 ## Now sort the standings
 pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"], decreasing = TRUE),]
@@ -407,7 +409,9 @@ pander(q,row.names=FALSE, style = "simple", split.table = 240)
 *  5/5 - Lefkowitz/Cerf def. Dhadhal/Tao, 9.5 - 8.5 (1 up)  
 *  5/4 - Dhadhal/Tao tied Mori/Rivera, 9 - 9 (tied)  
 *  6/30 - Lefkowitz/Cerf def. Mori/Rivera, 10 - 8 (3 and 1)  
-*  7/28 - Markman/Notaney def. Hubregsen/Beauduy, 10.5 - 7.5 (3 and 1)  
+*  7/28 - Markman/Notaney def. Hubregsen/Beauduy, 10.5 - 7.5 (3 and 1) 
+*  8/22 - Wellbeloved/Rovetti def. Gilgallon/Donlon, 13 - 5 (7 and 6)  
+
 
 
 
