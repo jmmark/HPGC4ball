@@ -14,7 +14,7 @@ library(pander)
 
 Last updated: `r format(Sys.time(),"%b %d, %Y %H:%M")`
 
-##Table of Contents  
+## Table of Contents  
 
 1.  [Playoffs](#po)  
 2.  [Pool Play](#pp)  
@@ -126,6 +126,7 @@ findWinners <- function(group) {
 # *  6/30 - Lefkowitz/Cerf def. Mori/Rivera, 10 - 8 (3 and 1)  
 #*  7/28 - Markman/Notaney def. Hubregsen/Beauduy, 10.5 - 7.5 (3 and 1)
 #*  8/22 - Wellbeloved/Rovetti def. Gilgallon/Donlon, 13 - 5 (7 and 6)
+#*  9/15 - Tourlos/Geronimo def. Cook/Sokitch, 9.5 - 8.5 (1 up)  
 
 pooler <- giveRes(pooler, 7, 11, 13, 5)
 pooler <- giveRes(pooler, 16, 1, 9.5, 8.5)
@@ -134,6 +135,7 @@ pooler <- giveRes(pooler, 16, 3, 11.5, 6.5)
 pooler <- giveRes(pooler, 16, 10, 10, 8)  
 pooler <- giveRes(pooler, 14, 11, 10.5, 7.5)
 pooler <- giveRes(pooler, 5, 19, 13, 5)
+pooler <- giveRes(pooler, 20, 2, 9.5, 8.5)
 
 ## Now sort the standings
 pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"], decreasing = TRUE),]
@@ -399,10 +401,10 @@ pander(q,row.names=FALSE, style = "simple", split.table = 240)
 ```  
 
 
-##Pool Play  
+## Pool Play  
 <a id="pp"></a>  
 
-###Pool Results  
+### Pool Results  
 
 *  3/31 - Clifford/Shirbroun def. Hubregsen/Beauduy, 13 - 5 (6 and 4)  
 *  4/20 - Lefkowitz/Cerf def. Goodman/Momota, 11.5 - 6.5 (4 and 3)  
@@ -411,13 +413,15 @@ pander(q,row.names=FALSE, style = "simple", split.table = 240)
 *  6/30 - Lefkowitz/Cerf def. Mori/Rivera, 10 - 8 (3 and 1)  
 *  7/28 - Markman/Notaney def. Hubregsen/Beauduy, 10.5 - 7.5 (3 and 1) 
 *  8/22 - Wellbeloved/Rovetti def. Gilgallon/Donlon, 13 - 5 (7 and 6)  
+*  9/15 - Tourlos/Geronimo def. Cook/Sokitch, 9.5 - 8.5 (1 up)  
 
 
 
 
 
 
-###Group A  
+
+### Group A  
 ```{r echo=FALSE, results="asis"}
 
 
@@ -425,26 +429,26 @@ doPander("A", FALSE) #, "Group A Eliminated, No Matches Played")
 ```  
 
 
-###Group B  
+### Group B  
 ```{r echo=FALSE, results="asis"}
 
 doPander("B", FALSE)
 ``` 
 
 
-###Group C  
+### Group C  
 ```{r echo=FALSE, results="asis"}
 
 doPander("C", FALSE)
 ``` 
 
-###Group D  
+### Group D  
 ```{r echo=FALSE, results="asis"}
 
 doPander("D", FALSE)
 ``` 
 
-###Group E  
+### Group E  
 ```{r echo=FALSE, results="asis"}
 
 doPander("E", FALSE)
@@ -459,47 +463,47 @@ doPander("E", FALSE)
 doPanderWC(winners, TRUE)
 ```
 
-##Tournament Format, Rules, and Schedule  
+## Tournament Format, Rules, and Schedule  
 <a id="format"></a>  
 
-###Match Format  
+### Match Format  
 This tournament is standard fourball match play--teams of two play against eachother in match play.  Both team members play their own ball, with the lower (net) score of the partners being the team's score for that hole.  If teams tie on a hole the hole is halved, there are no carry-overs  
 
-###Location  
+### Location  
 Pool play matches can occur at any course, provided both sides agree.  All playoff matches will be played at TPC Harding Park  
 
-###Tees  
+### Tees  
 All matches at TPC Harding Park will be played from the white tees.  Matches at other courses will be played from whatever tees both sides can agree upon  
 
-###Handicaps  
+### Handicaps  
 All matches will be played net.  We will follow the USGA method for assigning handicaps for net fourball play--the lowest course handicap in the foursome will play off scratch, with each of the remaining players playing to the difference between their course handicap and the lowest.  For example, if the four players have course handicaps of 4, 7, 7, and 8, the 4 handicap will get 0 strokes, the two 7's will get strokes on handicap holes 1 - 3, and the 8 handicap will get strokes on handicap holes 1 - 4.  
 
 The handicaps in play for each match will be the course handicaps based on full GHIN indexes as of the date of the match.  For transparency, indices for all players will be updated bi-weekly with the GHIN updates on this site in the roster section [here](#roster).  Note that the Course Handicap calculation is for TPC Harding Park only, course handicaps will need to be handled by the teams themselves for matches conducted at other courses.
 
-###Rules  
+### Rules  
 USGA rules of golf and the [HPGC local tournament rules](http://www.golffusion.com/hardingparkgolf/content/1576305/Local-Tournament-Rules) will govern all play.  For matches conducted at other courses, the Local Rules for All Competitions section of the [HPGC local tournament rules](http://www.golffusion.com/hardingparkgolf/content/1576305/Local-Tournament-Rules) will apply, along with any posted local rules at the course being utilized
 
-###Schedule  
+### Schedule  
 Pool play will take place from Mid-March through the end of September, with playoffs to begin in October.  All matches, including the playoffs, will be self-scheduled, and players are reponsible for their own greens fees.  Early weekend times are always difficult at TPC Harding Park, so I recommend booking early as cancellation is free
 
-###Pool Play  
+### Pool Play  
 Teams have been grouped into five pools of four.  The first part of the tournament is round robin pool play--each team will play each other team in their pool once.  
 
 During pool play, matches will continue for all 18 holes, regardless of who wins.  Each hole won will be worth one point for the winning team, while halved holes will be worth a half point for both teams.  The team with the most holes won wins regardless, but total holes won will be important for breaking ties in the likely event that teams have the same record  
 
 In the event that a team needs to concede / forfeit a match, the team conceded to will count the win.  To protect the rest of the field, they will earn 9.5 "total holes won", and the conceding team will earn 0.
 
-###Posting Scores  
+### Posting Scores  
 Players are responsible for posting their own scores for handicap purposes; The Committee will not be doing so.  As a reminder, for handicap purposes, holes where players do not finish out (either because of a concession or because they cannot better their opponent) should be recorded as the score that the player most likely would have made on that hole, subject to ESC.
 
-###Order of finish  
+### Order of finish  
 Final standings within the pool will be based on:  
 
 1.  Win/Loss record:  Wins are worth 3 points, ties are worth 1, and completing a match is worth 1 for each team  
 2.  If tied on #1, total holes won
 2.  If tied on #2, head-to-head record  
 
-###Playoffs  
+### Playoffs  
 Ten teams will make the playoffs, the five pool winners plus five wildcard teams based on (1) pool play match record or (2) total holes won during pool play.  The six highest seeds will receive a bye in the first round.
 
 Playoffs will be single elimination play.  In the event of a match being all square after 18 holes, extra holes will be played on flemming, according th the following, per TPC Harding Park:  
@@ -511,11 +515,11 @@ Playoffs will be single elimination play.  In the event of a match being all squ
 
 Hole handicaps on Fleming are based on 9 hole matches, not 18.  So, for extra hole purposes, the handicap index will be $2 * n - 1$, where $n$ is the index listed on the Fleming score card.  Effectively, this follows the convention of all odd-indexed holes being on the front 9.   
 
-###Prizes
+### Prizes
 
 50% of the prize pool to the winning team, 30% to the second place team, and 10% each to the two losing semi-finalists  
 
-##Roster  
+## Roster  
 <a id="roster"></a>
 ```{r echo=FALSE}
 
