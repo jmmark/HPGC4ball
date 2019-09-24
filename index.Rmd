@@ -33,17 +33,25 @@ pooler <- read.csv("poolPlay.csv", stringsAsFactors = FALSE)
 
 names(pooler) = c("Team","Pool","Player 1","Player 2","Wins","Losses","Ties","Points","Holes Won")
 
-assign_win <- function(in_frame, teamid) {
+assign_win <- function(in_frame, teamid, isDef = FALSE) {
     out_vect <- in_frame[teamid,]
+    extraPoint <- 0
+    if (!isDef) {
+      extraPoint <- 1
+    }
     out_vect["Wins"] <- out_vect["Wins"] + 1
-    out_vect["Points"] <- out_vect["Points"] + 4
+    out_vect["Points"] <- out_vect["Points"] + 3 + extraPoint
     out_vect
 }
 
-assign_loss <- function(in_frame, teamid) {
+assign_loss <- function(in_frame, teamid, isDef = FALSE) {
     out_vect <- in_frame[teamid,]
+    extraPoint <- 0
+    if (!isDef) {
+      extraPoint <- 1
+    }
     out_vect["Losses"] <- out_vect["Losses"] + 1
-    out_vect["Points"] <- out_vect["Points"] + 1
+    out_vect["Points"] <- out_vect["Points"] + extraPoint
     out_vect
 }
 
@@ -56,14 +64,15 @@ assign_tie <- function(in_frame, teamid) {
 
 giveRes <- function(in_frame, team1_id, team2_id, team1_points, team2_points) {
     ret_frame <- in_frame
+    isDef <- (team2_points == 0 && team1_points == 9.5)
     ret_frame[team1_id, "Holes Won"] <- ret_frame[team1_id, "Holes Won"] + team1_points
     ret_frame[team2_id, "Holes Won"] <- ret_frame[team2_id, "Holes Won"] + team2_points
     if (team1_points > team2_points) {
-        ret_frame[team1_id,] <- assign_win(ret_frame, team1_id)
-        ret_frame[team2_id,] <- assign_loss(ret_frame, team2_id)
+        ret_frame[team1_id,] <- assign_win(ret_frame, team1_id, isDef)
+        ret_frame[team2_id,] <- assign_loss(ret_frame, team2_id, isDef)
     } else if (team2_points > team1_points) {
-        ret_frame[team1_id,] <- assign_loss(ret_frame, team1_id)
-        ret_frame[team2_id,] <- assign_win(ret_frame, team2_id)
+        ret_frame[team1_id,] <- assign_loss(ret_frame, team1_id, isDef)
+        ret_frame[team2_id,] <- assign_win(ret_frame, team2_id, isDef)
     } else {
         ret_frame[team1_id,] <- assign_tie(ret_frame, team1_id)
         ret_frame[team2_id,] <- assign_tie(ret_frame, team2_id)
@@ -126,7 +135,10 @@ findWinners <- function(group) {
 # *  6/30 - Lefkowitz/Cerf def. Mori/Rivera, 10 - 8 (3 and 1)  
 #*  7/28 - Markman/Notaney def. Hubregsen/Beauduy, 10.5 - 7.5 (3 and 1)
 #*  8/22 - Wellbeloved/Rovetti def. Gilgallon/Donlon, 13 - 5 (7 and 6)
-#*  9/15 - Tourlos/Geronimo def. Cook/Sokitch, 9.5 - 8.5 (1 up)  
+# *  8/19 - Dhadhal/Tao def. Goodman/Momota, 9.5 - 0 (default)  
+# *  9/15 - Tourlos/Geronimo def. Cook/Sokitch, 9.5 - 8.5 (1 up)  
+# *  9/22 - Harrington/Ippolito def. Cook/Sokitch, 9.5 - 8.5 (1 up)  
+
 
 pooler <- giveRes(pooler, 7, 11, 13, 5)
 pooler <- giveRes(pooler, 16, 1, 9.5, 8.5)
@@ -135,7 +147,9 @@ pooler <- giveRes(pooler, 16, 3, 11.5, 6.5)
 pooler <- giveRes(pooler, 16, 10, 10, 8)  
 pooler <- giveRes(pooler, 14, 11, 10.5, 7.5)
 pooler <- giveRes(pooler, 5, 19, 13, 5)
+pooler <- giveRes(pooler, 1, 3, 9.5, 0)
 pooler <- giveRes(pooler, 20, 2, 9.5, 8.5)
+pooler <- giveRes(pooler, 6, 2, 9.5, 8.5)
 
 ## Now sort the standings
 pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"], decreasing = TRUE),]
@@ -413,8 +427,9 @@ pander(q,row.names=FALSE, style = "simple", split.table = 240)
 *  6/30 - Lefkowitz/Cerf def. Mori/Rivera, 10 - 8 (3 and 1)  
 *  7/28 - Markman/Notaney def. Hubregsen/Beauduy, 10.5 - 7.5 (3 and 1) 
 *  8/22 - Wellbeloved/Rovetti def. Gilgallon/Donlon, 13 - 5 (7 and 6)  
+*  8/19 - Dhadhal/Tao def. Goodman/Momota, 9.5 - 0 (default)  
 *  9/15 - Tourlos/Geronimo def. Cook/Sokitch, 9.5 - 8.5 (1 up)  
-
+*  9/22 - Harrington/Ippolito def. Cook/Sokitch, 9.5 - 8.5 (1 up)  
 
 
 
@@ -491,7 +506,7 @@ Teams have been grouped into five pools of four.  The first part of the tourname
 
 During pool play, matches will continue for all 18 holes, regardless of who wins.  Each hole won will be worth one point for the winning team, while halved holes will be worth a half point for both teams.  The team with the most holes won wins regardless, but total holes won will be important for breaking ties in the likely event that teams have the same record  
 
-In the event that a team needs to concede / forfeit a match, the team conceded to will count the win.  To protect the rest of the field, they will earn 9.5 "total holes won", and the conceding team will earn 0.
+In the event that a team needs to concede / forfeit a match, the team conceded to will count the win.  To protect the rest of the field, they will earn 9.5 "total holes won", the conceding team will earn 0, and neither team will earn the bonus point for playing a match.
 
 ### Posting Scores  
 Players are responsible for posting their own scores for handicap purposes; The Committee will not be doing so.  As a reminder, for handicap purposes, holes where players do not finish out (either because of a concession or because they cannot better their opponent) should be recorded as the score that the player most likely would have made on that hole, subject to ESC.
