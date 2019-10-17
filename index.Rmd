@@ -140,6 +140,7 @@ findWinners <- function(group) {
 # *  9/22 - Harrington/Ippolito def. Cook/Sokitch, 9.5 - 8.5 (1 up)  
 #*  10/10 - Harrington/Ippolito def. Tourlos/Geronimo 10.5 - 7.5 (2 and 1)  
 #*  10/15 - Clifford/Shirbroun def. Markman/Notaney, 9.5 - 0 (default)  
+#*  9/21 - Stratton/Strube def. Moore/Fullerton, 9.5 - 8.5 (2 and 1)  
 
 
 
@@ -155,6 +156,7 @@ pooler <- giveRes(pooler, 20, 2, 9.5, 8.5)
 pooler <- giveRes(pooler, 6, 2, 9.5, 8.5)
 pooler <- giveRes(pooler, 6, 20, 10.5, 7.5)
 pooler <- giveRes(pooler, 7, 14, 9.5, 0)  
+pooler <- giveRes(pooler, 13, 4, 9.5, 8.5)
 
 ## Now sort the standings
 pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"], decreasing = TRUE),]
@@ -434,6 +436,7 @@ pander(q,row.names=FALSE, style = "simple", split.table = 240)
 *  8/22 - Wellbeloved/Rovetti def. Gilgallon/Donlon, 13 - 5 (7 and 6)  
 *  8/19 - Dhadhal/Tao def. Goodman/Momota, 9.5 - 0 (default)  
 *  9/15 - Tourlos/Geronimo def. Cook/Sokitch, 9.5 - 8.5 (1 up)  
+*  9/21 - Stratton/Strube def. Moore/Fullerton, 9.5 - 8.5 (2 and 1)  
 *  9/22 - Harrington/Ippolito def. Cook/Sokitch, 9.5 - 8.5 (1 up)  
 *  10/10 - Harrington/Ippolito def. Tourlos/Geronimo 10.5 - 7.5 (2 and 1)  
 *  10/15 - Clifford/Shirbroun def. Markman/Notaney, 9.5 - 0 (default)  
