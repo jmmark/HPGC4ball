@@ -165,258 +165,277 @@ pooler <- pooler[order(pooler[,"Points"], pooler[, "Holes Won"], pooler[, "Team"
 
 
 
-#winners <- sapply(c("A","B","C","D","E"), findWinners)
+winners <- sapply(c("A","B","C","D","E"), findWinners)
 
-#pOffs <- pooler[pooler$Team %in% winners,]
-#pOffs <- rbind(pOffs, pooler[!(pooler$Team %in% winners), ][1:5,])
-#pOffs[,2] <- 1:10
-#names(pOffs)[2] <- "Seed"
-#pOffs$Method <- "Wild Card"
-#pOffs$Method[1:5] <- "Won Group"
+pOffs <- pooler[pooler$Team %in% winners,]
+pOffs <- rbind(pOffs, pooler[!(pooler$Team %in% winners), ][1:5,])
+pOffs[,2] <- 1:10
+names(pOffs)[2] <- "Seed"
+pOffs$Method <- "Wild Card"
+pOffs$Method[1:5] <- "Won Group"
 
-#seeds <- paste(pOffs[,3],pOffs[,4], sep = "/")
-
-# 
-# ##Playoffs  
-# <a id = "po"></a>  
-# 
-# 
-# <!--html_preserve-->
-# 
-# <style type="text/css">
-# 
-# .header{
-#   height: 10%;
-# }
-# 
-# h4.level{
-#   text-align: center;
-# }
-# 
-# .header>h1{
-#   margin: auto;
-#   text-align: center;
-#   font-family: 'Dosis', sans-serif;
-#   color: #205060
-# }
-# 
-# .bracket-container{
-#   display: flex;
-#   flex-direction: row;
-#   height: 90%;
-#   width: 100%;
-# }
-# 
-# .bracket-level{
-#   display: flex;
-#   flex-direction: column;
-#   justify-content: space-around;
-#   height: 100%;
-#   width: 100%;
-#   flex-grow: 1;
-#   transition: all ease .5s;
-# }
-# 
-# .bracket-level:hover{
-#   width: 150%;
-# }
-# 
-# .bracket-matchup{
-#   width: 90%;
-#   margin: auto;
-#   height: 60px;
-#   display: flex;
-#   flex-direction: column;
-#   justify-content: space-between;
-# }
-# 
-# .bracket-halfmatchup{
-#   width: 90%;
-#   margin: auto;
-#   height: 15px;
-#   display: flex;
-#   flex-direction: column;
-#   justify-content: space-between;
-# }
-# 
-# .bracket-team{
-#   height: 45%;
-#   width: 100%;
-#   background-color: #F5F5F5;
-#   box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
-#   display: flex;
-#   flex-direction: row;
-#   transition: all ease .5s;
-#   margin: 3px;
-# }
-# 
-# .bracket-name{
-#   
-#   width: 85%;
-#   font-size: 0.8em;
-#   padding: .2em;
-#   line-height: 1.5em;
-#   overflow: hidden;
-#   text-overflow: ellipsis;
-#   white-space: nowrap;
-#   color: #2B2B2B;
-#   text-align: left;
-# }
-# 
-# .bracket-score{
-#   font-family: 'Open Sans', sans-serif;
-#   font-size: .8em;
-#   padding: .2em;
-#   line-height: 1.5em;
-#   white-space: nowrap;
-#   overflow: hidden;
-#   color: #2B2B2B;
-#   text-align: center;
-# }
-# 
-# .winner>.bracket-name, .winner>.bracket-score{
-#   font-weight: bold;
-# }
-# 
-# .bracket-team:hover{
-#   background-color: #E8E8E8;
-#   height: 100%;
-#   transition: all ease .5s;
-# }
-# 
-# .bracket-team:hover>.bracket-name{
-#   overflow: none;
-#   text-overflow: clip;
-#   white-space: normal;
-#   line-height: 1em;
-#   align-self: center;
-#   width: 100%;
-# }
-# 
-# .bracket-team:hover>.bracket-score{
-#   display: none;
-# }
-# 
-# 
-# 
-# </style>
-# 
-# 
-#   <div class="bracket-container">
-#   <div class="bracket-level">
-#   <h4 class = "level">Play-In</h4>
-#     <div class="bracket-halfmatchup"></div>
-#     <div class="bracket-matchup">
-#       <div class="bracket-team loser">
-#         
-#         <div class="bracket-name">`r seeds[8]`</div>
-#       </div>
-#       <div class="bracket-team winner">
-#         <div class="bracket-name">`r seeds[9]`</div><div class="bracket-score">2 and 1</div>
-#       </div>
-#     </div>
-#     <div class="bracket-matchup"></div>
-#     <div class="bracket-matchup"></div>
-#     <div class="bracket-matchup"></div>
-#     <div class="bracket-matchup">
-#       <div class="bracket-team loser">
-#         <div class="bracket-name">`r seeds[7]`</div>
-#       </div>
-#       <div class="bracket-team winner">
-#         <div class="bracket-name">`r seeds[10]`</div><div class="bracket-score">3 and 1</div>
-#       </div>
-#     </div>
-#     <div class="bracket-matchup"></div>
-#     <div class="bracket-matchup"></div>
-#   </div>
-#   
-#   <div class="bracket-level">
-#   <h4 class = "level">Quarterfinals</h4>
-#     <div class="bracket-matchup">
-#       <div class="bracket-team winner">
-#         <div class="bracket-name">`r seeds[1]`</div><div class = "bracket-score">20 holes</div>
-#       </div>
-#       <div class="bracket-team">
-#         <div class="bracket-name">`r seeds[9]`</div>
-#       </div>
-#     </div>
-#     <div class="bracket-matchup"></div>
-#     <div class="bracket-matchup">
-#       <div class="bracket-team">
-#         <div class="bracket-name">`r seeds[4]`</div>
-#       </div>
-#       <div class="bracket-team winner">
-#         <div class="bracket-name">`r seeds[5]`</div><div class = "bracket-score">1 up </div>
-#       </div>
-#     </div>
-#     <div class="bracket-matchup"></div>
-#     <div class="bracket-matchup">
-#       <div class="bracket-team winner">
-#         <div class="bracket-name">`r seeds[2]`</div><div class = "bracket-score">1 up </div>
-#       </div>
-#       <div class="bracket-team">
-#         <div class="bracket-name">`r seeds[10]`</div>
-#       </div>
-#     </div>
-#     <div class="bracket-matchup"></div>
-#     <div class="bracket-matchup">
-#       <div class="bracket-team winner">
-#         <div class="bracket-name">`r seeds[3]`</div><div class = "bracket-score">5 and 4</div>
-#       </div>
-#       <div class="bracket-team">
-#         <div class="bracket-name">`r seeds[6]`</div>
-#       </div>
-#     </div>
-#   </div>
-#   <div class="bracket-level">
-#   <h4 class = "level">Semifinals</h4>
-#     <div class="bracket-matchup"></div>
-#     <div class="bracket-matchup">
-#       <div class="bracket-team winner">
-#         <div class="bracket-name">`r seeds[1]`</div><div class = "bracket-score">19 holes</div>
-#       </div>
-#       <div class="bracket-team">
-#         <div class="bracket-name">`r seeds[5]`</div>
-#       </div>
-#     </div>
-#     <div class="bracket-matchup"></div>
-#     <div class="bracket-matchup"></div>
-#     <div class="bracket-matchup"></div>
-#     <div class="bracket-matchup">
-#       <div class="bracket-team">
-#         <div class="bracket-name">`r seeds[2]`</div>
-#       </div>
-#       <div class="bracket-team winner">
-#         <div class="bracket-name">`r seeds[3]`</div><div class = "bracket-score">1 up</div>
-#       </div>
-#     </div>
-#   </div>
-#   <div class="bracket-level">
-#   <h4 class = "level">Finals</h4>
-#   <div class="bracket-matchup"></div>
-#   <div class="bracket-matchup"></div>
-#   <div class="bracket-matchup"></div>
-#     <div class="bracket-matchup">
-#       <div class="bracket-team">
-#         <div class="bracket-name">`r seeds[1]`</div>
-#       </div>
-#       <div class="bracket-team">
-#         <div class="bracket-name">`r seeds[3]`</div>
-#       </div>
-#     </div>
-#   </div>
-#   
-#   </div>
-# 
-# <!--/html_preserve-->
-
+seeds <- paste(pOffs[,3],pOffs[,4], sep = "/")
 
 ```
+
+## Playoffs
+<a id = "po"></a>
+
+
+<!--html_preserve-->
+
+<style type="text/css">
+
+.header{
+  height: 10%;
+}
+
+h4.level{
+  text-align: center;
+}
+
+.header>h1{
+  margin: auto;
+  text-align: center;
+  font-family: 'Dosis', sans-serif;
+  color: #205060
+}
+
+.bracket-container{
+  display: flex;
+  flex-direction: row;
+  height: 90%;
+  width: 100%;
+}
+
+.bracket-level{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+  flex-grow: 1;
+  transition: all ease .5s;
+}
+
+.bracket-level:hover{
+  width: 150%;
+}
+
+.bracket-matchup{
+  width: 90%;
+  margin: auto;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bracket-halfmatchup{
+  width: 90%;
+  margin: auto;
+  height: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bracket-team{
+  height: 45%;
+  width: 100%;
+  background-color: #F5F5F5;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+  display: flex;
+  flex-direction: row;
+  transition: all ease .5s;
+  margin: 3px;
+}
+
+.bracket-name{
+
+  width: 85%;
+  font-size: 0.8em;
+  padding: .2em;
+  line-height: 1.5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #2B2B2B;
+  text-align: left;
+}
+
+.bracket-score{
+  font-family: 'Open Sans', sans-serif;
+  font-size: .8em;
+  padding: .2em;
+  line-height: 1.5em;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #2B2B2B;
+  text-align: center;
+}
+
+.winner>.bracket-name, .winner>.bracket-score{
+  font-weight: bold;
+}
+
+.bracket-team:hover{
+  background-color: #E8E8E8;
+  height: 100%;
+  transition: all ease .5s;
+}
+
+.bracket-team:hover>.bracket-name{
+  overflow: none;
+  text-overflow: clip;
+  white-space: normal;
+  line-height: 1em;
+  align-self: center;
+  width: 100%;
+}
+
+.bracket-team:hover>.bracket-score{
+  display: none;
+}
+
+
+
+</style>
+
+
+  <div class="bracket-container">
+  <div class="bracket-level">
+  <h4 class = "level">Play-In</h4>
+    <div class="bracket-halfmatchup"></div>
+    <div class="bracket-matchup">
+      <!-- <div class="bracket-team loser"> -->
+      <div class="bracket-team">
+
+        <div class="bracket-name">8 `r seeds[8]`</div>
+      </div>
+      <!-- <div class="bracket-team winner"> -->
+      <div class="bracket-team">
+        <div class="bracket-name">9 `r seeds[9]`</div>
+        <!-- <div class="bracket-score">2 and 1</div> -->
+      </div>
+    </div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <!-- <div class="bracket-team loser"> -->
+      <div class="bracket-team">
+        <div class="bracket-name">7 `r seeds[7]`</div>
+      </div>
+      <div class="bracket-team">
+      <!-- <div class="bracket-team winner"> -->
+        <div class="bracket-name">10 `r seeds[10]`</div>
+        <!-- <div class="bracket-score">3 and 1</div> -->
+      </div>
+    </div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup"></div>
+  </div>
+
+  <div class="bracket-level">
+  <h4 class = "level">Quarterfinals</h4>
+    <div class="bracket-matchup">
+      <div class="bracket-team">
+      <!-- <div class="bracket-team winner"> -->
+
+        <div class="bracket-name">1 `r seeds[1]`</div>
+        <!-- <div class = "bracket-score">20 holes</div> -->
+      </div>
+      <div class="bracket-team">
+        <div class="bracket-name"> </div>
+      </div>
+    </div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <div class="bracket-team">
+        <div class="bracket-name">4 `r seeds[4]`</div>
+      </div>
+      <div class="bracket-team">
+      <!-- <div class="bracket-team winner"> -->
+        <div class="bracket-name">5 `r seeds[5]`</div>
+        <!-- <div class = "bracket-score">1 up </div> -->
+      </div>
+    </div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <!-- <div class="bracket-team winner"> -->
+      <div class="bracket-team">
+        <div class="bracket-name">2 `r seeds[2]`</div>
+        <!-- <div class = "bracket-score">1 up </div> -->
+      </div>
+      <div class="bracket-team">
+        <div class="bracket-name"> </div>
+      </div>
+    </div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <!-- <div class="bracket-team winner"> -->
+      <div class="bracket-team">
+        <div class="bracket-name">3 `r seeds[3]`</div>
+        <!-- <div class = "bracket-score">5 and 4</div> -->
+      </div>
+      <div class="bracket-team">
+        <div class="bracket-name">6 `r seeds[6]`</div>
+      </div>
+    </div>
+  </div>
+  <div class="bracket-level">
+  <h4 class = "level">Semifinals</h4>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <!-- <div class="bracket-team winner"> -->
+      <div class="bracket-team">
+        <div class="bracket-name"> </div>
+        <!-- <div class = "bracket-score">19 holes</div> -->
+      </div>
+      <div class="bracket-team">
+        <div class="bracket-name"> </div>
+      </div>
+    </div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <div class="bracket-team">
+        <div class="bracket-name"> </div>
+      </div>
+      <!-- <div class="bracket-team winner"> -->
+      <div class="bracket-team">
+        <div class="bracket-name"> </div>
+        <!-- <div class = "bracket-score">1 up</div> -->
+      </div>
+    </div>
+  </div>
+  <div class="bracket-level">
+  <h4 class = "level">Finals</h4>
+  <div class="bracket-matchup"></div>
+  <div class="bracket-matchup"></div>
+  <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <div class="bracket-team">
+        <div class="bracket-name"> </div>
+      </div>
+      <div class="bracket-team">
+        <div class="bracket-name"> </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+<!--/html_preserve-->
+
+
    
 
 
 
-```{r echo=FALSE, results="asis", eval = FALSE}
+```{r echo=FALSE, results="asis", eval = TRUE}
 q <- pOffs[,c("Seed", "Player 1", "Player 2", "Method")]
 row.names(q) <- NULL
 pander(q,row.names=FALSE, style = "simple", split.table = 240)
@@ -455,38 +474,38 @@ pander(q,row.names=FALSE, style = "simple", split.table = 240)
 ```{r echo=FALSE, results="asis"}
 
 
-doPander("A", FALSE) #, "Group A Eliminated, No Matches Played")
+doPander("A", TRUE) #, "Group A Eliminated, No Matches Played")
 ```  
 
 
 ### Group B  
 ```{r echo=FALSE, results="asis"}
 
-doPander("B", FALSE)
+doPander("B", TRUE)
 ``` 
 
 
 ### Group C  
 ```{r echo=FALSE, results="asis"}
 
-doPander("C", FALSE)
+doPander("C", TRUE)
 ``` 
 
 ### Group D  
 ```{r echo=FALSE, results="asis"}
 
-doPander("D", FALSE)
+doPander("D", TRUE)
 ``` 
 
 ### Group E  
 ```{r echo=FALSE, results="asis"}
 
-doPander("E", FALSE)
+doPander("E", TRUE)
 ```  
 
 
    
-```{r echo = FALSE, results = "asis", eval=FALSE}
+```{r echo = FALSE, results = "asis", eval=TRUE}
 ###Wild Card 
 
 

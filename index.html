@@ -310,7 +310,7 @@ $(document).ready(function () {
 </div>
 
 
-<p>Last updated: Oct 20, 2019 16:43</p>
+<p>Last updated: Oct 22, 2019 10:20</p>
 <div id="table-of-contents" class="section level2">
 <h2>Table of Contents</h2>
 <ol style="list-style-type: decimal">
@@ -328,6 +328,329 @@ $(document).ready(function () {
 </li>
 <li><a href="final2016.html">2016 tournament</a></li>
 </ol>
+</div>
+<div id="playoffs" class="section level2">
+<h2>Playoffs</h2>
+<p><a id="po"></a></p>
+
+
+<style type="text/css">
+
+.header{
+  height: 10%;
+}
+
+h4.level{
+  text-align: center;
+}
+
+.header>h1{
+  margin: auto;
+  text-align: center;
+  font-family: 'Dosis', sans-serif;
+  color: #205060
+}
+
+.bracket-container{
+  display: flex;
+  flex-direction: row;
+  height: 90%;
+  width: 100%;
+}
+
+.bracket-level{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+  flex-grow: 1;
+  transition: all ease .5s;
+}
+
+.bracket-level:hover{
+  width: 150%;
+}
+
+.bracket-matchup{
+  width: 90%;
+  margin: auto;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bracket-halfmatchup{
+  width: 90%;
+  margin: auto;
+  height: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bracket-team{
+  height: 45%;
+  width: 100%;
+  background-color: #F5F5F5;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+  display: flex;
+  flex-direction: row;
+  transition: all ease .5s;
+  margin: 3px;
+}
+
+.bracket-name{
+
+  width: 85%;
+  font-size: 0.8em;
+  padding: .2em;
+  line-height: 1.5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #2B2B2B;
+  text-align: left;
+}
+
+.bracket-score{
+  font-family: 'Open Sans', sans-serif;
+  font-size: .8em;
+  padding: .2em;
+  line-height: 1.5em;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #2B2B2B;
+  text-align: center;
+}
+
+.winner>.bracket-name, .winner>.bracket-score{
+  font-weight: bold;
+}
+
+.bracket-team:hover{
+  background-color: #E8E8E8;
+  height: 100%;
+  transition: all ease .5s;
+}
+
+.bracket-team:hover>.bracket-name{
+  overflow: none;
+  text-overflow: clip;
+  white-space: normal;
+  line-height: 1em;
+  align-self: center;
+  width: 100%;
+}
+
+.bracket-team:hover>.bracket-score{
+  display: none;
+}
+
+
+
+</style>
+
+
+  <div class="bracket-container">
+  <div class="bracket-level">
+  <h4 class = "level">Play-In</h4>
+    <div class="bracket-halfmatchup"></div>
+    <div class="bracket-matchup">
+      <!-- <div class="bracket-team loser"> -->
+      <div class="bracket-team">
+
+        <div class="bracket-name">8 Jake Markman/Ash Notaney</div>
+      </div>
+      <!-- <div class="bracket-team winner"> -->
+      <div class="bracket-team">
+        <div class="bracket-name">9 Paul Mori/Tony Rivera</div>
+        <!-- <div class="bracket-score">2 and 1</div> -->
+      </div>
+    </div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <!-- <div class="bracket-team loser"> -->
+      <div class="bracket-team">
+        <div class="bracket-name">7 John Tourlos/Oscar Geronimo</div>
+      </div>
+      <div class="bracket-team">
+      <!-- <div class="bracket-team winner"> -->
+        <div class="bracket-name">10 Mark Cook/Michael Sokitch</div>
+        <!-- <div class="bracket-score">3 and 1</div> -->
+      </div>
+    </div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup"></div>
+  </div>
+
+  <div class="bracket-level">
+  <h4 class = "level">Quarterfinals</h4>
+    <div class="bracket-matchup">
+      <div class="bracket-team">
+      <!-- <div class="bracket-team winner"> -->
+
+        <div class="bracket-name">1 Matthew Lefkowitz/Larry Cerf</div>
+        <!-- <div class = "bracket-score">20 holes</div> -->
+      </div>
+      <div class="bracket-team">
+        <div class="bracket-name"> </div>
+      </div>
+    </div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <div class="bracket-team">
+        <div class="bracket-name">4 Trim Wellbeloved/Rich Rovetti</div>
+      </div>
+      <div class="bracket-team">
+      <!-- <div class="bracket-team winner"> -->
+        <div class="bracket-name">5 Dermot Stratton/Matt Strube</div>
+        <!-- <div class = "bracket-score">1 up </div> -->
+      </div>
+    </div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <!-- <div class="bracket-team winner"> -->
+      <div class="bracket-team">
+        <div class="bracket-name">2 Ken Harrington/Michael Ippolito</div>
+        <!-- <div class = "bracket-score">1 up </div> -->
+      </div>
+      <div class="bracket-team">
+        <div class="bracket-name"> </div>
+      </div>
+    </div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <!-- <div class="bracket-team winner"> -->
+      <div class="bracket-team">
+        <div class="bracket-name">3 Kieran Clifford/Randy Shirbroun</div>
+        <!-- <div class = "bracket-score">5 and 4</div> -->
+      </div>
+      <div class="bracket-team">
+        <div class="bracket-name">6 Naresh Dhadhal/Simon Tao</div>
+      </div>
+    </div>
+  </div>
+  <div class="bracket-level">
+  <h4 class = "level">Semifinals</h4>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <!-- <div class="bracket-team winner"> -->
+      <div class="bracket-team">
+        <div class="bracket-name"> </div>
+        <!-- <div class = "bracket-score">19 holes</div> -->
+      </div>
+      <div class="bracket-team">
+        <div class="bracket-name"> </div>
+      </div>
+    </div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <div class="bracket-team">
+        <div class="bracket-name"> </div>
+      </div>
+      <!-- <div class="bracket-team winner"> -->
+      <div class="bracket-team">
+        <div class="bracket-name"> </div>
+        <!-- <div class = "bracket-score">1 up</div> -->
+      </div>
+    </div>
+  </div>
+  <div class="bracket-level">
+  <h4 class = "level">Finals</h4>
+  <div class="bracket-matchup"></div>
+  <div class="bracket-matchup"></div>
+  <div class="bracket-matchup"></div>
+    <div class="bracket-matchup">
+      <div class="bracket-team">
+        <div class="bracket-name"> </div>
+      </div>
+      <div class="bracket-team">
+        <div class="bracket-name"> </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+
+<table>
+<thead>
+<tr class="header">
+<th align="center">Seed</th>
+<th align="center">Player 1</th>
+<th align="center">Player 2</th>
+<th align="center">Method</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">Matthew Lefkowitz</td>
+<td align="center">Larry Cerf</td>
+<td align="center">Won Group</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">Ken Harrington</td>
+<td align="center">Michael Ippolito</td>
+<td align="center">Won Group</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">Kieran Clifford</td>
+<td align="center">Randy Shirbroun</td>
+<td align="center">Won Group</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="center">Trim Wellbeloved</td>
+<td align="center">Rich Rovetti</td>
+<td align="center">Won Group</td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="center">Dermot Stratton</td>
+<td align="center">Matt Strube</td>
+<td align="center">Won Group</td>
+</tr>
+<tr class="even">
+<td align="center">6</td>
+<td align="center">Naresh Dhadhal</td>
+<td align="center">Simon Tao</td>
+<td align="center">Wild Card</td>
+</tr>
+<tr class="odd">
+<td align="center">7</td>
+<td align="center">John Tourlos</td>
+<td align="center">Oscar Geronimo</td>
+<td align="center">Wild Card</td>
+</tr>
+<tr class="even">
+<td align="center">8</td>
+<td align="center">Jake Markman</td>
+<td align="center">Ash Notaney</td>
+<td align="center">Wild Card</td>
+</tr>
+<tr class="odd">
+<td align="center">9</td>
+<td align="center">Paul Mori</td>
+<td align="center">Tony Rivera</td>
+<td align="center">Wild Card</td>
+</tr>
+<tr class="even">
+<td align="center">10</td>
+<td align="center">Mark Cook</td>
+<td align="center">Michael Sokitch</td>
+<td align="center">Wild Card</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="pool-play" class="section level2">
 <h2>Pool Play</h2>
@@ -366,6 +689,7 @@ $(document).ready(function () {
 <div id="group-a" class="section level3">
 <h3>Group A</h3>
 <table>
+<caption>Ken Harrington and Michael Ippolito win Group A!</caption>
 <thead>
 <tr class="header">
 <th align="center">Team</th>
@@ -380,14 +704,14 @@ $(document).ready(function () {
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">6</td>
-<td align="center">Ken Harrington</td>
-<td align="center">Michael Ippolito</td>
-<td align="center">2</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">8</td>
-<td align="center">20</td>
+<td align="center"><strong><em>6</em></strong></td>
+<td align="center"><strong><em>Ken Harrington</em></strong></td>
+<td align="center"><strong><em>Michael Ippolito</em></strong></td>
+<td align="center"><strong><em>2</em></strong></td>
+<td align="center"><strong><em>0</em></strong></td>
+<td align="center"><strong><em>0</em></strong></td>
+<td align="center"><strong><em>8</em></strong></td>
+<td align="center"><strong><em>20</em></strong></td>
 </tr>
 <tr class="even">
 <td align="center">20</td>
@@ -425,6 +749,7 @@ $(document).ready(function () {
 <div id="group-b" class="section level3">
 <h3>Group B</h3>
 <table>
+<caption>Matthew Lefkowitz and Larry Cerf win Group B!</caption>
 <thead>
 <tr class="header">
 <th align="center">Team</th>
@@ -439,14 +764,14 @@ $(document).ready(function () {
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">16</td>
-<td align="center">Matthew Lefkowitz</td>
-<td align="center">Larry Cerf</td>
-<td align="center">3</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">12</td>
-<td align="center">31</td>
+<td align="center"><strong><em>16</em></strong></td>
+<td align="center"><strong><em>Matthew Lefkowitz</em></strong></td>
+<td align="center"><strong><em>Larry Cerf</em></strong></td>
+<td align="center"><strong><em>3</em></strong></td>
+<td align="center"><strong><em>0</em></strong></td>
+<td align="center"><strong><em>0</em></strong></td>
+<td align="center"><strong><em>12</em></strong></td>
+<td align="center"><strong><em>31</em></strong></td>
 </tr>
 <tr class="even">
 <td align="center">1</td>
@@ -484,6 +809,7 @@ $(document).ready(function () {
 <div id="group-c" class="section level3">
 <h3>Group C</h3>
 <table>
+<caption>Trim Wellbeloved and Rich Rovetti win Group C!</caption>
 <thead>
 <tr class="header">
 <th align="center">Team</th>
@@ -498,14 +824,14 @@ $(document).ready(function () {
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">5</td>
-<td align="center">Trim Wellbeloved</td>
-<td align="center">Rich Rovetti</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">4</td>
-<td align="center">13</td>
+<td align="center"><strong><em>5</em></strong></td>
+<td align="center"><strong><em>Trim Wellbeloved</em></strong></td>
+<td align="center"><strong><em>Rich Rovetti</em></strong></td>
+<td align="center"><strong><em>1</em></strong></td>
+<td align="center"><strong><em>0</em></strong></td>
+<td align="center"><strong><em>0</em></strong></td>
+<td align="center"><strong><em>4</em></strong></td>
+<td align="center"><strong><em>13</em></strong></td>
 </tr>
 <tr class="even">
 <td align="center">19</td>
@@ -543,6 +869,7 @@ $(document).ready(function () {
 <div id="group-d" class="section level3">
 <h3>Group D</h3>
 <table>
+<caption>Kieran Clifford and Randy Shirbroun win Group D!</caption>
 <thead>
 <tr class="header">
 <th align="center">Team</th>
@@ -557,14 +884,14 @@ $(document).ready(function () {
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">7</td>
-<td align="center">Kieran Clifford</td>
-<td align="center">Randy Shirbroun</td>
-<td align="center">2</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">7</td>
-<td align="center">22.5</td>
+<td align="center"><strong><em>7</em></strong></td>
+<td align="center"><strong><em>Kieran Clifford</em></strong></td>
+<td align="center"><strong><em>Randy Shirbroun</em></strong></td>
+<td align="center"><strong><em>2</em></strong></td>
+<td align="center"><strong><em>0</em></strong></td>
+<td align="center"><strong><em>0</em></strong></td>
+<td align="center"><strong><em>7</em></strong></td>
+<td align="center"><strong><em>22.5</em></strong></td>
 </tr>
 <tr class="even">
 <td align="center">14</td>
@@ -602,6 +929,7 @@ $(document).ready(function () {
 <div id="group-e" class="section level3">
 <h3>Group E</h3>
 <table>
+<caption>Dermot Stratton and Matt Strube win Group E!</caption>
 <thead>
 <tr class="header">
 <th align="center">Team</th>
@@ -616,14 +944,14 @@ $(document).ready(function () {
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">13</td>
-<td align="center">Dermot Stratton</td>
-<td align="center">Matt Strube</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">4</td>
-<td align="center">9.5</td>
+<td align="center"><strong><em>13</em></strong></td>
+<td align="center"><strong><em>Dermot Stratton</em></strong></td>
+<td align="center"><strong><em>Matt Strube</em></strong></td>
+<td align="center"><strong><em>1</em></strong></td>
+<td align="center"><strong><em>0</em></strong></td>
+<td align="center"><strong><em>0</em></strong></td>
+<td align="center"><strong><em>4</em></strong></td>
+<td align="center"><strong><em>9.5</em></strong></td>
 </tr>
 <tr class="even">
 <td align="center">15</td>
@@ -654,6 +982,173 @@ $(document).ready(function () {
 <td align="center">0</td>
 <td align="center">1</td>
 <td align="center">8.5</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>Dhadhal/Tao, Tourlos/Geronimo, Markman/Notaney, Mori/Rivera, and Cook/Sokitch advance!</caption>
+<thead>
+<tr class="header">
+<th align="center">Team</th>
+<th align="center">Player 1</th>
+<th align="center">Player 2</th>
+<th align="center">Wins</th>
+<th align="center">Losses</th>
+<th align="center">Ties</th>
+<th align="center">Points</th>
+<th align="center">Holes Won</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><em>1</em></td>
+<td align="center"><em>Naresh Dhadhal</em></td>
+<td align="center"><em>Simon Tao</em></td>
+<td align="center"><em>1</em></td>
+<td align="center"><em>1</em></td>
+<td align="center"><em>1</em></td>
+<td align="center"><em>6</em></td>
+<td align="center"><em>27</em></td>
+</tr>
+<tr class="even">
+<td align="center"><em>20</em></td>
+<td align="center"><em>John Tourlos</em></td>
+<td align="center"><em>Oscar Geronimo</em></td>
+<td align="center"><em>1</em></td>
+<td align="center"><em>1</em></td>
+<td align="center"><em>0</em></td>
+<td align="center"><em>5</em></td>
+<td align="center"><em>17</em></td>
+</tr>
+<tr class="odd">
+<td align="center"><em>14</em></td>
+<td align="center"><em>Jake Markman</em></td>
+<td align="center"><em>Ash Notaney</em></td>
+<td align="center"><em>1</em></td>
+<td align="center"><em>1</em></td>
+<td align="center"><em>0</em></td>
+<td align="center"><em>4</em></td>
+<td align="center"><em>10.5</em></td>
+</tr>
+<tr class="even">
+<td align="center"><em>10</em></td>
+<td align="center"><em>Paul Mori</em></td>
+<td align="center"><em>Tony Rivera</em></td>
+<td align="center"><em>0</em></td>
+<td align="center"><em>1</em></td>
+<td align="center"><em>1</em></td>
+<td align="center"><em>3</em></td>
+<td align="center"><em>17</em></td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center">Mark Cook</td>
+<td align="center">Michael Sokitch</td>
+<td align="center">0</td>
+<td align="center">2</td>
+<td align="center">0</td>
+<td align="center">2</td>
+<td align="center">17</td>
+</tr>
+<tr class="even">
+<td align="center">11</td>
+<td align="center">Patrick Hubregsen</td>
+<td align="center">Derek Beauduy</td>
+<td align="center">0</td>
+<td align="center">2</td>
+<td align="center">0</td>
+<td align="center">2</td>
+<td align="center">12.5</td>
+</tr>
+<tr class="odd">
+<td align="center">15</td>
+<td align="center">Jim Simpson</td>
+<td align="center">Felix Solomon</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">9</td>
+</tr>
+<tr class="even">
+<td align="center">9</td>
+<td align="center">Steven Schroeder</td>
+<td align="center">Michael Beatty</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">9</td>
+</tr>
+<tr class="odd">
+<td align="center">4</td>
+<td align="center">Ger Moore</td>
+<td align="center">Steve Fullerton</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">8.5</td>
+</tr>
+<tr class="even">
+<td align="center">3</td>
+<td align="center">Martin Goodman</td>
+<td align="center">Randall Momota</td>
+<td align="center">0</td>
+<td align="center">2</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">6.5</td>
+</tr>
+<tr class="odd">
+<td align="center">19</td>
+<td align="center">Scott Gilgallon</td>
+<td align="center">Paul Donlon</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">5</td>
+</tr>
+<tr class="even">
+<td align="center">18</td>
+<td align="center">Howard Riefs</td>
+<td align="center">Dan Ringer</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr class="odd">
+<td align="center">17</td>
+<td align="center">Todd Schneider</td>
+<td align="center">Derek Drish</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr class="even">
+<td align="center">12</td>
+<td align="center">Jim Kraft</td>
+<td align="center">Steve Mellinger</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr class="odd">
+<td align="center">8</td>
+<td align="center">Gordon Atkinson</td>
+<td align="center">Robert Molke</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
 </tbody>
 </table>
@@ -707,7 +1202,7 @@ $(document).ready(function () {
 <li>If tied on #2, head-to-head record</li>
 </ol>
 </div>
-<div id="playoffs" class="section level3">
+<div id="playoffs-1" class="section level3">
 <h3>Playoffs</h3>
 <p>Ten teams will make the playoffs, the five pool winners plus five wildcard teams based on (1) pool play match record or (2) total holes won during pool play. The six highest seeds will receive a bye in the first round.</p>
 <p>Playoffs will be single elimination play. In the event of a match being all square after 18 holes, extra holes will be played on flemming, according th the following, per TPC Harding Park:</p>
