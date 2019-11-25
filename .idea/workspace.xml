@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="29f2ccc9-c28c-4da9-9e21-b846a9e475cf" name="Default" comment="" />
+    <list default="true" id="29f2ccc9-c28c-4da9-9e21-b846a9e475cf" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/index.Rmd" beforeDir="false" afterPath="$PROJECT_DIR$/index.Rmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -137,7 +140,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.178125" />
       <window_info anchor="bottom" id="TODO" order="6" />
