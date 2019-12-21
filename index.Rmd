@@ -309,14 +309,15 @@ h4.level{
     <div class="bracket-halfmatchup"></div>
     <div class="bracket-matchup">
       <!-- <div class="bracket-team loser"> -->
-      <div class="bracket-team">
+      <div class="bracket-team winner">
 
         <div class="bracket-name">8 `r seeds[8]`</div>
+        <div class="bracket-score">3 and 1</div>
       </div>
       <!-- <div class="bracket-team winner"> -->
-      <div class="bracket-team">
+      <div class="bracket-team loser">
         <div class="bracket-name">9 `r seeds[9]`</div>
-        <!-- <div class="bracket-score">2 and 1</div> -->
+        <!--  -->
       </div>
     </div>
     <div class="bracket-matchup"></div>
@@ -348,7 +349,7 @@ h4.level{
         <!-- <div class = "bracket-score">20 holes</div> -->
       </div>
       <div class="bracket-team">
-        <div class="bracket-name"> </div>
+        <div class="bracket-name">8 `r seeds[8]`</div>
       </div>
     </div>
     <div class="bracket-matchup"></div>
