@@ -348,8 +348,9 @@ h4.level{
         <div class="bracket-name">1 `r seeds[1]`</div>
         <!-- <div class = "bracket-score">20 holes</div> -->
       </div>
-      <div class="bracket-team">
+      <div class="bracket-team winner">
         <div class="bracket-name">8 `r seeds[8]`</div>
+        <div class = "bracket-score">1 up</div>
       </div>
     </div>
     <div class="bracket-matchup"></div>
@@ -393,7 +394,7 @@ h4.level{
     <div class="bracket-matchup">
       <!-- <div class="bracket-team winner"> -->
       <div class="bracket-team">
-        <div class="bracket-name"> </div>
+        <div class="bracket-name">8 `r seeds[8]`</div>
         <!-- <div class = "bracket-score">19 holes</div> -->
       </div>
       <div class="bracket-team">
@@ -579,7 +580,7 @@ ch <- function(idx) {
     isNH <- idx=="NH"
     isPlus <- (substr(idx,1,1)=="+")
     #print(isPlus)
-    rating <- 124
+    rating <- 122
     hin <- numeric(length(idx))
     hin[!isNH] <- as.numeric(gsub("R","",idx[!isNH]))
     chi <- character(length(idx))
