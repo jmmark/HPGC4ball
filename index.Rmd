@@ -372,8 +372,9 @@ h4.level{
         <div class="bracket-name">2 `r seeds[2]`</div>
         <!-- <div class = "bracket-score">1 up </div> -->
       </div>
-      <div class="bracket-team">
+      <div class="bracket-team winner">
         <div class="bracket-name">7 `r seeds[7]`</div>
+        <div class = "bracket-score">3 and 2 </div>
       </div>
     </div>
     <div class="bracket-matchup"></div>
@@ -393,9 +394,9 @@ h4.level{
     <div class="bracket-matchup"></div>
     <div class="bracket-matchup">
       <!-- <div class="bracket-team winner"> -->
-      <div class="bracket-team">
+      <div class="bracket-team winner">
         <div class="bracket-name">8 `r seeds[8]`</div>
-        <!-- <div class = "bracket-score">19 holes</div> -->
+        <div class = "bracket-score">21 holes</div> 
       </div>
       <div class="bracket-team">
         <div class="bracket-name">4 `r seeds[4]`</div>
@@ -406,12 +407,12 @@ h4.level{
     <div class="bracket-matchup"></div>
     <div class="bracket-matchup">
       <div class="bracket-team">
-        <div class="bracket-name"> </div>
+        <div class="bracket-name">7 `r seeds[7]`</div>
       </div>
       <!-- <div class="bracket-team winner"> -->
-      <div class="bracket-team">
+      <div class="bracket-team winner">
         <div class="bracket-name">3 `r seeds[3]`</div>
-        <!-- <div class = "bracket-score">1 up</div> -->
+        <div class = "bracket-score">1 up</div>
       </div>
     </div>
   </div>
@@ -422,10 +423,10 @@ h4.level{
   <div class="bracket-matchup"></div>
     <div class="bracket-matchup">
       <div class="bracket-team">
-        <div class="bracket-name"> </div>
+        <div class="bracket-name">8 `r seeds[8]`</div>
       </div>
       <div class="bracket-team">
-        <div class="bracket-name"> </div>
+        <div class="bracket-name">3 `r seeds[3]`</div>
       </div>
     </div>
   </div>
@@ -574,7 +575,7 @@ Hole handicaps on Fleming are based on 9 hole matches, not 18.  So, for extra ho
 
 ## Roster  
 <a id="roster"></a>
-```{r echo=FALSE}
+```{r echo=FALSE, eval = FALSE}
 
 ch <- function(idx) {
     isNH <- idx=="NH"
