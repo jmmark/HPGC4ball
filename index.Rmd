@@ -425,8 +425,9 @@ h4.level{
       <div class="bracket-team">
         <div class="bracket-name">8 `r seeds[8]`</div>
       </div>
-      <div class="bracket-team">
+      <div class="bracket-team winner">
         <div class="bracket-name">3 `r seeds[3]`</div>
+        <div class = "bracket-score">6 and 4</div>
       </div>
     </div>
   </div>
